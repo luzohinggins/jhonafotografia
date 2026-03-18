@@ -1077,6 +1077,150 @@
             color: var(--color-secondary);
         }
 
+        /* ===== Two-Column Contact Layout ===== */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-form {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--color-secondary);
+            box-shadow: 0 4px 15px rgba(237, 0, 18, 0.2);
+        }
+
+        .contact-carousel-section {
+            position: relative;
+            height: auto;
+        }
+
+        .contact-carousel {
+            width: 100%;
+            height: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-carousel .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .carousel-contact-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .carousel-image-wrapper:hover .carousel-contact-img {
+            transform: scale(1.08);
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(170, 0, 17, 0.4) 0%, rgba(237, 0, 18, 0.2) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-image-wrapper:hover .carousel-overlay {
+            opacity: 1;
+        }
+
+        /* Contact Carousel Buttons */
+        .contact-nav-prev,
+        .contact-nav-next {
+            background: rgba(237, 0, 18, 0.85) !important;
+            border-radius: 50%;
+            width: 45px !important;
+            height: 45px !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .contact-nav-prev::after,
+        .contact-nav-next::after {
+            font-size: 1.2rem;
+        }
+
+        .contact-nav-prev:hover,
+        .contact-nav-next:hover {
+            background: rgba(237, 0, 18, 1) !important;
+            transform: scale(1.15);
+            box-shadow: 0 4px 15px rgba(237, 0, 18, 0.6);
+        }
+
+        /* Contact Pagination */
+        .contact-pagination {
+            bottom: 15px !important;
+        }
+
+        .contact-pagination .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.7);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .contact-pagination .swiper-pagination-bullet-active {
+            background: var(--color-secondary);
+            opacity: 1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-carousel {
+                height: 350px;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .contact-nav-prev,
+            .contact-nav-next {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .contact-carousel-section {
+                order: -1;
+            }
+        }
+
         /* ============= FOOTER ============= */
         footer {
             background-color: var(--color-darker);
@@ -1412,7 +1556,6 @@
                 <button class="carousel-tab" data-tab="bautismo">Bautismo</button>
                 <button class="carousel-tab" data-tab="cumpleanos">Cumpleaños</button>
                 <button class="carousel-tab" data-tab="sesion">Sesiones</button>
-                <button class="carousel-tab" data-tab="bodas">Bodas</button>
             </div>
 
             <!-- Gallery Swiper -->
@@ -1435,6 +1578,11 @@
                         <img src="quince/quince1.jpg" alt="Quince 4">
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
+                    <div class="swiper-slide carousel-item" data-category="quince">
+                        <img src="quince/quince2.jpg" alt="Quince 5">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    
                     <!-- Bautismo -->
                     <div class="swiper-slide carousel-item" data-category="bautismo">
                         <img src="bautismo/IMG_3371.jpg" alt="Bautismo 1">
@@ -1452,6 +1600,7 @@
                         <img src="bautismo/IMG_6864.jpg" alt="Bautismo 4">
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
+                    
                     <!-- Cumpleaños -->
                     <div class="swiper-slide carousel-item" data-category="cumpleanos">
                         <img src="cumple/comple3.jpg" alt="Cumpleaños 1">
@@ -1469,6 +1618,15 @@
                         <img src="cumple/cumple4.jpg" alt="Cumpleaños 4">
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
+                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
+                        <img src="cumple/cumple5.jpeg" alt="Cumpleaños 5">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
+                        <img src="cumple/cumple6.jpeg" alt="Cumpleaños 6">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    
                     <!-- Sesiones -->
                     <div class="swiper-slide carousel-item" data-category="sesion">
                         <img src="sesion/sesion1.jpg" alt="Sesión 1">
@@ -1479,28 +1637,15 @@
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="sesion">
-                        <img src="sesion/foto3.jpg" alt="Sesión 3">
+                        <img src="sesion/sesion4.jpeg" alt="Sesión 3">
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="sesion">
-                        <img src="sesion/foto4.jpg" alt="Sesión 4">
+                        <img src="sesion/sesion5.jpeg" alt="Sesión 4">
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
-                    <!-- Bodas -->
-                    <div class="swiper-slide carousel-item" data-category="bodas">
-                        <img src="bodas/foto1.jpg" alt="Boda 1">
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="bodas">
-                        <img src="bodas/foto2.jpg" alt="Boda 2">
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="bodas">
-                        <img src="bodas/foto3.jpg" alt="Boda 3">
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="bodas">
-                        <img src="bodas/foto4.jpg" alt="Boda 4">
+                    <div class="swiper-slide carousel-item" data-category="sesion">
+                        <img src="sesion/sesion7.jpeg" alt="Sesión 5">
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                 </div>
@@ -1576,7 +1721,7 @@
         <div class="swiper packages-swiper" id="packagesSwiperContainer">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="package-card center">
+                    <div class="package-card">
                         <div class="package-title">Plan Básico</div>
                         <div class="package-subtitle">Sesión Esencial</div>
                         <ul class="package-features">
@@ -1591,7 +1736,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="package-card center">
+                    <div class="package-card">
                         <div class="package-title">Plan Estándar</div>
                         <div class="package-subtitle">Sesión Completa</div>
                         <ul class="package-features">
@@ -1606,7 +1751,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="package-card center">
+                    <div class="package-card">
                         <div class="package-title">Plan Premium</div>
                         <div class="package-subtitle">Experiencia Full</div>
                         <ul class="package-features">
@@ -1621,7 +1766,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="package-card center">
+                    <div class="package-card">
                         <div class="package-title">Plan 15 Años</div>
                         <div class="package-subtitle">Tu Día Especial</div>
                         <ul class="package-features">
@@ -1636,7 +1781,7 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="package-card center">
+                    <div class="package-card">
                         <div class="package-title">Sesión Individual</div>
                         <div class="package-subtitle">Momento Personal</div>
                         <ul class="package-features">
@@ -1689,47 +1834,92 @@
                 <p>Envíame tu mensaje y hagamos que tus recuerdos duren toda la vida.</p>
             </div>
 
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre completo *</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+            <div class="contact-wrapper">
+                <div class="contact-form-section">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="whatsapp">Número / WhatsApp *</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Escribe tu número para que pueda contactarte rápidamente" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" placeholder="Hablemos de cómo capturar tu día especial ✨ (Fecha, tipo de evento, detalles)" required></textarea>
+                        </div>
+
+                        <button type="submit" class="form-submit">Enviá y empecemos 📷</button>
+                    </form>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <a href="mailto:jhonadisenoyfotografia@gmail.com">jhonadisenoyfotografia@gmail.com</a>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <h3>Teléfono</h3>
+                            <a href="tel:+595982946365">+595 982 946365</a>
+                        </div>
+
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Ubicación</h3>
+                            <p>Encarnación – Paraguay</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="whatsapp">Número / WhatsApp *</label>
-                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="Escribe tu número para que pueda contactarte rápidamente" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" placeholder="tu@email.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="mensaje">Mensaje *</label>
-                    <textarea id="mensaje" name="mensaje" placeholder="Hablemos de cómo capturar tu día especial ✨ (Fecha, tipo de evento, detalles)" required></textarea>
-                </div>
-
-                <button type="submit" class="form-submit">Enviá y empecemos 📷</button>
-            </form>
-
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <a href="mailto:jhonadisenoyfotografia@gmail.com">jhonadisenoyfotografia@gmail.com</a>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <h3>Teléfono</h3>
-                    <a href="tel:+595982946365">+595 982 946365</a>
-                </div>
-
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Ubicación</h3>
-                    <p>Encarnación – Paraguay</p>
+                <!-- Contact Carousel -->
+                <div class="contact-carousel-section">
+                    <div class="swiper contact-carousel" id="contactCarouselContainer">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="carousel-image-wrapper">
+                                    <img src="contacto/carrusel1.jpeg" alt="Galería 1" class="carousel-contact-img">
+                                    <div class="carousel-overlay"></div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="carousel-image-wrapper">
+                                    <img src="contacto/carrusel2.jpeg" alt="Galería 2" class="carousel-contact-img">
+                                    <div class="carousel-overlay"></div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="carousel-image-wrapper">
+                                    <img src="contacto/carrusel3.jpeg" alt="Galería 3" class="carousel-contact-img">
+                                    <div class="carousel-overlay"></div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="carousel-image-wrapper">
+                                    <img src="contacto/sesion3.jpeg" alt="Galería 4" class="carousel-contact-img">
+                                    <div class="carousel-overlay"></div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="carousel-image-wrapper">
+                                    <img src="contacto/sesion6.jpeg" alt="Galería 5" class="carousel-contact-img">
+                                    <div class="carousel-overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev contact-nav-prev"></div>
+                        <div class="swiper-button-next contact-nav-next"></div>
+                        <div class="swiper-pagination contact-pagination"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1935,32 +2125,35 @@
         // ====== CAROUSEL FUNCTIONALITY ======
         let gallerySwiperInstance = null;
         let packagesSwiperInstance = null;
+        let contactCarouselInstance = null;
 
         // Initialize Gallery Swiper
         function initGallerySwiper(category = 'quince') {
             const wrapper = document.getElementById('galleryWrapper');
             
+            // Destroy previous instance first
+            if (gallerySwiperInstance) {
+                gallerySwiperInstance.destroy(true, true);
+            }
+
             // Filter slides by category
             const allSlides = wrapper.querySelectorAll('.swiper-slide');
+            let visibleCount = 0;
             allSlides.forEach(slide => {
                 if (slide.dataset.category === category) {
                     slide.style.display = 'flex';
+                    visibleCount++;
                 } else {
                     slide.style.display = 'none';
                 }
             });
 
-            // Destroy previous instance
-            if (gallerySwiperInstance) {
-                gallerySwiperInstance.destroy(true, true);
-            }
-
-            // Wait for DOM update then initialize
+            // Initialize Swiper after DOM update
             setTimeout(() => {
                 gallerySwiperInstance = new Swiper('#gallerySwiperContainer', {
                     slidesPerView: 1,
                     spaceBetween: 20,
-                    loop: true,
+                    loop: visibleCount > 1,
                     navigation: {
                         nextEl: '#gallerySwiperContainer .swiper-button-next',
                         prevEl: '#gallerySwiperContainer .swiper-button-prev',
@@ -1983,7 +2176,7 @@
 
                 // Add lightbox listeners to visible slides
                 addLightboxListeners();
-            }, 100);
+            }, 300);
         }
 
         // Initialize Packages Swiper
@@ -1997,7 +2190,7 @@
                     slidesPerView: 1,
                     spaceBetween: 20,
                     loop: true,
-                    centeredSlides: true,
+                    centeredSlides: false,
                     navigation: {
                         nextEl: '#packagesSwiperContainer .swiper-button-next',
                         prevEl: '#packagesSwiperContainer .swiper-button-prev',
@@ -2008,12 +2201,48 @@
                     },
                     breakpoints: {
                         768: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        1024: {
                             slidesPerView: 3,
                             spaceBetween: 30,
                         }
                     }
                 });
-            }, 100);
+            }, 300);
+        }
+
+        // Initialize Contact Carousel
+        function initContactCarousel() {
+            if (contactCarouselInstance) {
+                contactCarouselInstance.destroy(true, true);
+            }
+
+            setTimeout(() => {
+                contactCarouselInstance = new Swiper('#contactCarouselContainer', {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    loop: true,
+                    effect: 'fade',
+                    fadeEffect: {
+                        crossFade: true
+                    },
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    navigation: {
+                        nextEl: '.contact-nav-next',
+                        prevEl: '.contact-nav-prev',
+                    },
+                    pagination: {
+                        el: '.contact-pagination',
+                        clickable: true,
+                        dynamicBullets: true,
+                    }
+                });
+            }, 300);
         }
 
         // Add lightbox listeners
@@ -2046,6 +2275,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             initGallerySwiper('quince');
             initPackagesSwiper();
+            initContactCarousel();
         });
 
         // Also initialize if DOM is already loaded
@@ -2053,10 +2283,12 @@
             document.addEventListener('DOMContentLoaded', () => {
                 initGallerySwiper('quince');
                 initPackagesSwiper();
+                initContactCarousel();
             });
         } else {
             initGallerySwiper('quince');
             initPackagesSwiper();
+            initContactCarousel();
         }
 
         // ====== FAQ ACCORDION ======
