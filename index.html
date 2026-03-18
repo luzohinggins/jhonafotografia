@@ -2375,13 +2375,9 @@
             // Initialize Swiper after DOM update
             setTimeout(() => {
                 gallerySwiperInstance = new Swiper('#gallerySwiperContainer', {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
+                    slidesPerView: 4,
+                    spaceBetween: 20,
                     loop: visibleCount > 1,
-                    effect: 'fade',
-                    fadeEffect: {
-                        crossFade: true
-                    },
                     autoplay: {
                         delay: 5000,
                         disableOnInteraction: false,
@@ -2393,6 +2389,24 @@
                     pagination: {
                         el: '#gallerySwiperContainer .swiper-pagination',
                         clickable: true,
+                    },
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 15,
+                        },
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 15,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 20,
+                        },
+                        1200: {
+                            slidesPerView: 4,
+                            spaceBetween: 20,
+                        }
                     }
                 });
 
