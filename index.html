@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jhona Fotografía - Capturando tus momentos especiales</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vintage&family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #aa0011;
+            --color-secondary: #ed0012;
+            --color-dark: #1a1a1a;
+            --color-darker: #0d0d0d;
+            --color-light: #ffffff;
+            --color-gray: #e0e0e0;
+            --font-vintage: 'Vintage', cursive;
+            --font-title: 'Playfair Display', serif;
+            --font-subtitle: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            line-height: 1.6;
+        }
+
+        /* ============= HEADER ============= */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+            transition: all 0.4s ease;
+        }
+
+        .logo {
+            position: relative;
+            z-index: 1001;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+            transition: height 0.4s ease;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        header.header-scrolled .logo img {
+            height: 55px;
+        }
+
+        nav {
+            display: flex;
+            gap: 0;
+            list-style: none;
+            position: fixed;
+            top: 30px;
+            left: 110px;
+            flex-direction: row;
+            gap: 0.5rem;
+            background: transparent;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-weight: 600;
+            padding: 0.6rem 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(237, 0, 18, 0.6);
+            border-radius: 30px;
+            background: rgba(10, 10, 10, 0.4);
+            font-size: 0.85rem;
+            backdrop-filter: blur(10px);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a:hover {
+            color: var(--color-light);
+            border-color: var(--color-secondary);
+            background: rgba(237, 0, 18, 0.15);
+            transform: translateY(-2px);
+        }
+
+        header.header-scrolled nav a {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                top: 10px;
+                left: 10px;
+            }
+
+            .logo img {
+                height: 60px;
+            }
+
+            header.header-scrolled .logo img {
+                height: 48px;
+            }
+
+            nav {
+                top: 22px;
+                left: 80px;
+                gap: 0.3rem;
+            }
+
+            nav a {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.7rem;
+                border-width: 1px;
+            }
+
+            header.header-scrolled nav a {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.65rem;
+            }
+
+            nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.7rem;
+            }
+        }
+
+        /* ============= BANNER ============= */
+        .banner {
+            margin-top: 0;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bannerprinci.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-light);
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .banner h1 {
+            font-size: 3.5rem;
+            font-family: var(--font-title);
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            max-width: 800px;
+            line-height: 1.2;
+        }
+
+        .banner .cta-btn {
+            padding: 1.2rem 2.5rem;
+            background-color: var(--color-secondary);
+            color: var(--color-light);
+            border: none;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(237, 0, 18, 0.4);
+        }
+
+        .banner .cta-btn:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(237, 0, 18, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                height: 350px;
+                margin-top: 0;
+            }
+
+            .banner h1 {
+                font-size: 2rem;
+            }
+
+            .banner .cta-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* ============= SECCIÓN SOBRE MÍ ============= */
+        .about {
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            padding: 4rem 2rem;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(237, 0, 18, 0.3);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .about-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .about-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(170, 0, 17, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .about-image-container:hover .about-image-overlay {
+            opacity: 1;
+        }
+
+        .about-image-overlay p {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--color-light);
+            text-align: center;
+            padding: 2rem;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-title);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-secondary);
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            color: #333333;
+            line-height: 1.8;
+        }
+
+        .about-quote {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            padding: 3rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .about-quote p {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--color-light);
+            margin: 0;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-text h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-quote p {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ============= CARRUSEL ============= */
+        .carousel-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 4rem 2rem;
+        }
+
+        .carousel-section h2 {
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--color-secondary);
+        }
+
+        .carousel-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--color-gray);
+            font-size: 1.05rem;
+        }
+
+        .carousel-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .carousel-tabs {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .carousel-tab {
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--color-secondary);
+            background: transparent;
+            color: var(--color-light);
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-tab.active {
+            background-color: var(--color-secondary);
+            color: var(--color-light);
+        }
+
+        .carousel-tab:hover {
+            background-color: rgba(237, 0, 18, 0.3);
+        }
+
+        .carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .carousel-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .carousel-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-item:hover .carousel-item-overlay {
+            opacity: 1;
+        }
+
+        .carousel-item-overlay i {
+            font-size: 3rem;
+            color: var(--color-secondary);
+        }
+
+        /* ============= PREGUNTAS FRECUENTES ============= */
+        .faq {
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            padding: 4rem 2rem;
+        }
+
+        .faq h2 {
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--color-primary);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: #ffffff;
+            border-left: 4px solid var(--color-secondary);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item:hover {
+            background-color: #f9f9f9;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(237, 0, 18, 0.15);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--color-primary);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 1.5rem;
+            color: #555555;
+            line-height: 1.8;
+            animation: slideDown 0.3s ease;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============= PAQUETES ============= */
+        .packages {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 4rem 2rem;
+        }
+
+        .packages h2 {
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--color-secondary);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .package-card {
+            background: linear-gradient(135deg, rgba(170, 0, 17, 0.2), rgba(237, 0, 18, 0.2));
+            border: 2px solid var(--color-secondary);
+            padding: 2.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(237, 0, 18, 0.3);
+        }
+
+        .package-title {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .package-subtitle {
+            font-family: var(--font-body);
+            font-weight: 400;
+            color: var(--color-gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .package-features li {
+            padding: 0.8rem 0;
+            color: var(--color-gray);
+            border-bottom: 1px solid rgba(237, 0, 18, 0.2);
+            font-size: 0.95rem;
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-cta {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: var(--color-light);
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .package-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(237, 0, 18, 0.4);
+        }
+
+        /* ============= CONTACTO ============= */
+        .contact {
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            padding: 4rem 2rem;
+        }
+
+        .contact-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-intro h2 {
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .contact-intro p {
+            font-size: 1.1rem;
+            color: #333333;
+            line-height: 1.8;
+        }
+
+        .contact-form {
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            border: 2px solid var(--color-secondary);
+            box-shadow: 0 4px 15px rgba(237, 0, 18, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #333333;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background-color: #ffffff;
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 10px rgba(237, 0, 18, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: var(--color-light);
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(237, 0, 18, 0.4);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-family: var(--font-body);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .contact-item a,
+        .contact-item p {
+            color: #555555;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* ============= FOOTER ============= */
+        footer {
+            background-color: var(--color-darker);
+            border-top: 2px solid var(--color-secondary);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-body);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-secondary);
+        }
+
+        .footer-logo img {
+            height: 130px;
+            width: auto;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--color-secondary);
+            color: var(--color-light);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(237, 0, 18, 0.3);
+            padding-top: 2rem;
+            color: var(--color-gray);
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.8);
+            }
+        }
+
+        /* Smooth Transitions */
+        a, button {
+            transition: all 0.3s ease;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-secondary);
+            color: var(--color-light);
+            border: none;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 998;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(237, 0, 18, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Loader */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading.show {
+            display: flex;
+        }
+
+        .spinner {
+            border: 4px solid rgba(237, 0, 18, 0.2);
+            border-top: 4px solid var(--color-secondary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navegación -->
+    <header>
+        <div class="logo">
+            <img src="logojhona.png" alt="Jhona Fotografía">
+        </div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre Mí</a>
+            <a href="#galeria">Galería</a>
+            <a href="#faq">FAQ</a>
+            <a href="#paquetes">Paquetes</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="banner" id="inicio">
+        <h1>Más que fotos, recuerdos que duran toda la vida 📸</h1>
+        <button class="cta-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">Hablemos de tu día 📸</button>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section class="about" id="sobre-mi">
+        <div class="about-container">
+            <div class="about-image-container">
+                <img src="IMG_1420.jpg.jpeg" alt="Isaac - Fotógrafo" class="about-image" data-original="IMG_1420.jpg.jpeg" data-hover="img_1434.jpg.jpeg">
+                <div class="about-image-overlay">
+                    <p>Tu recuerdo es único. Su captura también debe serlo. ✨</p>
+                </div>
+            </div>
+            <div class="about-text">
+                <h2>¡Hola! Soy Isaac</h2>
+                <p><strong>Licenciado en Diseño Gráfico y fotógrafo profesional.</strong></p>
+                <p>Me especializo en capturar momentos reales y transformarlos en recuerdos que duren toda la vida. Cada evento es único, y mi objetivo es que tus fotos transmitan la emoción y la historia de ese día.</p>
+                <p>Trabajo cuidando cada detalle, combinando creatividad, técnica y estilo propio, para que revivas tus recuerdos una y otra vez.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrusel de Fotos -->
+    <section class="carousel-section" id="galeria">
+        <h2>Ellos vivieron la experiencia, nosotros la capturamos.</h2>
+        <p class="carousel-description">
+            Los momentos que hoy vives son los recuerdos que atesorarás mañana. Planificar tu evento con cuidado asegura que cada instante sea inmortalizado. Juntos definimos lo que realmente importa para vos, y mi compromiso es que cada foto te haga revivir la emoción de ese día.
+        </p>
+        
+        <div class="carousel-container">
+            <div class="carousel-tabs">
+                <button class="carousel-tab" data-tab="quince">15 Años</button>
+                <button class="carousel-tab" data-tab="sesion">Sesiones</button>
+                <button class="carousel-tab active" data-tab="bodas">Bodas</button>
+            </div>
+
+            <div class="carousel" id="carousel-bodas" data-category="bodas">
+                <div class="carousel-item">
+                    <img src="bodas/foto1.jpg" alt="Boda 1">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="bodas/foto2.jpg" alt="Boda 2">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="bodas/foto3.jpg" alt="Boda 3">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="bodas/foto4.jpg" alt="Boda 4">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+            </div>
+
+            <div class="carousel" id="carousel-quince" data-category="quince" style="display: none;">
+                <div class="carousel-item">
+                    <img src="quince/IMG_0774 (1) (1).jpg" alt="Quince 1">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="quince/IMG_0785 (1).jpg" alt="Quince 2">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="quince/IMG_1199 (1) (1).jpg" alt="Quince 3">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="quince/quince1.jpg" alt="Quince 4">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+            </div>
+
+            <div class="carousel" id="carousel-sesion" data-category="sesion" style="display: none;">
+                <div class="carousel-item">
+                    <img src="sesion/sesion1.jpg" alt="Sesión 1">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="sesion/sesion2.jpg" alt="Sesión 2">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="sesion/foto3.jpg" alt="Sesión 3">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+                <div class="carousel-item">
+                    <img src="sesion/foto4.jpg" alt="Sesión 4">
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes -->
+    <section class="faq" id="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿De dónde eres?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Estoy ubicado en <strong>Encarnación, Itapúa, Paraguay</strong>. También realizo coberturas en ciudades cercanas, con un costo adicional por traslado según la ubicación.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿En cuánto tiempo tendré mis fotos listas?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Adelanto digital:</strong> Listo al día siguiente de la boda o máximo 2 días<br>
+                    <strong>Fotos digitales completas:</strong> 30 días hábiles<br>
+                    <strong>Fotos impresas:</strong> 10 días hábiles después de tu elección</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cómo te reservamos?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Todo lo que necesitas para asegurar tu fecha es una <strong>seña + contrato firmado</strong>. Contactame y te envío toda la información necesaria para proceder.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cuántas fotos recibiremos?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Depende de la cobertura y duración del evento. Normalmente, recibirás entre <strong>400 y 800 fotos</strong> editadas en alta resolución.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Paquetes -->
+    <section class="packages" id="paquetes">
+        <h2>Elegí cómo querés recordar tu evento ✨</h2>
+        <div class="packages-grid">
+            <div class="package-card">
+                <div class="package-title">Plan Básico</div>
+                <div class="package-subtitle">Sesión Esencial</div>
+                <ul class="package-features">
+                    <li>✓ Fotos digitales de todo el evento</li>
+                    <li>✓ Todas las imágenes editadas en alta resolución</li>
+                    <li>✓ Galería online + pendrive</li>
+                    <li>✓ Cobertura total (máx. 2 horas)</li>
+                    <li>✓ Reserva: seña + contrato</li>
+                </ul>
+                <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+            </div>
+
+            <div class="package-card">
+                <div class="package-title">Plan Estándar</div>
+                <div class="package-subtitle">Sesión Completa</div>
+                <ul class="package-features">
+                    <li>✓ Fotos digitales y edición completa</li>
+                    <li>✓ Cobertura total (preparativos, ceremonia, fiesta)</li>
+                    <li>✓ Entregable de 20 fotos impresas</li>
+                    <li>✓ Galería online + pendrive</li>
+                    <li>✓ Reserva: seña + contrato</li>
+                </ul>
+                <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+            </div>
+
+            <div class="package-card">
+                <div class="package-title">Plan Premium</div>
+                <div class="package-subtitle">Experiencia Full</div>
+                <ul class="package-features">
+                    <li>✓ Todo del plan estándar</li>
+                    <li>✓ Entrega de álbum (40 fotos)</li>
+                    <li>✓ Entrega de 2 cuadros (20x30 cm)</li>
+                    <li>✓ Galería online exclusiva</li>
+                    <li>✓ Reserva: seña + contrato</li>
+                </ul>
+                <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+            </div>
+
+            <div class="package-card">
+                <div class="package-title">Plan 15 Años</div>
+                <div class="package-subtitle">Tu Día Especial</div>
+                <ul class="package-features">
+                    <li>✓ Cobertura completa sin límite de tiempo</li>
+                    <li>✓ Sesión pre-quince (3-4 horas)</li>
+                    <li>✓ Cuadro de firmas 40x60 cm de regalo</li>
+                    <li>✓ 600+ fotos editadas</li>
+                    <li>✓ Reserva: seña + contrato</li>
+                </ul>
+                <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+            </div>
+
+            <div class="package-card">
+                <div class="package-title">Sesión Individual</div>
+                <div class="package-subtitle">Momento Personal</div>
+                <ul class="package-features">
+                    <li>✓ Duración: 1 hora</li>
+                    <li>✓ Locaciones a tu elección</li>
+                    <li>✓ 30 fotos digitales editadas</li>
+                    <li>✓ Dirección de poses profesional</li>
+                    <li>✓ Ideal para recuerdo rápido</li>
+                </ul>
+                <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <div class="contact-content">
+            <div class="contact-intro">
+                <h2>Lo que viviste hoy, lo revivirás mañana 📸</h2>
+                <p>Envíame tu mensaje y hagamos que tus recuerdos duren toda la vida.</p>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp">Número / WhatsApp *</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="Escribe tu número para que pueda contactarte rápidamente" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje *</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Hablemos de cómo capturar tu día especial ✨ (Fecha, tipo de evento, detalles)" required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Enviá y empecemos 📷</button>
+            </form>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:jhonadisenoyfotografia@gmail.com">jhonadisenoyfotografia@gmail.com</a>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Teléfono</h3>
+                    <a href="tel:+595982946365">+595 982 946365</a>
+                </div>
+
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Ubicación</h3>
+                    <p>Encarnación – Paraguay</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="logojhona.png" alt="Jhona Fotografía">
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Redes Sociales</h3>
+                <div class="social-links">
+                    <a href="https://instagram.com/df_jhona" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/595982946365" target="_blank" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:jhonadisenoyfotografia@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto Rápido</h3>
+                <p><i class="fas fa-phone"></i> +595 982 946365</p>
+                <p><i class="fas fa-map-marker-alt"></i> Encarnación, Paraguay</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Jhona Fotografía. Todos los derechos reservados. | Hecho con <i class="fas fa-heart" style="color: var(--color-secondary);"></i></p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/595982946365?text=Hola%20Isaac%20Quiero%20hablar%20sobre%20mis%20fotos" class="whatsapp-button" target="_blank" title="Contáctame por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Loading Spinner -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        // ====== ABOUT IMAGE HOVER EFFECT ======
+        const aboutImage = document.querySelector('.about-image');
+        if (aboutImage) {
+            const originalSrc = aboutImage.dataset.original;
+            const hoverSrc = aboutImage.dataset.hover;
+            
+            aboutImage.addEventListener('mouseenter', () => {
+                aboutImage.src = hoverSrc;
+            });
+            
+            aboutImage.addEventListener('mouseleave', () => {
+                aboutImage.src = originalSrc;
+            });
+        }
+
+        // ====== HEADER SCROLL EFFECT ======
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+
+        // ====== CAROUSEL FUNCTIONALITY ======
+        document.querySelectorAll('.carousel-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and carousels
+                document.querySelectorAll('.carousel-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.carousel').forEach(c => c.style.display = 'none');
+                
+                // Add active class to clicked tab and show corresponding carousel
+                this.classList.add('active');
+                document.getElementById(`carousel-${tabName}`).style.display = 'grid';
+            });
+        });
+
+        // ====== FAQ ACCORDION ======
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const answer = this.querySelector('.faq-answer');
+                const toggle = this.querySelector('.faq-toggle');
+                
+                // Close other FAQs
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    if (ans !== answer) {
+                        ans.classList.remove('active');
+                    }
+                });
+
+                document.querySelectorAll('.faq-toggle').forEach(tgl => {
+                    if (tgl !== toggle) {
+                        tgl.textContent = '+';
+                    }
+                });
+
+                // Toggle current FAQ
+                answer.classList.toggle('active');
+                toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+            });
+        });
+
+        // ====== SCROLL TO TOP BUTTON ======
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // ====== CONTACT FORM ======
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            // Show loading
+            document.getElementById('loading').classList.add('show');
+
+            // Simulate form submission (you would send this to your server)
+            setTimeout(() => {
+                // Create WhatsApp message
+                const whatsappMessage = `Hola Isaac!\n\nNombre: ${nombre}\nWhatsApp: ${whatsapp}\nEmail: ${email}\n\nMensaje: ${mensaje}`;
+                const whatsappUrl = `https://wa.me/595982946365?text=${encodeURIComponent(whatsappMessage)}`;
+
+                // Hide loading
+                document.getElementById('loading').classList.remove('show');
+
+                // Show success message
+                alert('¡Gracias por tu mensaje! Te contactaré muy pronto. 📸');
+
+                // Redirect to WhatsApp or email
+                window.open(whatsappUrl, '_blank');
+
+                // Reset form
+                contactForm.reset();
+            }, 1500);
+        });
+
+        function scrollToContact() {
+            document.getElementById('contacto').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // ====== SMOOTH SCROLL FOR NAVIGATION LINKS ======
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // ====== ANIMATIONS ON SCROLL ======
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideDown 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.package-card, .carousel-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
