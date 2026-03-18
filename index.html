@@ -694,7 +694,82 @@
             box-shadow: 0 8px 20px rgba(237, 0, 18, 0.4);
         }
 
-        /* ============= CONTACTO ============= */
+        @media (max-width: 768px) {
+            .packages {
+                padding: 3rem 1rem;
+            }
+
+            .packages h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .packages-grid {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .packages-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 20;
+            }
+
+            .packages-nav-btn#prevPackage {
+                left: 0;
+            }
+
+            .packages-nav-btn#nextPackage {
+                right: 0;
+            }
+
+            .packages-carousel-wrapper {
+                max-width: 100%;
+                flex: 1;
+                padding: 0 50px;
+            }
+
+            .packages-carousel {
+                padding: 2rem 0;
+                gap: 1rem;
+            }
+
+            .package-card {
+                min-width: calc(100% - 0rem);
+                flex: 0 0 calc(100% - 0rem);
+                opacity: 0.5;
+                transform: scale(0.9);
+                padding: 1.5rem;
+            }
+
+            .package-card.center {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                box-shadow: 0 15px 40px rgba(237, 0, 18, 0.4);
+            }
+
+            .package-title {
+                font-size: 1.5rem;
+            }
+
+            .package-subtitle {
+                font-size: 0.85rem;
+            }
+
+            .package-features li {
+                font-size: 0.85rem;
+                padding: 0.6rem 0;
+            }
+
+            .package-cta {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
         .contact {
             background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
             padding: 4rem 2rem;
@@ -1557,11 +1632,22 @@
         // ====== PACKAGES CAROUSEL ======
         let currentPackageIndex = 1;
         const totalPackages = document.querySelectorAll('.package-card').length;
+        const isMobilePackages = window.innerWidth <= 768;
 
         function updatePackageCarousel() {
             const carousel = document.getElementById('packagesCarousel');
-            const cardWidth = 100 / 3;
-            const offset = -currentPackageIndex * cardWidth + cardWidth;
+            let cardWidth, offset;
+
+            if (isMobilePackages || window.innerWidth <= 768) {
+                // Mobile: show 1 card at a time (100% width)
+                cardWidth = 100;
+                offset = -currentPackageIndex * cardWidth + cardWidth;
+            } else {
+                // Desktop: show 3 cards at a time
+                cardWidth = 100 / 3;
+                offset = -currentPackageIndex * cardWidth + cardWidth;
+            }
+
             carousel.style.transform = `translateX(${offset}%)`;
             
             // Update center class for all cards
@@ -1582,6 +1668,11 @@
             currentPackageIndex = (currentPackageIndex - 1 + totalPackages) % totalPackages;
             updatePackageCarousel();
         }
+
+        // Update on window resize
+        window.addEventListener('resize', () => {
+            updatePackageCarousel();
+        });
 
         // Initialize carousel
         updatePackageCarousel();
