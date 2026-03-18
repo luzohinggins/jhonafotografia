@@ -1814,9 +1814,8 @@
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
             
-            // Obtener todas las imágenes visibles del Swiper
-            const visibleSlides = document.querySelectorAll('.carousel-item[style*="flex"] img');
-            lightboxImages = Array.from(visibleSlides).filter(image => image.alt !== 'Imagen ampliada');
+            // Obtener todas las imágenes del Swiper actual
+            lightboxImages = Array.from(document.querySelectorAll('#gallerySwiperContainer .carousel-item img'));
             
             // Encontrar el índice de la imagen clickeada
             currentLightboxIndex = lightboxImages.indexOf(img);
@@ -1953,72 +1952,75 @@
 
             // Destroy previous instance
             if (gallerySwiperInstance) {
-                gallerySwiperInstance.destroy();
+                gallerySwiperInstance.destroy(true, true);
             }
 
-            // Create new Swiper instance
-            gallerySwiperInstance = new Swiper('#gallerySwiperContainer', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                loop: true,
-                navigation: {
-                    nextEl: '.gallery-swiper .swiper-button-next',
-                    prevEl: '.gallery-swiper .swiper-button-prev',
-                },
-                pagination: {
-                    el: '.gallery-swiper .swiper-pagination',
-                    clickable: true,
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 30,
+            // Wait for DOM update then initialize
+            setTimeout(() => {
+                gallerySwiperInstance = new Swiper('#gallerySwiperContainer', {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    loop: true,
+                    navigation: {
+                        nextEl: '#gallerySwiperContainer .swiper-button-next',
+                        prevEl: '#gallerySwiperContainer .swiper-button-prev',
                     },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 40,
+                    pagination: {
+                        el: '#gallerySwiperContainer .swiper-pagination',
+                        clickable: true,
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 40,
+                        }
                     }
-                }
-            });
+                });
 
-            // Add lightbox listeners to visible slides
-            addLightboxListeners();
+                // Add lightbox listeners to visible slides
+                addLightboxListeners();
+            }, 100);
         }
 
         // Initialize Packages Swiper
         function initPackagesSwiper() {
             if (packagesSwiperInstance) {
-                packagesSwiperInstance.destroy();
+                packagesSwiperInstance.destroy(true, true);
             }
 
-            packagesSwiperInstance = new Swiper('#packagesSwiperContainer', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                loop: true,
-                centeredSlides: true,
-                navigation: {
-                    nextEl: '.packages-swiper .swiper-button-next',
-                    prevEl: '.packages-swiper .swiper-button-prev',
-                },
-                pagination: {
-                    el: '.packages-swiper .swiper-pagination',
-                    clickable: true,
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 3,
-                        spaceBetween: 30,
+            setTimeout(() => {
+                packagesSwiperInstance = new Swiper('#packagesSwiperContainer', {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    loop: true,
+                    centeredSlides: true,
+                    navigation: {
+                        nextEl: '#packagesSwiperContainer .swiper-button-next',
+                        prevEl: '#packagesSwiperContainer .swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '#packagesSwiperContainer .swiper-pagination',
+                        clickable: true,
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        }
                     }
-                }
-            });
+                });
+            }, 100);
         }
 
         // Add lightbox listeners
         function addLightboxListeners() {
-            const visibleSlides = document.querySelectorAll('.carousel-item[style*="flex"]');
-            visibleSlides.forEach(slide => {
-                const img = slide.querySelector('img');
-                if (img && !img.hasListener) {
+            const visibleSlides = document.querySelectorAll('#gallerySwiperContainer .carousel-item img');
+            visibleSlides.forEach(img => {
+                if (!img.hasListener) {
                     img.style.cursor = 'pointer';
                     img.addEventListener('click', () => openLightbox(img));
                     img.hasListener = true;
@@ -2041,10 +2043,21 @@
         });
 
         // Initialize Swiper on load
-        window.addEventListener('load', () => {
+        document.addEventListener('DOMContentLoaded', () => {
             initGallerySwiper('quince');
             initPackagesSwiper();
         });
+
+        // Also initialize if DOM is already loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                initGallerySwiper('quince');
+                initPackagesSwiper();
+            });
+        } else {
+            initGallerySwiper('quince');
+            initPackagesSwiper();
+        }
 
         // ====== FAQ ACCORDION ======
         document.querySelectorAll('.faq-item').forEach(item => {
@@ -2157,12 +2170,6 @@
         document.querySelectorAll('.package-card, .carousel-item, .carousel-tab, .faq-item').forEach(el => {
             observer.observe(el);
         });
-
-        // Smooth scroll para el contacto
-        function scrollToContact() {
-            document.getElementById('contacto').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
+    </script>
 </body>
 </html>
