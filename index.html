@@ -1269,6 +1269,63 @@
             animation: float 12s ease-in-out infinite reverse;
         }
 
+        /* ============= SWIPER CUSTOMIZATION ============= */
+        .swiper {
+            width: 100%;
+            height: auto;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-swiper {
+            padding: 2rem 0;
+        }
+
+        .gallery-swiper .swiper-slide {
+            width: auto;
+        }
+
+        .packages-swiper {
+            padding: 3rem 0;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--color-secondary);
+            background: rgba(237, 0, 18, 0.7);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: var(--color-secondary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .swiper-pagination-bullet {
+            background: var(--color-secondary);
+            opacity: 0.5;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--color-secondary);
+            opacity: 1;
+        }
+
         @media (max-width: 768px) {
             .lightbox-img {
                 max-width: 100vw;
@@ -1282,6 +1339,17 @@
 
             .stat-number {
                 font-size: 2rem;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 40px;
+                height: 40px;
+            }
+
+            .swiper-button-next::after,
+            .swiper-button-prev::after {
+                font-size: 1rem;
             }
         }
     </style>
@@ -1345,102 +1413,100 @@
                 <button class="carousel-tab" data-tab="cumpleanos">Cumpleaños</button>
                 <button class="carousel-tab" data-tab="sesion">Sesiones</button>
                 <button class="carousel-tab" data-tab="bodas">Bodas</button>
-
             </div>
 
-            <div class="carousel" id="carousel-quince" data-category="quince" style="display: grid;">
-                <div class="carousel-item">
-                    <img src="quince/IMG_0774 (1) (1).jpg" alt="Quince 1">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+            <!-- Gallery Swiper -->
+            <div class="swiper gallery-swiper" id="gallerySwiperContainer">
+                <div class="swiper-wrapper" id="galleryWrapper">
+                    <!-- Quince -->
+                    <div class="swiper-slide carousel-item" data-category="quince">
+                        <img src="quince/IMG_0774 (1) (1).jpg" alt="Quince 1">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="quince">
+                        <img src="quince/IMG_0785 (1).jpg" alt="Quince 2">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="quince">
+                        <img src="quince/IMG_1199 (1) (1).jpg" alt="Quince 3">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="quince">
+                        <img src="quince/quince1.jpg" alt="Quince 4">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <!-- Bautismo -->
+                    <div class="swiper-slide carousel-item" data-category="bautismo">
+                        <img src="bautismo/IMG_3371.jpg" alt="Bautismo 1">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="bautismo">
+                        <img src="bautismo/IMG_6697.jpg" alt="Bautismo 2">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="bautismo">
+                        <img src="bautismo/IMG_6715 (1).jpg" alt="Bautismo 3">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="bautismo">
+                        <img src="bautismo/IMG_6864.jpg" alt="Bautismo 4">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <!-- Cumpleaños -->
+                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
+                        <img src="cumple/comple3.jpg" alt="Cumpleaños 1">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
+                        <img src="cumple/cumple1.jpg" alt="Cumpleaños 2">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
+                        <img src="cumple/cumple2.jpg" alt="Cumpleaños 3">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
+                        <img src="cumple/cumple4.jpg" alt="Cumpleaños 4">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <!-- Sesiones -->
+                    <div class="swiper-slide carousel-item" data-category="sesion">
+                        <img src="sesion/sesion1.jpg" alt="Sesión 1">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="sesion">
+                        <img src="sesion/sesion2.jpg" alt="Sesión 2">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="sesion">
+                        <img src="sesion/foto3.jpg" alt="Sesión 3">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="sesion">
+                        <img src="sesion/foto4.jpg" alt="Sesión 4">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <!-- Bodas -->
+                    <div class="swiper-slide carousel-item" data-category="bodas">
+                        <img src="bodas/foto1.jpg" alt="Boda 1">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="bodas">
+                        <img src="bodas/foto2.jpg" alt="Boda 2">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="bodas">
+                        <img src="bodas/foto3.jpg" alt="Boda 3">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
+                    <div class="swiper-slide carousel-item" data-category="bodas">
+                        <img src="bodas/foto4.jpg" alt="Boda 4">
+                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="quince/IMG_0785 (1).jpg" alt="Quince 2">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="quince/IMG_1199 (1) (1).jpg" alt="Quince 3">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="quince/quince1.jpg" alt="Quince 4">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-            </div>
-
-            <div class="carousel" id="carousel-bautismo" data-category="bautismo" style="display: none;">
-                <div class="carousel-item">
-                    <img src="bautismo/IMG_3371.jpg" alt="Bautismo 1">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="bautismo/IMG_6697.jpg" alt="Bautismo 2">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="bautismo/IMG_6715 (1).jpg" alt="Bautismo 3">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="bautismo/IMG_6864.jpg" alt="Bautismo 4">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-            </div>
-
-            <div class="carousel" id="carousel-cumpleanos" data-category="cumpleanos" style="display: none;">
-                <div class="carousel-item">
-                    <img src="cumple/comple3.jpg" alt="Cumpleaños 1">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="cumple/cumple1.jpg" alt="Cumpleaños 2">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="cumple/cumple2.jpg" alt="Cumpleaños 3">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="cumple/cumple4.jpg" alt="Cumpleaños 4">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-            </div>
-
-            <div class="carousel" id="carousel-sesion" data-category="sesion" style="display: none;">
-                <div class="carousel-item">
-                    <img src="sesion/sesion1.jpg" alt="Sesión 1">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="sesion/sesion2.jpg" alt="Sesión 2">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="sesion/foto3.jpg" alt="Sesión 3">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="sesion/foto4.jpg" alt="Sesión 4">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-            </div>
-
-            <div class="carousel" id="carousel-bodas" data-category="bodas" style="display: none;">
-                <div class="carousel-item">
-                    <img src="bodas/foto1.jpg" alt="Boda 1">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="bodas/foto2.jpg" alt="Boda 2">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="bodas/foto3.jpg" alt="Boda 3">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
-                <div class="carousel-item">
-                    <img src="bodas/foto4.jpg" alt="Boda 4">
-                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
 
@@ -1507,14 +1573,10 @@
     <!-- Paquetes -->
     <section class="packages" id="paquetes">
         <h2>Elegí cómo querés recordar tu evento ✨</h2>
-        <div class="packages-grid">
-            <button class="packages-nav-btn" id="prevPackage" onclick="previousPackage()">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            
-            <div class="packages-carousel-wrapper">
-                <div class="packages-carousel" id="packagesCarousel">
-                    <div class="package-card">
+        <div class="swiper packages-swiper" id="packagesSwiperContainer">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="package-card center">
                         <div class="package-title">Plan Básico</div>
                         <div class="package-subtitle">Sesión Esencial</div>
                         <ul class="package-features">
@@ -1526,8 +1588,10 @@
                         </ul>
                         <button class="package-cta" onclick="scrollToContact()">Reservar</button>
                     </div>
+                </div>
 
-                    <div class="package-card">
+                <div class="swiper-slide">
+                    <div class="package-card center">
                         <div class="package-title">Plan Estándar</div>
                         <div class="package-subtitle">Sesión Completa</div>
                         <ul class="package-features">
@@ -1539,8 +1603,10 @@
                         </ul>
                         <button class="package-cta" onclick="scrollToContact()">Reservar</button>
                     </div>
+                </div>
 
-                    <div class="package-card">
+                <div class="swiper-slide">
+                    <div class="package-card center">
                         <div class="package-title">Plan Premium</div>
                         <div class="package-subtitle">Experiencia Full</div>
                         <ul class="package-features">
@@ -1552,8 +1618,10 @@
                         </ul>
                         <button class="package-cta" onclick="scrollToContact()">Reservar</button>
                     </div>
+                </div>
 
-                    <div class="package-card">
+                <div class="swiper-slide">
+                    <div class="package-card center">
                         <div class="package-title">Plan 15 Años</div>
                         <div class="package-subtitle">Tu Día Especial</div>
                         <ul class="package-features">
@@ -1565,8 +1633,10 @@
                         </ul>
                         <button class="package-cta" onclick="scrollToContact()">Reservar</button>
                     </div>
+                </div>
 
-                    <div class="package-card">
+                <div class="swiper-slide">
+                    <div class="package-card center">
                         <div class="package-title">Sesión Individual</div>
                         <div class="package-subtitle">Momento Personal</div>
                         <ul class="package-features">
@@ -1580,10 +1650,9 @@
                     </div>
                 </div>
             </div>
-            
-            <button class="packages-nav-btn" id="nextPackage" onclick="nextPackage()">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
@@ -1745,9 +1814,9 @@
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightboxImg');
             
-            // Obtener todas las imágenes del carrusel actual
-            const activeCarousel = document.querySelector('.carousel[style*="display: grid"]');
-            lightboxImages = Array.from(activeCarousel.querySelectorAll('img')).filter(img => img.alt !== 'Imagen ampliada');
+            // Obtener todas las imágenes visibles del Swiper
+            const visibleSlides = document.querySelectorAll('.carousel-item[style*="flex"] img');
+            lightboxImages = Array.from(visibleSlides).filter(image => image.alt !== 'Imagen ampliada');
             
             // Encontrar el índice de la imagen clickeada
             currentLightboxIndex = lightboxImages.indexOf(img);
@@ -1865,36 +1934,116 @@
         });
 
         // ====== CAROUSEL FUNCTIONALITY ======
+        let gallerySwiperInstance = null;
+        let packagesSwiperInstance = null;
+
+        // Initialize Gallery Swiper
+        function initGallerySwiper(category = 'quince') {
+            const wrapper = document.getElementById('galleryWrapper');
+            
+            // Filter slides by category
+            const allSlides = wrapper.querySelectorAll('.swiper-slide');
+            allSlides.forEach(slide => {
+                if (slide.dataset.category === category) {
+                    slide.style.display = 'flex';
+                } else {
+                    slide.style.display = 'none';
+                }
+            });
+
+            // Destroy previous instance
+            if (gallerySwiperInstance) {
+                gallerySwiperInstance.destroy();
+            }
+
+            // Create new Swiper instance
+            gallerySwiperInstance = new Swiper('#gallerySwiperContainer', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                navigation: {
+                    nextEl: '.gallery-swiper .swiper-button-next',
+                    prevEl: '.gallery-swiper .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.gallery-swiper .swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 40,
+                    }
+                }
+            });
+
+            // Add lightbox listeners to visible slides
+            addLightboxListeners();
+        }
+
+        // Initialize Packages Swiper
+        function initPackagesSwiper() {
+            if (packagesSwiperInstance) {
+                packagesSwiperInstance.destroy();
+            }
+
+            packagesSwiperInstance = new Swiper('#packagesSwiperContainer', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                centeredSlides: true,
+                navigation: {
+                    nextEl: '.packages-swiper .swiper-button-next',
+                    prevEl: '.packages-swiper .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.packages-swiper .swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    }
+                }
+            });
+        }
+
+        // Add lightbox listeners
+        function addLightboxListeners() {
+            const visibleSlides = document.querySelectorAll('.carousel-item[style*="flex"]');
+            visibleSlides.forEach(slide => {
+                const img = slide.querySelector('img');
+                if (img && !img.hasListener) {
+                    img.style.cursor = 'pointer';
+                    img.addEventListener('click', () => openLightbox(img));
+                    img.hasListener = true;
+                }
+            });
+        }
+
+        // Handle carousel tabs
         document.querySelectorAll('.carousel-tab').forEach(tab => {
             tab.addEventListener('click', function() {
                 const tabName = this.getAttribute('data-tab');
                 
-                // Remove active class from all tabs and carousels
+                // Update active tab
                 document.querySelectorAll('.carousel-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.carousel').forEach(c => c.style.display = 'none');
-                
-                // Add active class to clicked tab and show corresponding carousel
                 this.classList.add('active');
-                document.getElementById(`carousel-${tabName}`).style.display = 'grid';
                 
-                // Añadir evento click a las imágenes para lightbox
-                const carouselItems = document.getElementById(`carousel-${tabName}`).querySelectorAll('img');
-                carouselItems.forEach(img => {
-                    img.style.cursor = 'pointer';
-                    img.addEventListener('click', () => openLightbox(img));
-                });
+                // Reinitialize Swiper with new category
+                initGallerySwiper(tabName);
             });
         });
 
-        // Inicializar lightbox para primer carrusel
+        // Initialize Swiper on load
         window.addEventListener('load', () => {
-            const firstCarousel = document.querySelector('.carousel[style*="display: grid"]');
-            if (firstCarousel) {
-                firstCarousel.querySelectorAll('img').forEach(img => {
-                    img.style.cursor = 'pointer';
-                    img.addEventListener('click', () => openLightbox(img));
-                });
-            }
+            initGallerySwiper('quince');
+            initPackagesSwiper();
         });
 
         // ====== FAQ ACCORDION ======
@@ -2009,53 +2158,11 @@
             observer.observe(el);
         });
 
-        // ====== PACKAGES CAROUSEL ======
-        let currentPackageIndex = 1;
-        const totalPackages = document.querySelectorAll('.package-card').length;
-        const isMobilePackages = window.innerWidth <= 768;
-
-        function updatePackageCarousel() {
-            const carousel = document.getElementById('packagesCarousel');
-            let cardWidth, offset;
-
-            if (isMobilePackages || window.innerWidth <= 768) {
-                // Mobile: show 1 card at a time (100% width)
-                cardWidth = 100;
-                offset = -currentPackageIndex * cardWidth + cardWidth;
-            } else {
-                // Desktop: show 3 cards at a time
-                cardWidth = 100 / 3;
-                offset = -currentPackageIndex * cardWidth + cardWidth;
-            }
-
-            carousel.style.transform = `translateX(${offset}%)`;
-            
-            // Update center class for all cards
-            document.querySelectorAll('.package-card').forEach((card, index) => {
-                card.classList.remove('center');
-                if (index === currentPackageIndex) {
-                    card.classList.add('center');
-                }
+        // Smooth scroll para el contacto
+        function scrollToContact() {
+            document.getElementById('contacto').scrollIntoView({
+                behavior: 'smooth'
             });
         }
-
-        function nextPackage() {
-            currentPackageIndex = (currentPackageIndex + 1) % totalPackages;
-            updatePackageCarousel();
-        }
-
-        function previousPackage() {
-            currentPackageIndex = (currentPackageIndex - 1 + totalPackages) % totalPackages;
-            updatePackageCarousel();
-        }
-
-        // Update on window resize
-        window.addEventListener('resize', () => {
-            updatePackageCarousel();
-        });
-
-        // Initialize carousel
-        updatePackageCarousel();
-    </script>
 </body>
 </html>
