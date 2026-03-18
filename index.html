@@ -2186,7 +2186,7 @@
     </footer>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/595982946365?text=Hola%20Isaac%20Quiero%20hablar%20sobre%20mis%20fotos" class="whatsapp-button" target="_blank" title="Contáctame por WhatsApp">
+    <a href="https://wa.me/595982946365?text=Hola%20Isaac%2C%20me%20interesa%20tu%20trabajo%2C%20%C2%BFpodemos%20conversar%3F%F0%9F%98%84" class="whatsapp-button" target="_blank" title="Contáctame por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -2376,8 +2376,16 @@
             setTimeout(() => {
                 gallerySwiperInstance = new Swiper('#gallerySwiperContainer', {
                     slidesPerView: 1,
-                    spaceBetween: 20,
+                    spaceBetween: 0,
                     loop: visibleCount > 1,
+                    effect: 'fade',
+                    fadeEffect: {
+                        crossFade: true
+                    },
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
                     navigation: {
                         nextEl: '#gallerySwiperContainer .swiper-button-next',
                         prevEl: '#gallerySwiperContainer .swiper-button-prev',
@@ -2385,16 +2393,6 @@
                     pagination: {
                         el: '#gallerySwiperContainer .swiper-pagination',
                         clickable: true,
-                    },
-                    breakpoints: {
-                        768: {
-                            slidesPerView: 2,
-                            spaceBetween: 30,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 40,
-                        }
                     }
                 });
 
