@@ -1,0 +1,322 @@
+{
+  "converted": [
+    {
+      "original": "apple-touch-icon.png",
+      "converted": "apple-touch-icon.webp",
+      "originalSize": 9554,
+      "newSize": 3784,
+      "reduction": 5770,
+      "percentage": "60.39",
+      "copied": false
+    },
+    {
+      "original": "bannerprinci.jpg",
+      "converted": "bannerprinci.webp",
+      "originalSize": 13343633,
+      "newSize": 1041900,
+      "reduction": 12301733,
+      "percentage": "92.19",
+      "copied": false
+    },
+    {
+      "original": "favicon-96x96.png",
+      "converted": "favicon-96x96.webp",
+      "originalSize": 3908,
+      "newSize": 1688,
+      "reduction": 2220,
+      "percentage": "56.81",
+      "copied": false
+    },
+    {
+      "original": "favicon.ico",
+      "converted": "favicon.webp",
+      "originalSize": 15086,
+      "newSize": 15086,
+      "reduction": 0,
+      "percentage": "0.00",
+      "copied": true
+    },
+    {
+      "original": "favicon.svg",
+      "converted": "favicon.webp",
+      "originalSize": 99824,
+      "newSize": 99824,
+      "reduction": 0,
+      "percentage": "0.00",
+      "copied": true
+    },
+    {
+      "original": "IMG_1420.jpg.jpeg",
+      "converted": "IMG_1420.jpg.webp",
+      "originalSize": 2195504,
+      "newSize": 689516,
+      "reduction": 1505988,
+      "percentage": "68.59",
+      "copied": false
+    },
+    {
+      "original": "IMG_1434.jpg.jpeg",
+      "converted": "IMG_1434.jpg.webp",
+      "originalSize": 2552010,
+      "newSize": 892910,
+      "reduction": 1659100,
+      "percentage": "65.01",
+      "copied": false
+    },
+    {
+      "original": "logojhona.png",
+      "converted": "logojhona.webp",
+      "originalSize": 70102,
+      "newSize": 34512,
+      "reduction": 35590,
+      "percentage": "50.77",
+      "copied": false
+    },
+    {
+      "original": "web-app-manifest-192x192.png",
+      "converted": "web-app-manifest-192x192.webp",
+      "originalSize": 9255,
+      "newSize": 3500,
+      "reduction": 5755,
+      "percentage": "62.18",
+      "copied": false
+    },
+    {
+      "original": "web-app-manifest-512x512.png",
+      "converted": "web-app-manifest-512x512.webp",
+      "originalSize": 32611,
+      "newSize": 11066,
+      "reduction": 21545,
+      "percentage": "66.07",
+      "copied": false
+    },
+    {
+      "original": "quince\\IMG_0774 (1) (1).jpg",
+      "converted": "quince\\IMG_0774 (1) (1).webp",
+      "originalSize": 10643586,
+      "newSize": 1204342,
+      "reduction": 9439244,
+      "percentage": "88.68",
+      "copied": false
+    },
+    {
+      "original": "quince\\IMG_0785 (1).jpg",
+      "converted": "quince\\IMG_0785 (1).webp",
+      "originalSize": 8415996,
+      "newSize": 813310,
+      "reduction": 7602686,
+      "percentage": "90.34",
+      "copied": false
+    },
+    {
+      "original": "quince\\IMG_1199 (1) (1).jpg",
+      "converted": "quince\\IMG_1199 (1) (1).webp",
+      "originalSize": 15640578,
+      "newSize": 1571606,
+      "reduction": 14068972,
+      "percentage": "89.95",
+      "copied": false
+    },
+    {
+      "original": "quince\\quince1.jpg",
+      "converted": "quince\\quince1.webp",
+      "originalSize": 3809812,
+      "newSize": 480462,
+      "reduction": 3329350,
+      "percentage": "87.39",
+      "copied": false
+    },
+    {
+      "original": "quince\\quince2.jpg",
+      "converted": "quince\\quince2.webp",
+      "originalSize": 6630724,
+      "newSize": 971046,
+      "reduction": 5659678,
+      "percentage": "85.36",
+      "copied": false
+    },
+    {
+      "original": "bautismo\\IMG_3371.jpg",
+      "converted": "bautismo\\IMG_3371.webp",
+      "originalSize": 9098419,
+      "newSize": 747080,
+      "reduction": 8351339,
+      "percentage": "91.79",
+      "copied": false
+    },
+    {
+      "original": "bautismo\\IMG_6697.jpg",
+      "converted": "bautismo\\IMG_6697.webp",
+      "originalSize": 6144394,
+      "newSize": 861832,
+      "reduction": 5282562,
+      "percentage": "85.97",
+      "copied": false
+    },
+    {
+      "original": "bautismo\\IMG_6715 (1).jpg",
+      "converted": "bautismo\\IMG_6715 (1).webp",
+      "originalSize": 5483930,
+      "newSize": 880414,
+      "reduction": 4603516,
+      "percentage": "83.95",
+      "copied": false
+    },
+    {
+      "original": "bautismo\\IMG_6864.jpg",
+      "converted": "bautismo\\IMG_6864.webp",
+      "originalSize": 6616683,
+      "newSize": 897714,
+      "reduction": 5718969,
+      "percentage": "86.43",
+      "copied": false
+    },
+    {
+      "original": "cumple\\comple3.jpg",
+      "converted": "cumple\\comple3.webp",
+      "originalSize": 9897957,
+      "newSize": 908914,
+      "reduction": 8989043,
+      "percentage": "90.82",
+      "copied": false
+    },
+    {
+      "original": "cumple\\cumple1.jpg",
+      "converted": "cumple\\cumple1.webp",
+      "originalSize": 4667859,
+      "newSize": 538474,
+      "reduction": 4129385,
+      "percentage": "88.46",
+      "copied": false
+    },
+    {
+      "original": "cumple\\cumple2.jpg",
+      "converted": "cumple\\cumple2.webp",
+      "originalSize": 5759567,
+      "newSize": 788504,
+      "reduction": 4971063,
+      "percentage": "86.31",
+      "copied": false
+    },
+    {
+      "original": "cumple\\cumple4.jpg",
+      "converted": "cumple\\cumple4.webp",
+      "originalSize": 9833818,
+      "newSize": 776352,
+      "reduction": 9057466,
+      "percentage": "92.11",
+      "copied": false
+    },
+    {
+      "original": "cumple\\cumple5.jpeg",
+      "converted": "cumple\\cumple5.webp",
+      "originalSize": 166606,
+      "newSize": 91806,
+      "reduction": 74800,
+      "percentage": "44.90",
+      "copied": false
+    },
+    {
+      "original": "cumple\\cumple6.jpeg",
+      "converted": "cumple\\cumple6.webp",
+      "originalSize": 181867,
+      "newSize": 102978,
+      "reduction": 78889,
+      "percentage": "43.38",
+      "copied": false
+    },
+    {
+      "original": "sesion\\sesion1.jpg",
+      "converted": "sesion\\sesion1.webp",
+      "originalSize": 5386077,
+      "newSize": 650060,
+      "reduction": 4736017,
+      "percentage": "87.93",
+      "copied": false
+    },
+    {
+      "original": "sesion\\sesion2.jpg",
+      "converted": "sesion\\sesion2.webp",
+      "originalSize": 4342547,
+      "newSize": 538986,
+      "reduction": 3803561,
+      "percentage": "87.59",
+      "copied": false
+    },
+    {
+      "original": "sesion\\sesion4.jpeg",
+      "converted": "sesion\\sesion4.webp",
+      "originalSize": 271112,
+      "newSize": 172112,
+      "reduction": 99000,
+      "percentage": "36.52",
+      "copied": false
+    },
+    {
+      "original": "sesion\\sesion5.jpeg",
+      "converted": "sesion\\sesion5.webp",
+      "originalSize": 264824,
+      "newSize": 184420,
+      "reduction": 80404,
+      "percentage": "30.36",
+      "copied": false
+    },
+    {
+      "original": "sesion\\sesion7.jpeg",
+      "converted": "sesion\\sesion7.webp",
+      "originalSize": 241113,
+      "newSize": 139416,
+      "reduction": 101697,
+      "percentage": "42.18",
+      "copied": false
+    },
+    {
+      "original": "contacto\\carrusel1.jpeg",
+      "converted": "contacto\\carrusel1.webp",
+      "originalSize": 167347,
+      "newSize": 82004,
+      "reduction": 85343,
+      "percentage": "51.00",
+      "copied": false
+    },
+    {
+      "original": "contacto\\carrusel2.jpeg",
+      "converted": "contacto\\carrusel2.webp",
+      "originalSize": 208693,
+      "newSize": 124062,
+      "reduction": 84631,
+      "percentage": "40.55",
+      "copied": false
+    },
+    {
+      "original": "contacto\\carrusel3.jpeg",
+      "converted": "contacto\\carrusel3.webp",
+      "originalSize": 116396,
+      "newSize": 57322,
+      "reduction": 59074,
+      "percentage": "50.75",
+      "copied": false
+    },
+    {
+      "original": "contacto\\sesion3.jpeg",
+      "converted": "contacto\\sesion3.webp",
+      "originalSize": 304858,
+      "newSize": 203010,
+      "reduction": 101848,
+      "percentage": "33.41",
+      "copied": false
+    },
+    {
+      "original": "contacto\\sesion6.jpeg",
+      "converted": "contacto\\sesion6.webp",
+      "originalSize": 197236,
+      "newSize": 107676,
+      "reduction": 89560,
+      "percentage": "45.41",
+      "copied": false
+    }
+  ],
+  "errors": [],
+  "totalOriginalSize": 132823486,
+  "totalWebPSize": 16687688
+}
