@@ -422,7 +422,7 @@
             font-weight: 800;
             text-align: center;
             margin-bottom: 1rem;
-            color: var(--color-secondary);
+            color: #ffffff;
         }
 
         .carousel-description {
@@ -477,7 +477,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 10px;
-            height: 300px;
+            height: 400px;
             cursor: pointer;
             opacity: 0;
             animation: fadeInUp 0.6s ease forwards;
@@ -708,7 +708,7 @@
             font-weight: 800;
             text-align: center;
             margin-bottom: 3rem;
-            color: var(--color-secondary);
+            color: #ffffff;
         }
 
         .packages-grid {
@@ -763,7 +763,7 @@
         }
 
         .package-card {
-            background: linear-gradient(135deg, rgba(170, 0, 17, 0.15), rgba(237, 0, 18, 0.15));
+            background: #ffffff;
             border: 2px solid var(--color-secondary);
             padding: 2rem;
             border-radius: 10px;
@@ -774,7 +774,7 @@
         }
 
         .package-card.center {
-            background: linear-gradient(135deg, rgba(170, 0, 17, 0.15), rgba(237, 0, 18, 0.15));
+            background: #ffffff;
         }
 
         .package-card::before {
@@ -796,14 +796,14 @@
             font-family: var(--font-title);
             font-size: 1.8rem;
             font-weight: 800;
-            color: var(--color-secondary);
+            color: #1a1a1a;
             margin-bottom: 0.5rem;
         }
 
         .package-subtitle {
             font-family: var(--font-body);
             font-weight: 400;
-            color: var(--color-gray);
+            color: #555555;
             margin-bottom: 1.5rem;
             font-size: 0.95rem;
         }
@@ -816,7 +816,7 @@
 
         .package-features li {
             padding: 0.8rem 0;
-            color: var(--color-gray);
+            color: #333333;
             border-bottom: 1px solid rgba(237, 0, 18, 0.2);
             font-size: 0.95rem;
         }
@@ -1067,7 +1067,7 @@
         .contact-wrapper {
             display: flex;
             gap: 2.5rem;
-            align-items: flex-start;
+            align-items: stretch;
         }
 
         .contact-form-section {
@@ -1190,11 +1190,13 @@
             flex: 1;
             min-width: 0;
             overflow: hidden;
+            display: flex;
+            align-items: stretch;
         }
 
         .contact-carousel {
             width: 100%;
-            height: 280px;
+            height: 100%;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
@@ -1329,7 +1331,7 @@
             }
 
             .contact-carousel {
-                height: 280px;
+                height: 320px;
             }
         }
 
@@ -1372,7 +1374,7 @@
             }
 
             .contact-carousel {
-                height: 240px;
+                height: 320px;
             }
 
             .contact-info {
@@ -1712,6 +1714,10 @@
                 font-size: 1.2rem;
             }
 
+            .carousel-item {
+                height: 300px;
+            }
+
             .stat-number {
                 font-size: 2rem;
             }
@@ -1739,9 +1745,9 @@
             <a href="#inicio">Inicio</a>
             <a href="#sobre-mi">Sobre Mí</a>
             <a href="#galeria">Galería</a>
-            <a href="#faq">FAQ</a>
             <a href="#paquetes">Paquetes</a>
             <a href="#contacto">Contacto</a>
+            <a href="#faq">FAQ</a>
         </nav>
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
             <i class="fas fa-bars"></i>
@@ -1750,8 +1756,8 @@
 
     <!-- Banner Principal -->
     <section class="banner" id="inicio">
-        <h1>Más que fotos, recuerdos que duran toda la vida 📸</h1>
-        <button class="cta-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">Hablemos de tu día 📸</button>
+        <h1>Más que fotos, recuerdos que duran toda la vida</h1>
+        <button class="cta-btn" onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})">Hablemos de tu día</button>
     </section>
 
     <!-- Sección Sobre Mí -->
@@ -1886,54 +1892,6 @@
             </div>
         </div>
 
-    </section>
-
-    <!-- Preguntas Frecuentes -->
-    <section class="faq" id="faq">
-        <h2>Preguntas Frecuentes</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>¿De dónde eres?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Estoy ubicado en <strong>Encarnación, Itapúa, Paraguay</strong>. También realizo coberturas en ciudades cercanas, con un costo adicional por traslado según la ubicación.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>¿En cuánto tiempo tendré mis fotos listas?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong>Adelanto digital:</strong> Listo al día siguiente de la boda o máximo 2 días<br>
-                    <strong>Fotos digitales completas:</strong> 30 días hábiles<br>
-                    <strong>Fotos impresas:</strong> 10 días hábiles después de tu elección</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>¿Cómo te reservamos?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Todo lo que necesitas para asegurar tu fecha es una <strong>seña + contrato firmado</strong>. Contactame y te envío toda la información necesaria para proceder.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>¿Cuántas fotos recibiremos?</span>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Depende de la cobertura y duración del evento. Normalmente, recibirás entre <strong>400 y 800 fotos</strong> editadas en alta resolución.</p>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Lightbox Modal -->
@@ -2151,6 +2109,54 @@
                         <div class="swiper-button-next contact-nav-next"></div>
                         <div class="swiper-pagination contact-pagination"></div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preguntas Frecuentes -->
+    <section class="faq" id="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿De dónde eres?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Estoy ubicado en <strong>Encarnación, Itapúa, Paraguay</strong>. También realizo coberturas en ciudades cercanas, con un costo adicional por traslado según la ubicación.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿En cuánto tiempo tendré mis fotos listas?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Adelanto digital:</strong> Listo al día siguiente de la boda o máximo 2 días<br>
+                    <strong>Fotos digitales completas:</strong> 30 días hábiles<br>
+                    <strong>Fotos impresas:</strong> 10 días hábiles después de tu elección</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cómo te reservamos?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Todo lo que necesitas para asegurar tu fecha es una <strong>seña + contrato firmado</strong>. Contactame y te envío toda la información necesaria para proceder.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>¿Cuántas fotos recibiremos?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Depende de la cobertura y duración del evento. Normalmente, recibirás entre <strong>400 y 800 fotos</strong> editadas en alta resolución.</p>
                 </div>
             </div>
         </div>
