@@ -23,6 +23,9 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    
     <style>
         * {
             margin: 0;
@@ -870,8 +873,15 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 3rem;
+            justify-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
         }
 
         .stat-item {
@@ -958,7 +968,7 @@
 
         .contact-form {
             background: #ffffff;
-            padding: 3rem;
+            padding: 3.5rem;
             border-radius: 10px;
             margin-bottom: 3rem;
             border: 2px solid var(--color-secondary);
@@ -966,28 +976,28 @@
         }
 
         .form-group {
-            margin-bottom: 1.3rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
             color: #2d2d2d;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.9rem;
+            padding: 1rem;
             background-color: #f9f9f9;
             border: 1px solid #e0e0e0;
             border-radius: 6px;
             color: #333333;
             font-family: var(--font-body);
             transition: all 0.3s ease;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .form-group input:focus,
@@ -1000,7 +1010,7 @@
 
         .form-group textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 130px;
         }
 
         .form-submit {
@@ -1809,89 +1819,129 @@
                 <div class="swiper-wrapper" id="galleryWrapper">
                     <!-- Quince -->
                     <div class="swiper-slide carousel-item" data-category="quince">
-                        <img src="quince/IMG_0774 (1) (1).webp" alt="Quince 1">
+                        <a href="quince/IMG_0774 (1) (1).webp" data-fancybox="gallery" data-caption="Quince 1">
+                            <img src="quince/IMG_0774 (1) (1).webp" alt="Quince 1">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="quince">
-                        <img src="quince/IMG_0785 (1).webp" alt="Quince 2">
+                        <a href="quince/IMG_0785 (1).webp" data-fancybox="gallery" data-caption="Quince 2">
+                            <img src="quince/IMG_0785 (1).webp" alt="Quince 2">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="quince">
-                        <img src="quince/IMG_1199 (1) (1).webp" alt="Quince 3">
+                        <a href="quince/IMG_1199 (1) (1).webp" data-fancybox="gallery" data-caption="Quince 3">
+                            <img src="quince/IMG_1199 (1) (1).webp" alt="Quince 3">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="quince">
-                        <img src="quince/quince1.webp" alt="Quince 4">
+                        <a href="quince/quince1.webp" data-fancybox="gallery" data-caption="Quince 4">
+                            <img src="quince/quince1.webp" alt="Quince 4">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="quince">
-                        <img src="quince/quince2.webp" alt="Quince 5">
+                        <a href="quince/quince2.webp" data-fancybox="gallery" data-caption="Quince 5">
+                            <img src="quince/quince2.webp" alt="Quince 5">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     
                     <!-- Bautismo -->
                     <div class="swiper-slide carousel-item" data-category="bautismo">
-                        <img src="bautismo/IMG_3371.webp" alt="Bautismo 1">
+                        <a href="bautismo/IMG_3371.webp" data-fancybox="gallery" data-caption="Bautismo 1">
+                            <img src="bautismo/IMG_3371.webp" alt="Bautismo 1">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="bautismo">
-                        <img src="bautismo/IMG_6697.webp" alt="Bautismo 2">
+                        <a href="bautismo/IMG_6697.webp" data-fancybox="gallery" data-caption="Bautismo 2">
+                            <img src="bautismo/IMG_6697.webp" alt="Bautismo 2">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="bautismo">
-                        <img src="bautismo/IMG_6715 (1).webp" alt="Bautismo 3">
+                        <a href="bautismo/IMG_6715 (1).webp" data-fancybox="gallery" data-caption="Bautismo 3">
+                            <img src="bautismo/IMG_6715 (1).webp" alt="Bautismo 3">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="bautismo">
-                        <img src="bautismo/IMG_6864.webp" alt="Bautismo 4">
+                        <a href="bautismo/IMG_6864.webp" data-fancybox="gallery" data-caption="Bautismo 4">
+                            <img src="bautismo/IMG_6864.webp" alt="Bautismo 4">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     
                     <!-- Cumpleaños -->
                     <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <img src="cumple/comple3.webp" alt="Cumpleaños 1">
+                        <a href="cumple/comple3.webp" data-fancybox="gallery" data-caption="Cumpleaños 1">
+                            <img src="cumple/comple3.webp" alt="Cumpleaños 1">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <img src="cumple/cumple1.webp" alt="Cumpleaños 2">
+                        <a href="cumple/cumple1.webp" data-fancybox="gallery" data-caption="Cumpleaños 2">
+                            <img src="cumple/cumple1.webp" alt="Cumpleaños 2">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <img src="cumple/cumple2.webp" alt="Cumpleaños 3">
+                        <a href="cumple/cumple2.webp" data-fancybox="gallery" data-caption="Cumpleaños 3">
+                            <img src="cumple/cumple2.webp" alt="Cumpleaños 3">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <img src="cumple/cumple4.webp" alt="Cumpleaños 4">
+                        <a href="cumple/cumple4.webp" data-fancybox="gallery" data-caption="Cumpleaños 4">
+                            <img src="cumple/cumple4.webp" alt="Cumpleaños 4">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <img src="cumple/cumple5.webp" alt="Cumpleaños 5">
+                        <a href="cumple/cumple5.webp" data-fancybox="gallery" data-caption="Cumpleaños 5">
+                            <img src="cumple/cumple5.webp" alt="Cumpleaños 5">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <img src="cumple/cumple6.webp" alt="Cumpleaños 6">
+                        <a href="cumple/cumple6.webp" data-fancybox="gallery" data-caption="Cumpleaños 6">
+                            <img src="cumple/cumple6.webp" alt="Cumpleaños 6">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     
                     <!-- Sesiones -->
                     <div class="swiper-slide carousel-item" data-category="sesion">
-                        <img src="sesion/sesion1.webp" alt="Sesión 1">
+                        <a href="sesion/sesion1.webp" data-fancybox="gallery" data-caption="Sesión 1">
+                            <img src="sesion/sesion1.webp" alt="Sesión 1">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="sesion">
-                        <img src="sesion/sesion2.webp" alt="Sesión 2">
+                        <a href="sesion/sesion2.webp" data-fancybox="gallery" data-caption="Sesión 2">
+                            <img src="sesion/sesion2.webp" alt="Sesión 2">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="sesion">
-                        <img src="sesion/sesion4.webp" alt="Sesión 3">
+                        <a href="sesion/sesion4.webp" data-fancybox="gallery" data-caption="Sesión 3">
+                            <img src="sesion/sesion4.webp" alt="Sesión 3">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="sesion">
-                        <img src="sesion/sesion5.webp" alt="Sesión 4">
+                        <a href="sesion/sesion5.webp" data-fancybox="gallery" data-caption="Sesión 4">
+                            <img src="sesion/sesion5.webp" alt="Sesión 4">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                     <div class="swiper-slide carousel-item" data-category="sesion">
-                        <img src="sesion/sesion7.webp" alt="Sesión 5">
+                        <a href="sesion/sesion7.webp" data-fancybox="gallery" data-caption="Sesión 5">
+                            <img src="sesion/sesion7.webp" alt="Sesión 5">
+                        </a>
                         <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
                     </div>
                 </div>
@@ -2005,19 +2055,15 @@
         <div class="section-bg-decoration bg-circle-2"></div>
         <div class="stats-container">
             <div class="stat-item">
-                <div class="stat-number" data-target="500">0</div>
-                <div class="stat-label">Eventos Fotografiados</div>
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">Eventos Fotográficos</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number" data-target="50000">0</div>
-                <div class="stat-label">Fotos Editadas</div>
+                <div class="stat-number" data-target="20000">0</div>
+                <div class="stat-label">Fotos editadas</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number" data-target="2000">0</div>
-                <div class="stat-label">Clientes Satisfechos</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="8">0</div>
+                <div class="stat-number" data-target="4">0</div>
                 <div class="stat-label">Años de Experiencia</div>
             </div>
         </div>
@@ -2034,7 +2080,14 @@
 
             <div class="contact-wrapper">
                 <div class="contact-form-section">
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" action="https://formsubmit.co/jhonadisenoyfotografia@gmail.com" method="POST">
+                        <!-- Honeypot to prevent spam -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <!-- Auto-reply email -->
+                        <input type="hidden" name="_autoresponse" value="Gracias por tu mensaje! En breve nos pondremos en contacto.">
+                        <!-- Redirect after submission -->
+                        <input type="hidden" name="_next" value="https://jhonafotografia.com/">
+                        
                         <div class="form-group">
                             <label for="nombre">Nombre completo *</label>
                             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
@@ -2129,43 +2182,41 @@
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question">
-                    <span>¿De dónde eres?</span>
+                    <span>¿De dónde sos? 📍</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Estoy ubicado en <strong>Encarnación, Itapúa, Paraguay</strong>. También realizo coberturas en ciudades cercanas, con un costo adicional por traslado según la ubicación.</p>
+                    <p>Soy de <strong>Encarnación, Paraguay</strong> y hago coberturas en toda la zona. Si estás lejos, no te preocupes, tengo costos especiales por traslado dependiendo de dónde sea tu evento.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    <span>¿En cuánto tiempo tendré mis fotos listas?</span>
+                    <span>¿En cuánto tiempo voy a recibir mis fotos? ⏱️</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p><strong>Adelanto digital:</strong> Listo al día siguiente de la boda o máximo 2 días<br>
-                    <strong>Fotos digitales completas:</strong> 30 días hábiles<br>
-                    <strong>Fotos impresas:</strong> 10 días hábiles después de tu elección</p>
+                    <p>Entre <strong>7 a 10 días</strong> tenés todas tus fotos editadas, listas para disfrutar. Te las paso en una galería online + pendrive, así las guardás seguro.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    <span>¿Cómo te reservamos?</span>
+                    <span>¿Cómo hago para reservar? 📅</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Todo lo que necesitas para asegurar tu fecha es una <strong>seña + contrato firmado</strong>. Contactame y te envío toda la información necesaria para proceder.</p>
+                    <p>Solo necesitás una <strong>seña</strong> + <strong>contrato firmado</strong>. Es súper simple, contactame por WhatsApp o email y te envío toda la info. Con eso ya está tu fecha asegurada.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    <span>¿Cuántas fotos recibiremos?</span>
+                    <span>¿Cuántas fotos vamos a recibir? 📸</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Depende de la cobertura y duración del evento. Normalmente, recibirás entre <strong>400 y 800 fotos</strong> editadas en alta resolución.</p>
+                    <p>Normalmente entre <strong>300 a 500 fotos</strong> editadas y en alta resolución, dependiendo de la duración de tu evento. Todas bonitas, todas tuyas.</p>
                 </div>
             </div>
         </div>
@@ -2225,6 +2276,9 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
     <script>
         // ====== PARALLAX EFFECT ======
         let ticking = false;
@@ -2244,50 +2298,7 @@
 
         // ====== LIGHTBOX ======
         let currentLightboxIndex = 0;
-        let lightboxImages = [];
-
-        function openLightbox(img) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImg = document.getElementById('lightboxImg');
-            
-            // Obtener todas las imágenes del Swiper actual
-            lightboxImages = Array.from(document.querySelectorAll('#gallerySwiperContainer .carousel-item img'));
-            
-            // Encontrar el índice de la imagen clickeada
-            currentLightboxIndex = lightboxImages.indexOf(img);
-            
-            lightboxImg.src = img.src;
-            lightbox.classList.add('active');
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('active');
-        }
-
-        function nextLightbox() {
-            currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length;
-            document.getElementById('lightboxImg').src = lightboxImages[currentLightboxIndex].src;
-        }
-
-        function prevLightbox() {
-            currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
-            document.getElementById('lightboxImg').src = lightboxImages[currentLightboxIndex].src;
-        }
-
-        // Cerrar lightbox al clickear fuera
-        document.getElementById('lightbox').addEventListener('click', (e) => {
-            if (e.target.id === 'lightbox') closeLightbox();
-        });
-
-        // Teclado para lightbox
-        document.addEventListener('keydown', (e) => {
-            if (document.getElementById('lightbox').classList.contains('active')) {
-                if (e.key === 'ArrowRight') nextLightbox();
-                if (e.key === 'ArrowLeft') prevLightbox();
-                if (e.key === 'Escape') closeLightbox();
-            }
-        });
+        // Lightbox functionality replaced with Fancybox - initialization happens automatically via data-fancybox attributes
 
         // ====== CONTADOR DE NÚMEROS ANIMADOS ======
         function animateNumbers() {
@@ -2431,9 +2442,6 @@
                         }
                     }
                 });
-
-                // Add lightbox listeners to visible slides
-                addLightboxListeners();
             }, 300);
         }
 
@@ -2501,18 +2509,6 @@
                     }
                 });
             }, 300);
-        }
-
-        // Add lightbox listeners
-        function addLightboxListeners() {
-            const visibleSlides = document.querySelectorAll('#gallerySwiperContainer .carousel-item img');
-            visibleSlides.forEach(img => {
-                if (!img.hasListener) {
-                    img.style.cursor = 'pointer';
-                    img.addEventListener('click', () => openLightbox(img));
-                    img.hasListener = true;
-                }
-            });
         }
 
         // Handle carousel tabs
@@ -2659,6 +2655,15 @@
 
         document.querySelectorAll('.package-card, .carousel-item, .carousel-tab, .faq-item').forEach(el => {
             observer.observe(el);
+        });
+
+        // Initialize Fancybox for gallery images
+        Fancybox.bind('[data-fancybox]', {
+            on: {
+                reveal: (fancybox, slide) => {
+                    // Fancybox is ready
+                }
+            }
         });
     </script>
 </body>
