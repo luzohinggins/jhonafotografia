@@ -484,6 +484,17 @@
             cursor: pointer;
             opacity: 0;
             animation: fadeInUp 0.6s ease forwards;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-item a {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .carousel-item img {
@@ -495,6 +506,10 @@
 
         .carousel-item:hover img {
             transform: scale(1.1) rotate(1deg);
+        }
+
+        .hidden-slide {
+            pointer-events: none;
         }
 
         /* Lightbox */
@@ -613,6 +628,7 @@
             justify-content: center;
             opacity: 0;
             transition: opacity 0.3s ease;
+            pointer-events: none;
         }
 
         .carousel-item:hover .carousel-item-overlay {
@@ -1632,25 +1648,45 @@
 
         .swiper-button-next,
         .swiper-button-prev {
-            color: var(--color-secondary);
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            color: white;
             background: rgba(237, 0, 18, 0.7);
             width: 50px;
             height: 50px;
             border-radius: 50%;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-50%);
+            cursor: pointer;
+            pointer-events: auto;
+            border: none;
+            outline: none;
+        }
+
+        .swiper-button-prev {
+            left: 10px;
+        }
+
+        .swiper-button-next {
+            right: 10px;
         }
 
         .swiper-button-next:hover,
         .swiper-button-prev:hover {
             background: var(--color-secondary);
             color: white;
-            transform: scale(1.1);
+            transform: translateY(-50%) scale(1.1);
         }
 
         .swiper-button-next::after,
         .swiper-button-prev::after {
             font-size: 1.2rem;
             font-weight: bold;
+            color: white;
         }
 
         .swiper-pagination-bullet {
@@ -2011,14 +2047,7 @@
 
             <div class="contact-wrapper">
                 <div class="contact-form-section">
-                    <form class="contact-form" id="contactForm" action="https://formsubmit.co/jhonadisenoyfotografia@gmail.com" method="POST">
-                        <!-- Honeypot to prevent spam -->
-                        <input type="hidden" name="_captcha" value="false">
-                        <!-- Auto-reply email -->
-                        <input type="hidden" name="_autoresponse" value="Gracias por tu mensaje! En breve nos pondremos en contacto.">
-                        <!-- Redirect after submission -->
-                        <input type="hidden" name="_next" value="https://jhonafotografia.com/">
-                        
+                    <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <label for="nombre">Nombre completo *</label>
                             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
@@ -2325,24 +2354,34 @@
                 gallerySwiperInstance.destroy(true, true);
             }
 
-            // Filter slides by category
+            // Filter slides by category using classes instead of display
             const allSlides = wrapper.querySelectorAll('.swiper-slide');
             let visibleCount = 0;
             allSlides.forEach(slide => {
                 if (slide.dataset.category === category) {
-                    slide.style.display = 'flex';
+                    slide.classList.remove('hidden-slide');
+                    slide.style.visibility = 'visible';
+                    slide.style.height = 'auto';
+                    slide.style.opacity = '1';
                     visibleCount++;
                 } else {
-                    slide.style.display = 'none';
+                    slide.classList.add('hidden-slide');
+                    slide.style.visibility = 'hidden';
+                    slide.style.height = '0';
+                    slide.style.opacity = '0';
                 }
             });
 
-            // Initialize Swiper after DOM update
+            // Reinitialize Swiper after DOM update with adequate delay
             setTimeout(() => {
+                if (gallerySwiperInstance) {
+                    gallerySwiperInstance.destroy(true, true);
+                }
+                
                 gallerySwiperInstance = new Swiper('#gallerySwiperContainer', {
                     slidesPerView: 4,
                     spaceBetween: 20,
-                    loop: visibleCount > 1,
+                    loop: true,
                     autoplay: {
                         delay: 5000,
                         disableOnInteraction: false,
@@ -2374,7 +2413,7 @@
                         }
                     }
                 });
-            }, 300);
+            }, 500);
         }
 
         // Initialize Packages Swiper
@@ -2521,8 +2560,29 @@
         }
 
         // ====== CONTACT FORM ======
-        // Form submission is now handled by FormSubmit.co
-        // No JavaScript event listener needed - FormSubmit handles the submission automatically
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            // Create WhatsApp message
+            const whatsappMessage = `Hola Isaac!\n\nNombre: ${nombre}\nWhatsApp: ${whatsapp}\nEmail: ${email}\n\nMensaje: ${mensaje}`;
+            const whatsappUrl = `https://wa.me/595982946365?text=${encodeURIComponent(whatsappMessage)}`;
+
+            // Show success message
+            alert('¡Gracias por tu mensaje! Te contactaré muy pronto. 📸');
+
+            // Redirect to WhatsApp
+            window.open(whatsappUrl, '_blank');
+
+            // Reset form
+            contactForm.reset();
+        });
 
         function scrollToContact() {
             document.getElementById('contacto').scrollIntoView({
