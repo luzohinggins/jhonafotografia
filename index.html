@@ -966,73 +966,6 @@
             line-height: 1.6;
         }
 
-        .contact-form {
-            background: #ffffff;
-            padding: 3.5rem;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-            border: 2px solid var(--color-secondary);
-            box-shadow: 0 4px 15px rgba(237, 0, 18, 0.2);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #2d2d2d;
-            font-size: 1rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            background-color: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            color: #333333;
-            font-family: var(--font-body);
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            background-color: #ffffff;
-            border-color: var(--color-secondary);
-            box-shadow: 0 0 8px rgba(237, 0, 18, 0.2);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 130px;
-        }
-
-        .form-submit {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            color: var(--color-light);
-            border: none;
-            border-radius: 8px;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-
-        .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(237, 0, 18, 0.35);
-        }
-
         .contact-info {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1094,39 +1027,40 @@
 
         .contact-form {
             background: #ffffff;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
             border: 2px solid var(--color-secondary);
             box-shadow: 0 8px 25px rgba(237, 0, 18, 0.12);
             flex: 1;
             display: flex;
             flex-direction: column;
-            overflow-y: auto;
+            overflow: hidden;
         }
 
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            flex-shrink: 0;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
             font-weight: 600;
             color: #2d2d2d;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.7rem;
+            padding: 0.8rem;
             background-color: #f9f9f9;
             border: 1px solid #e0e0e0;
             border-radius: 6px;
             color: #333333;
             font-family: var(--font-body);
             transition: all 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .form-group input:focus,
@@ -1139,22 +1073,24 @@
 
         .form-group textarea {
             resize: none;
-            min-height: 70px;
+            min-height: 80px;
+            flex-shrink: 0;
         }
 
         .form-submit {
             width: 100%;
-            padding: 0.8rem;
+            padding: 0.9rem;
             background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
             color: var(--color-light);
             border: none;
             border-radius: 8px;
             font-family: var(--font-body);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 0.3rem;
+            margin-top: 0.4rem;
+            flex-shrink: 0;
         }
 
         .form-submit:hover {
@@ -2589,38 +2525,8 @@
         }
 
         // ====== CONTACT FORM ======
-        const contactForm = document.getElementById('contactForm');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const nombre = document.getElementById('nombre').value;
-            const whatsapp = document.getElementById('whatsapp').value;
-            const email = document.getElementById('email').value;
-            const mensaje = document.getElementById('mensaje').value;
-
-            // Show loading
-            document.getElementById('loading').classList.add('show');
-
-            // Simulate form submission (you would send this to your server)
-            setTimeout(() => {
-                // Create WhatsApp message
-                const whatsappMessage = `Hola Isaac!\n\nNombre: ${nombre}\nWhatsApp: ${whatsapp}\nEmail: ${email}\n\nMensaje: ${mensaje}`;
-                const whatsappUrl = `https://wa.me/595982946365?text=${encodeURIComponent(whatsappMessage)}`;
-
-                // Hide loading
-                document.getElementById('loading').classList.remove('show');
-
-                // Show success message
-                alert('¡Gracias por tu mensaje! Te contactaré muy pronto. 📸');
-
-                // Redirect to WhatsApp or email
-                window.open(whatsappUrl, '_blank');
-
-                // Reset form
-                contactForm.reset();
-            }, 1500);
-        });
+        // Form submission is now handled by FormSubmit.co
+        // No JavaScript event listener needed - FormSubmit handles the submission automatically
 
         function scrollToContact() {
             document.getElementById('contacto').scrollIntoView({
@@ -2657,14 +2563,24 @@
             observer.observe(el);
         });
 
-        // Initialize Fancybox for gallery images
-        Fancybox.bind('[data-fancybox]', {
-            on: {
-                reveal: (fancybox, slide) => {
-                    // Fancybox is ready
-                }
+        // Initialize Fancybox for gallery images - with DOM ready check
+        function initFancybox() {
+            if (typeof Fancybox !== 'undefined') {
+                Fancybox.bind('[data-fancybox]', {
+                    on: {
+                        reveal: (fancybox, slide) => {
+                            // Fancybox is ready
+                        }
+                    }
+                });
             }
-        });
+        }
+        
+        // Initialize immediately since script is at bottom of document
+        initFancybox();
+        
+        // Also initialize on DOMContentLoaded as fallback
+        document.addEventListener('DOMContentLoaded', initFancybox);
     </script>
 </body>
 </html>
