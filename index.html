@@ -774,6 +774,10 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            height: 550px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .package-card.center {
@@ -1011,7 +1015,7 @@
             display: flex;
             gap: 2rem;
             align-items: stretch;
-            height: 480px;
+            height: 550px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -1079,7 +1083,7 @@
 
         .form-submit {
             width: 100%;
-            padding: 0.9rem;
+            padding: 1rem;
             background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
             color: var(--color-light);
             border: none;
@@ -1089,7 +1093,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 0.4rem;
+            margin-top: auto;
             flex-shrink: 0;
         }
 
@@ -1284,7 +1288,7 @@
         @media (max-width: 1024px) {
             .contact-wrapper {
                 gap: 1.5rem;
-                height: 400px;
+                height: 450px;
             }
 
             .contact-carousel {
@@ -1615,6 +1619,7 @@
 
         .gallery-swiper {
             padding: 2rem 0;
+            position: relative;
         }
 
         .gallery-swiper .swiper-slide {
@@ -1888,16 +1893,6 @@
         </div>
 
     </section>
-
-    <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox">
-        <div class="lightbox-content">
-            <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-            <img class="lightbox-img" id="lightboxImg" src="" alt="Foto ampliada">
-            <button class="lightbox-nav lightbox-prev" onclick="prevLightbox()">❮</button>
-            <button class="lightbox-nav lightbox-next" onclick="nextLightbox()">❯</button>
-        </div>
-    </div>
 
     <!-- Paquetes -->
     <section class="packages" id="paquetes">
