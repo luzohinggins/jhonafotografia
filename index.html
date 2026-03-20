@@ -504,7 +504,6 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -524,40 +523,42 @@
 
         .swiper-button-prev.gallery-prev,
         .swiper-button-next.gallery-next {
-            color: var(--color-primary);
-            background: rgba(255, 255, 255, 0.9);
-            width: 40px;
-            height: 40px;
+            background: rgba(237, 0, 18, 0.8) !important;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
+            width: 38px !important;
+            height: 38px !important;
+            display: flex !important;
             justify-content: center;
+            align-items: center;
+            cursor: pointer;
             transition: all 0.3s ease;
-            top: 50%;
-            transform: translateY(-50%);
             z-index: 10;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
         }
 
         .swiper-button-prev.gallery-prev {
-            left: 5px;
+            left: 10px !important;
             right: auto;
         }
 
         .swiper-button-next.gallery-next {
-            right: 5px;
+            right: 10px !important;
             left: auto;
-        }
-
-        .swiper-button-prev.gallery-prev:hover,
-        .swiper-button-next.gallery-next:hover {
-            background: var(--color-primary);
-            color: white;
-            transform: translateY(-50%) scale(1.1);
         }
 
         .swiper-button-prev.gallery-prev::after,
         .swiper-button-next.gallery-next::after {
-            font-size: 16px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .swiper-button-prev.gallery-prev:hover,
+        .swiper-button-next.gallery-next:hover {
+            background: var(--color-secondary) !important;
+            transform: translateY(-50%) scale(1.15) !important;
+            box-shadow: 0 6px 20px rgba(237, 0, 18, 0.5);
         }
 
         .swiper-pagination.gallery-pagination {
@@ -571,19 +572,20 @@
             justify-content: center;
         }
 
-        .swiper-pagination-bullet {
-            background: var(--color-primary);
-            opacity: 0.5;
-            width: 10px;
-            height: 10px;
-            margin: 0 5px;
+        .gallery-pagination .swiper-pagination-bullet {
+            background: rgba(237, 0, 18, 0.8) !important;
+            opacity: 1 !important;
+            width: 8px !important;
+            height: 8px !important;
+            margin: 0 4px !important;
             transition: all 0.3s ease;
+            border-radius: 50%;
         }
 
-        .swiper-pagination-bullet-active {
-            background: var(--color-primary);
-            opacity: 1;
-            width: 10px;
+        .gallery-pagination .swiper-pagination-bullet-active {
+            background: var(--color-secondary) !important;
+            opacity: 1 !important;
+            transform: scale(1.2);
         }
 
         @media (max-width: 1200px) {
@@ -609,13 +611,13 @@
 
             .swiper-button-prev.gallery-prev,
             .swiper-button-next.gallery-next {
-                width: 35px;
-                height: 35px;
+                width: 32px !important;
+                height: 32px !important;
             }
 
             .swiper-button-prev.gallery-prev::after,
             .swiper-button-next.gallery-next::after {
-                font-size: 14px;
+                font-size: 0.95rem;
             }
         }
 
@@ -627,19 +629,25 @@
 
             .swiper-button-prev.gallery-prev,
             .swiper-button-next.gallery-next {
-                width: 30px;
-                height: 30px;
+                width: 28px !important;
+                height: 28px !important;
             }
 
             .swiper-button-prev.gallery-prev::after,
             .swiper-button-next.gallery-next::after {
-                font-size: 12px;
+                font-size: 0.8rem;
             }
 
-            .swiper-pagination-bullet {
-                width: 8px;
-                height: 8px;
-                margin: 0 4px;
+            .gallery-pagination .swiper-pagination-bullet {
+                width: 7px !important;
+                height: 7px !important;
+                margin: 0 3px !important;
+            }
+
+            .packages-pagination .swiper-pagination-bullet {
+                width: 7px !important;
+                height: 7px !important;
+                margin: 0 3px !important;
             }
         }
 
@@ -789,43 +797,45 @@
 
         .swiper-button-prev.packages-prev,
         .swiper-button-next.packages-next {
-            color: var(--color-primary);
-            background: rgba(255, 255, 255, 0.9);
-            width: 40px;
-            height: 40px;
+            background: rgba(237, 0, 18, 0.8) !important;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
+            width: 38px !important;
+            height: 38px !important;
+            display: flex !important;
             justify-content: center;
+            align-items: center;
+            cursor: pointer;
             transition: all 0.3s ease;
-            top: 50%;
-            transform: translateY(-50%);
             z-index: 10;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
         }
 
         .swiper-button-prev.packages-prev {
-            left: 5px;
+            left: 10px !important;
             right: auto;
         }
 
         .swiper-button-next.packages-next {
-            right: 5px;
+            right: 10px !important;
             left: auto;
-        }
-
-        .swiper-button-prev.packages-prev:hover,
-        .swiper-button-next.packages-next:hover {
-            background: var(--color-primary);
-            color: white;
-            transform: translateY(-50%) scale(1.1);
         }
 
         .swiper-button-prev.packages-prev::after,
         .swiper-button-next.packages-next::after {
-            font-size: 16px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: white;
         }
 
-        .swiper-pagination.packages-pagination {
+        .swiper-button-prev.packages-prev:hover,
+        .swiper-button-next.packages-next:hover {
+            background: var(--color-secondary) !important;
+            transform: translateY(-50%) scale(1.15) !important;
+            box-shadow: 0 6px 20px rgba(237, 0, 18, 0.5);
+        }
+
+                .swiper-pagination.packages-pagination {
             bottom: 10px !important;
             top: auto;
             position: absolute;
@@ -836,19 +846,20 @@
             justify-content: center;
         }
 
-        .packages-swiper .swiper-pagination-bullet {
-            background: var(--color-primary);
-            opacity: 0.5;
-            width: 10px;
-            height: 10px;
-            margin: 0 5px;
+        .packages-pagination .swiper-pagination-bullet {
+            background: rgba(237, 0, 18, 0.8) !important;
+            opacity: 1 !important;
+            width: 8px !important;
+            height: 8px !important;
+            margin: 0 4px !important;
             transition: all 0.3s ease;
+            border-radius: 50%;
         }
 
-        .packages-swiper .swiper-pagination-bullet-active {
-            background: var(--color-primary);
-            opacity: 1;
-            width: 10px;
+        .packages-pagination .swiper-pagination-bullet-active {
+            background: var(--color-secondary) !important;
+            opacity: 1 !important;
+            transform: scale(1.2);
         }
 
         .package-card {
