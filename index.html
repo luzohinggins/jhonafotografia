@@ -487,17 +487,17 @@
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 0 90px 0 !important;
+            padding: 40px 0 50px 0 !important;
             position: relative;
         }
 
         .swiper-wrapper {
-            padding: 0 20px;
+            padding: 0 60px;
         }
 
         .gallery-item {
             width: 280px;
-            height: 280px;
+            height: 187px;
             border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
@@ -525,25 +525,25 @@
         .swiper-button-next.gallery-next {
             color: var(--color-primary);
             background: rgba(255, 255, 255, 0.9);
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            top: auto;
-            bottom: -65px;
-            margin-top: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
         }
 
         .swiper-button-prev.gallery-prev {
-            left: auto;
-            right: 70px;
+            left: 5px;
+            right: auto;
         }
 
         .swiper-button-next.gallery-next {
-            right: 10px;
+            right: 5px;
             left: auto;
         }
 
@@ -551,40 +551,48 @@
         .swiper-button-next.gallery-next:hover {
             background: var(--color-primary);
             color: white;
-            transform: scale(1.1);
+            transform: translateY(-50%) scale(1.1);
         }
 
         .swiper-button-prev.gallery-prev::after,
         .swiper-button-next.gallery-next::after {
-            font-size: 20px;
+            font-size: 16px;
         }
 
         .swiper-pagination.gallery-pagination {
-            bottom: -40px !important;
+            bottom: 10px !important;
             top: auto;
             position: absolute;
             left: 0;
+            right: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .swiper-pagination-bullet {
             background: var(--color-primary);
             opacity: 0.5;
-            width: 12px;
-            height: 12px;
-            margin: 0 6px;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
             transition: all 0.3s ease;
         }
 
         .swiper-pagination-bullet-active {
             background: var(--color-primary);
             opacity: 1;
-            width: 12px;
+            width: 10px;
         }
 
         @media (max-width: 1200px) {
             .gallery-item {
                 width: 240px;
-                height: 240px;
+                height: 160px;
+            }
+
+            .swiper-wrapper {
+                padding: 0 50px;
             }
         }
 
@@ -599,7 +607,11 @@
 
             .gallery-item {
                 width: 200px;
-                height: 200px;
+                height: 133px;
+            }
+
+            .swiper-wrapper {
+                padding: 0 40px;
             }
 
             .swiper-button-prev.gallery-prev,
@@ -610,30 +622,41 @@
 
             .swiper-button-prev.gallery-prev::after,
             .swiper-button-next.gallery-next::after {
-                font-size: 16px;
+                font-size: 14px;
             }
         }
 
         @media (max-width: 480px) {
             .gallery-item {
                 width: 160px;
-                height: 160px;
+                height: 107px;
+            }
+
+            .swiper-wrapper {
+                padding: 0 30px;
             }
 
             .swiper-button-prev.gallery-prev,
             .swiper-button-next.gallery-next {
                 width: 30px;
                 height: 30px;
-                bottom: -55px;
             }
 
-            .swiper-button-prev.gallery-prev {
-                right: 60px;
+            .swiper-button-prev.gallery-prev::after,
+            .swiper-button-next.gallery-next::after {
+                font-size: 12px;
             }
 
-            .swiper-button-next.gallery-next {
-                right: 5px;
+            .swiper-pagination-bullet {
+                width: 8px;
+                height: 8px;
+                margin: 0 4px;
             }
+        }
+
+        /* ============= FANCYBOX CUSTOMIZATION ============= */
+        .fancybox__caption {
+            display: none !important;
         }
 
         /* ============= PREGUNTAS FRECUENTES ============= */
@@ -779,25 +802,25 @@
         .swiper-button-next.packages-next {
             color: var(--color-primary);
             background: rgba(255, 255, 255, 0.9);
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            top: auto;
-            bottom: -65px;
-            margin-top: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
         }
 
         .swiper-button-prev.packages-prev {
-            left: auto;
-            right: 70px;
+            left: 5px;
+            right: auto;
         }
 
         .swiper-button-next.packages-next {
-            right: 10px;
+            right: 5px;
             left: auto;
         }
 
@@ -805,34 +828,38 @@
         .swiper-button-next.packages-next:hover {
             background: var(--color-primary);
             color: white;
-            transform: scale(1.1);
+            transform: translateY(-50%) scale(1.1);
         }
 
         .swiper-button-prev.packages-prev::after,
         .swiper-button-next.packages-next::after {
-            font-size: 20px;
+            font-size: 16px;
         }
 
         .swiper-pagination.packages-pagination {
-            bottom: -40px !important;
+            bottom: 10px !important;
             top: auto;
             position: absolute;
             left: 0;
+            right: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .packages-swiper .swiper-pagination-bullet {
             background: var(--color-primary);
             opacity: 0.5;
-            width: 12px;
-            height: 12px;
-            margin: 0 6px;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
             transition: all 0.3s ease;
         }
 
         .packages-swiper .swiper-pagination-bullet-active {
             background: var(--color-primary);
             opacity: 1;
-            width: 12px;
+            width: 10px;
         }
 
         .package-card {
@@ -2422,7 +2449,17 @@
 
             // Reinitialize Fancybox for new images
             if (typeof Fancybox !== 'undefined') {
-                Fancybox.bind('[data-fancybox]', {});
+                Fancybox.bind('[data-fancybox]', {
+                    on: {
+                        reveal: (fancybox, slide) => {
+                            // Hide captions
+                            const caption = slide.$content?.querySelector('.fancybox__caption');
+                            if (caption) {
+                                caption.style.display = 'none';
+                            }
+                        }
+                    }
+                });
             }
         }
 
@@ -2445,7 +2482,17 @@
                     // Re-attach event listeners
                     setTimeout(() => {
                         if (typeof Fancybox !== 'undefined') {
-                            Fancybox.bind('[data-fancybox]', {});
+                            Fancybox.bind('[data-fancybox]', {
+                                on: {
+                                    reveal: (fancybox, slide) => {
+                                        // Hide captions
+                                        const caption = slide.$content?.querySelector('.fancybox__caption');
+                                        if (caption) {
+                                            caption.style.display = 'none';
+                                        }
+                                    }
+                                }
+                            });
                         }
                     }, 50);
                 });
@@ -2688,7 +2735,11 @@
                 Fancybox.bind('[data-fancybox]', {
                     on: {
                         reveal: (fancybox, slide) => {
-                            // Fancybox is ready
+                            // Hide captions
+                            const caption = slide.$content?.querySelector('.fancybox__caption');
+                            if (caption) {
+                                caption.style.display = 'none';
+                            }
                         }
                     }
                 });
