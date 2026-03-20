@@ -348,7 +348,7 @@
             border-radius: 10px;
             cursor: pointer;
             width: 100%;
-            aspect-ratio: 3/4;
+            aspect-ratio: 9/11;
         }
 
         .about-image {
@@ -357,7 +357,7 @@
             object-fit: cover;
             display: block;
             border-radius: 10px;
-            transition: opacity 0.4s ease;
+            transition: opacity 0.3s ease;
         }
 
         .about-image-overlay {
@@ -2381,19 +2381,23 @@
             img2.src = hoverSrc;
             
             container.addEventListener('mouseenter', () => {
-                image.style.opacity = '0';
-                setTimeout(() => {
-                    image.src = hoverSrc;
-                    image.style.opacity = '1';
-                }, 150);
+                image.src = hoverSrc;
+                requestAnimationFrame(() => {
+                    image.style.opacity = '0';
+                    requestAnimationFrame(() => {
+                        image.style.opacity = '1';
+                    });
+                });
             });
             
             container.addEventListener('mouseleave', () => {
-                image.style.opacity = '0';
-                setTimeout(() => {
-                    image.src = originalSrc;
-                    image.style.opacity = '1';
-                }, 150);
+                image.src = originalSrc;
+                requestAnimationFrame(() => {
+                    image.style.opacity = '0';
+                    requestAnimationFrame(() => {
+                        image.style.opacity = '1';
+                    });
+                });
             });
         }
         
