@@ -482,79 +482,109 @@
         }
 
         /* Gallery Grid */
-        .gallery-grid-wrapper {
+        /* Gallery Carousel Styles */
+        .gallery-swiper {
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
+            padding: 40px 0 90px 0 !important;
+            position: relative;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            width: 100%;
+        .swiper-wrapper {
+            padding: 0 20px;
         }
 
         .gallery-item {
-            position: relative;
+            width: 280px;
+            height: 280px;
+            border-radius: 12px;
             overflow: hidden;
-            border-radius: 10px;
-            aspect-ratio: 1 / 1;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .gallery-item a {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+        .gallery-item:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(170, 0, 17, 0.4);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-item-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+        .swiper-button-prev.gallery-prev,
+        .swiper-button-next.gallery-next {
+            color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.9);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
+            transition: all 0.3s ease;
+            top: auto;
+            bottom: -65px;
+            margin-top: 0;
         }
 
-        .gallery-item:hover .gallery-item-overlay {
+        .swiper-button-prev.gallery-prev {
+            left: auto;
+            right: 70px;
+        }
+
+        .swiper-button-next.gallery-next {
+            right: 10px;
+            left: auto;
+        }
+
+        .swiper-button-prev.gallery-prev:hover,
+        .swiper-button-next.gallery-next:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .swiper-button-prev.gallery-prev::after,
+        .swiper-button-next.gallery-next::after {
+            font-size: 20px;
+        }
+
+        .swiper-pagination.gallery-pagination {
+            bottom: -40px !important;
+            top: auto;
+            position: absolute;
+            left: 0;
+        }
+
+        .swiper-pagination-bullet {
+            background: var(--color-primary);
+            opacity: 0.5;
+            width: 12px;
+            height: 12px;
+            margin: 0 6px;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--color-primary);
             opacity: 1;
-        }
-
-        .gallery-item-overlay i {
-            font-size: 3rem;
-            color: var(--color-secondary);
+            width: 12px;
         }
 
         @media (max-width: 1200px) {
-            .gallery-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1.2rem;
+            .gallery-item {
+                width: 240px;
+                height: 240px;
             }
         }
 
@@ -567,16 +597,42 @@
                 font-size: 2rem;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+            .gallery-item {
+                width: 200px;
+                height: 200px;
+            }
+
+            .swiper-button-prev.gallery-prev,
+            .swiper-button-next.gallery-next {
+                width: 35px;
+                height: 35px;
+            }
+
+            .swiper-button-prev.gallery-prev::after,
+            .swiper-button-next.gallery-next::after {
+                font-size: 16px;
             }
         }
 
         @media (max-width: 480px) {
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
+            .gallery-item {
+                width: 160px;
+                height: 160px;
+            }
+
+            .swiper-button-prev.gallery-prev,
+            .swiper-button-next.gallery-next {
+                width: 30px;
+                height: 30px;
+                bottom: -55px;
+            }
+
+            .swiper-button-prev.gallery-prev {
+                right: 60px;
+            }
+
+            .swiper-button-next.gallery-next {
+                right: 5px;
             }
         }
 
@@ -675,44 +731,108 @@
         }
 
         .packages-swiper {
-            display: none;
+            display: block;
+            padding: 40px 0 !important;
+            position: relative;
         }
 
-        /* Desktop: Grid layout */
-        @media (min-width: 769px) {
+        /* Desktop: Swiper with 4 items visible */
+        @media (min-width: 1200px) {
+            .packages-swiper {
+                padding: 40px 0 90px 0 !important;
+            }
+
             .packages-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-                max-width: 1400px;
-                margin: 0 auto;
-                padding: 0 1rem;
-            }
-
-            .packages-grid .package-card {
-                min-height: auto;
-            }
-
-            .swiper.packages-swiper {
                 display: none;
             }
         }
 
-        /* Mobile: Swiper carousel (1 por 1) */
+        /* Tablet: Swiper with 3 items */
+        @media (min-width: 769px) and (max-width: 1199px) {
+            .packages-swiper {
+                padding: 40px 0 90px 0 !important;
+            }
+
+            .packages-grid {
+                display: none;
+            }
+        }
+
+        /* Mobile: Swiper with 1 item */
         @media (max-width: 768px) {
-            .packages-grid {
-                display: none;
-            }
-
             .packages-swiper {
                 display: block;
-                padding: 3rem 0;
+                padding: 40px 0 85px 0 !important;
+            }
+
+            .packages-grid {
+                display: none;
             }
 
             .package-card {
                 min-height: auto;
                 padding: 1.5rem;
             }
+        }
+
+        .swiper-button-prev.packages-prev,
+        .swiper-button-next.packages-next {
+            color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.9);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            top: auto;
+            bottom: -65px;
+            margin-top: 0;
+        }
+
+        .swiper-button-prev.packages-prev {
+            left: auto;
+            right: 70px;
+        }
+
+        .swiper-button-next.packages-next {
+            right: 10px;
+            left: auto;
+        }
+
+        .swiper-button-prev.packages-prev:hover,
+        .swiper-button-next.packages-next:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .swiper-button-prev.packages-prev::after,
+        .swiper-button-next.packages-next::after {
+            font-size: 20px;
+        }
+
+        .swiper-pagination.packages-pagination {
+            bottom: -40px !important;
+            top: auto;
+            position: absolute;
+            left: 0;
+        }
+
+        .packages-swiper .swiper-pagination-bullet {
+            background: var(--color-primary);
+            opacity: 0.5;
+            width: 12px;
+            height: 12px;
+            margin: 0 6px;
+            transition: all 0.3s ease;
+        }
+
+        .packages-swiper .swiper-pagination-bullet-active {
+            background: var(--color-primary);
+            opacity: 1;
+            width: 12px;
         }
 
         .package-card {
@@ -1689,11 +1809,14 @@
                 <button class="carousel-tab" data-tab="sesion">Sesiones</button>
             </div>
 
-            <!-- Gallery Grid -->
-            <div class="gallery-grid-wrapper" id="galleryGridWrapper">
-                <div class="gallery-grid" id="galleryGrid">
+            <!-- Gallery Swiper Carousel -->
+            <div class="swiper gallery-swiper" id="gallerySwiperContainer">
+                <div class="swiper-wrapper" id="galleryWrapper">
                     <!-- Images will be inserted here by JavaScript -->
                 </div>
+                <div class="swiper-button-prev gallery-prev"></div>
+                <div class="swiper-button-next gallery-next"></div>
+                <div class="swiper-pagination gallery-pagination"></div>
             </div>
 
             <!-- Hidden data container with all images -->
@@ -1880,9 +2003,9 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev packages-prev"></div>
+            <div class="swiper-button-next packages-next"></div>
+            <div class="swiper-pagination packages-pagination"></div>
         </div>
     </section>
 
@@ -2228,22 +2351,73 @@
         }
 
         // Render gallery grid
-        function renderGalleryGrid() {
-            const galleryGrid = document.getElementById('galleryGrid');
-            galleryGrid.innerHTML = '';
+        let gallerySwiperInstance = null;
+
+        function renderGalleryCarousel() {
+            const galleryWrapper = document.getElementById('galleryWrapper');
+            galleryWrapper.innerHTML = '';
 
             filteredImages.forEach((img) => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'gallery-item';
+                const slideDiv = document.createElement('div');
+                slideDiv.className = 'swiper-slide';
                 
-                itemDiv.innerHTML = `
-                    <a href="${img.image}" data-fancybox="gallery" data-caption="${img.caption}">
-                        <img src="${img.image}" alt="${img.caption}">
-                    </a>
-                    <div class="gallery-item-overlay"><i class="fas fa-heart"></i></div>
+                slideDiv.innerHTML = `
+                    <div class="gallery-item">
+                        <a href="${img.image}" data-fancybox="gallery" data-caption="${img.caption}">
+                            <img src="${img.image}" alt="${img.caption}">
+                        </a>
+                    </div>
                 `;
                 
-                galleryGrid.appendChild(itemDiv);
+                galleryWrapper.appendChild(slideDiv);
+            });
+
+            // Destroy old instance if exists
+            if (gallerySwiperInstance) {
+                gallerySwiperInstance.destroy();
+            }
+
+            // Initialize Swiper carousel with 4 items visible
+            gallerySwiperInstance = new Swiper('.gallery-swiper', {
+                slidesPerView: 4,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                navigation: {
+                    prevEl: '.gallery-prev',
+                    nextEl: '.gallery-next',
+                },
+                pagination: {
+                    el: '.gallery-pagination',
+                    clickable: true,
+                    dynamicBullets: false,
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 15,
+                    },
+                    480: {
+                        slidesPerView: 1,
+                        spaceBetween: 15,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 15,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1200: {
+                        slidesPerView: 4,
+                        spaceBetween: 20,
+                    }
+                }
             });
 
             // Reinitialize Fancybox for new images
@@ -2266,7 +2440,7 @@
                     // Filter and render gallery
                     currentCategory = tabName;
                     filterImagesByCategory(tabName);
-                    renderGalleryGrid();
+                    renderGalleryCarousel();
                     
                     // Re-attach event listeners
                     setTimeout(() => {
@@ -2278,34 +2452,59 @@
             });
         }
 
-        // ====== PACKAGES SWIPER (Mobile Only) ======
+        // ====== PACKAGES CAROUSEL ======
         let packagesSwiperInstance = null;
         let contactCarouselInstance = null;
 
         function initPackagesSwiper() {
-            // Only initialize Swiper on mobile devices
-            if (window.innerWidth <= 768) {
-                if (packagesSwiperInstance) {
-                    packagesSwiperInstance.destroy(true, true);
-                }
-
-                setTimeout(() => {
-                    packagesSwiperInstance = new Swiper('#packagesSwiperContainer', {
-                        slidesPerView: 1,
-                        spaceBetween: 20,
-                        loop: false,
-                        centeredSlides: false,
-                        navigation: {
-                            nextEl: '#packagesSwiperContainer .swiper-button-next',
-                            prevEl: '#packagesSwiperContainer .swiper-button-prev',
-                        },
-                        pagination: {
-                            el: '#packagesSwiperContainer .swiper-pagination',
-                            clickable: true,
-                        }
-                    });
-                }, 100);
+            if (packagesSwiperInstance) {
+                packagesSwiperInstance.destroy(true, true);
             }
+
+            setTimeout(() => {
+                packagesSwiperInstance = new Swiper('#packagesSwiperContainer', {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                    loop: true,
+                    centeredSlides: false,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true
+                    },
+                    navigation: {
+                        nextEl: '#packagesSwiperContainer .swiper-button-next',
+                        prevEl: '#packagesSwiperContainer .swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '#packagesSwiperContainer .swiper-pagination',
+                        clickable: true,
+                        dynamicBullets: false,
+                    },
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 15,
+                        },
+                        480: {
+                            slidesPerView: 1,
+                            spaceBetween: 15,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 15,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 20,
+                        },
+                        1200: {
+                            slidesPerView: 4,
+                            spaceBetween: 20,
+                        }
+                    }
+                });
+            }, 100);
         }
 
         // Handle window resize for responsive packages
@@ -2313,11 +2512,8 @@
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                if (window.innerWidth <= 768 && !packagesSwiperInstance) {
-                    initPackagesSwiper();
-                } else if (window.innerWidth > 768 && packagesSwiperInstance) {
-                    packagesSwiperInstance.destroy(true, true);
-                    packagesSwiperInstance = null;
+                if (packagesSwiperInstance) {
+                    packagesSwiperInstance.update();
                 }
             }, 250);
         });
@@ -2358,7 +2554,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadGalleryData();
             filterImagesByCategory('quince');
-            renderGalleryGrid();
+            renderGalleryCarousel();
             initCarouselEventListeners();
             initPackagesSwiper();
             initContactCarousel();
@@ -2369,7 +2565,7 @@
             document.addEventListener('DOMContentLoaded', () => {
                 loadGalleryData();
                 filterImagesByCategory('quince');
-                renderGalleryGrid();
+                renderGalleryCarousel();
                 initCarouselEventListeners();
                 initPackagesSwiper();
                 initContactCarousel();
@@ -2377,7 +2573,7 @@
         } else {
             loadGalleryData();
             filterImagesByCategory('quince');
-            renderGalleryGrid();
+            renderGalleryCarousel();
             initCarouselEventListeners();
             initPackagesSwiper();
             initContactCarousel();
