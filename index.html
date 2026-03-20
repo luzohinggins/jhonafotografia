@@ -470,17 +470,38 @@
             background-color: rgba(237, 0, 18, 0.3);
         }
 
-        .carousel-item {
+        /* Gallery Carousel */
+        .gallery-carousel-wrapper {
             position: relative;
-            overflow: hidden;
-            border-radius: 10px;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .carousel-content {
+            position: relative;
+            width: 100%;
             height: 400px;
-            cursor: pointer;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .carousel-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
+            transition: opacity 0.6s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
         }
 
         .carousel-item a {
@@ -489,32 +510,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            cursor: pointer;
         }
 
         .carousel-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            object-fit: contain;
+            background: #000;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .carousel-item:hover img {
-            transform: scale(1.1) rotate(1deg);
-        }
-
-        .hidden-slide {
-            pointer-events: none;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            transform: scale(1.08);
         }
 
         .carousel-item-overlay {
@@ -523,7 +532,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -539,6 +548,137 @@
         .carousel-item-overlay i {
             font-size: 3rem;
             color: var(--color-secondary);
+        }
+
+        /* Navigation Buttons */
+        .carousel-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(237, 0, 18, 0.9);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-nav-button:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav-button:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .carousel-prev {
+            left: -60px;
+        }
+
+        .carousel-next {
+            right: -60px;
+        }
+
+        /* Pagination Dots */
+        .carousel-dots-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.5rem 1.5rem;
+            background: rgba(237, 0, 18, 0.1);
+            border-radius: 30px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(237, 0, 18, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(237, 0, 18, 0.7);
+            transform: scale(1.1);
+        }
+
+        .carousel-dot.active {
+            background: var(--color-secondary);
+            width: 14px;
+            height: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-section {
+                padding: 2rem 1rem;
+            }
+
+            .carousel-section h2 {
+                font-size: 2rem;
+            }
+
+            .carousel-tabs {
+                gap: 0.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .carousel-tab {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .carousel-content {
+                height: 300px;
+                margin: 0 40px;
+            }
+
+            .carousel-prev {
+                left: 5px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-next {
+                right: 5px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .carousel-item img {
+                object-fit: cover;
+            }
+
+            .carousel-dots {
+                gap: 0.6rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .carousel-dot.active {
+                width: 12px;
+                height: 12px;
+            }
         }
 
         /* ============= PREGUNTAS FRECUENTES ============= */
@@ -1655,140 +1795,55 @@
                 <button class="carousel-tab" data-tab="sesion">Sesiones</button>
             </div>
 
-            <!-- Gallery Swiper -->
-            <div class="swiper gallery-swiper" id="gallerySwiperContainer">
-                <div class="swiper-wrapper" id="galleryWrapper">
-                    <!-- Quince -->
-                    <div class="swiper-slide carousel-item" data-category="quince">
-                        <a href="quince/IMG_0774 (1) (1).webp" data-fancybox="gallery" data-caption="Quince 1">
-                            <img src="quince/IMG_0774 (1) (1).webp" alt="Quince 1">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="quince">
-                        <a href="quince/IMG_0785 (1).webp" data-fancybox="gallery" data-caption="Quince 2">
-                            <img src="quince/IMG_0785 (1).webp" alt="Quince 2">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="quince">
-                        <a href="quince/IMG_1199 (1) (1).webp" data-fancybox="gallery" data-caption="Quince 3">
-                            <img src="quince/IMG_1199 (1) (1).webp" alt="Quince 3">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="quince">
-                        <a href="quince/quince1.webp" data-fancybox="gallery" data-caption="Quince 4">
-                            <img src="quince/quince1.webp" alt="Quince 4">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="quince">
-                        <a href="quince/quince2.webp" data-fancybox="gallery" data-caption="Quince 5">
-                            <img src="quince/quince2.webp" alt="Quince 5">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    
-                    <!-- Bautismo -->
-                    <div class="swiper-slide carousel-item" data-category="bautismo">
-                        <a href="bautismo/IMG_3371.webp" data-fancybox="gallery" data-caption="Bautismo 1">
-                            <img src="bautismo/IMG_3371.webp" alt="Bautismo 1">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="bautismo">
-                        <a href="bautismo/IMG_6697.webp" data-fancybox="gallery" data-caption="Bautismo 2">
-                            <img src="bautismo/IMG_6697.webp" alt="Bautismo 2">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="bautismo">
-                        <a href="bautismo/IMG_6715 (1).webp" data-fancybox="gallery" data-caption="Bautismo 3">
-                            <img src="bautismo/IMG_6715 (1).webp" alt="Bautismo 3">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="bautismo">
-                        <a href="bautismo/IMG_6864.webp" data-fancybox="gallery" data-caption="Bautismo 4">
-                            <img src="bautismo/IMG_6864.webp" alt="Bautismo 4">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    
-                    <!-- Cumpleaños -->
-                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <a href="cumple/comple3.webp" data-fancybox="gallery" data-caption="Cumpleaños 1">
-                            <img src="cumple/comple3.webp" alt="Cumpleaños 1">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <a href="cumple/cumple1.webp" data-fancybox="gallery" data-caption="Cumpleaños 2">
-                            <img src="cumple/cumple1.webp" alt="Cumpleaños 2">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <a href="cumple/cumple2.webp" data-fancybox="gallery" data-caption="Cumpleaños 3">
-                            <img src="cumple/cumple2.webp" alt="Cumpleaños 3">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <a href="cumple/cumple4.webp" data-fancybox="gallery" data-caption="Cumpleaños 4">
-                            <img src="cumple/cumple4.webp" alt="Cumpleaños 4">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <a href="cumple/cumple5.webp" data-fancybox="gallery" data-caption="Cumpleaños 5">
-                            <img src="cumple/cumple5.webp" alt="Cumpleaños 5">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="cumpleanos">
-                        <a href="cumple/cumple6.webp" data-fancybox="gallery" data-caption="Cumpleaños 6">
-                            <img src="cumple/cumple6.webp" alt="Cumpleaños 6">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    
-                    <!-- Sesiones -->
-                    <div class="swiper-slide carousel-item" data-category="sesion">
-                        <a href="sesion/sesion1.webp" data-fancybox="gallery" data-caption="Sesión 1">
-                            <img src="sesion/sesion1.webp" alt="Sesión 1">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="sesion">
-                        <a href="sesion/sesion2.webp" data-fancybox="gallery" data-caption="Sesión 2">
-                            <img src="sesion/sesion2.webp" alt="Sesión 2">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="sesion">
-                        <a href="sesion/sesion4.webp" data-fancybox="gallery" data-caption="Sesión 3">
-                            <img src="sesion/sesion4.webp" alt="Sesión 3">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="sesion">
-                        <a href="sesion/sesion5.webp" data-fancybox="gallery" data-caption="Sesión 4">
-                            <img src="sesion/sesion5.webp" alt="Sesión 4">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
-                    <div class="swiper-slide carousel-item" data-category="sesion">
-                        <a href="sesion/sesion7.webp" data-fancybox="gallery" data-caption="Sesión 5">
-                            <img src="sesion/sesion7.webp" alt="Sesión 5">
-                        </a>
-                        <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
-                    </div>
+            <!-- Custom Gallery Carousel -->
+            <div class="gallery-carousel-wrapper" id="galleryCarouselWrapper">
+                <div class="carousel-content" id="carouselContent">
+                    <!-- Images will be inserted here by JavaScript -->
                 </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
+
+                <!-- Navigation Buttons -->
+                <button class="carousel-nav-button carousel-prev" id="carouselPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-button carousel-next" id="carouselNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Pagination Dots -->
+                <div class="carousel-dots-wrapper">
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+            </div>
+
+            <!-- Hidden data container with all images -->
+            <div id="galleryData" style="display: none;">
+                <!-- Quince -->
+                <div data-category="quince" data-image="quince/IMG_0774 (1) (1).webp" data-caption="Quince 1"></div>
+                <div data-category="quince" data-image="quince/IMG_0785 (1).webp" data-caption="Quince 2"></div>
+                <div data-category="quince" data-image="quince/IMG_1199 (1) (1).webp" data-caption="Quince 3"></div>
+                <div data-category="quince" data-image="quince/quince1.webp" data-caption="Quince 4"></div>
+                <div data-category="quince" data-image="quince/quince2.webp" data-caption="Quince 5"></div>
+                
+                <!-- Bautismo -->
+                <div data-category="bautismo" data-image="bautismo/IMG_3371.webp" data-caption="Bautismo 1"></div>
+                <div data-category="bautismo" data-image="bautismo/IMG_6697.webp" data-caption="Bautismo 2"></div>
+                <div data-category="bautismo" data-image="bautismo/IMG_6715 (1).webp" data-caption="Bautismo 3"></div>
+                <div data-category="bautismo" data-image="bautismo/IMG_6864.webp" data-caption="Bautismo 4"></div>
+                
+                <!-- Cumpleaños -->
+                <div data-category="cumpleanos" data-image="cumple/comple3.webp" data-caption="Cumpleaños 1"></div>
+                <div data-category="cumpleanos" data-image="cumple/cumple1.webp" data-caption="Cumpleaños 2"></div>
+                <div data-category="cumpleanos" data-image="cumple/cumple2.webp" data-caption="Cumpleaños 3"></div>
+                <div data-category="cumpleanos" data-image="cumple/cumple4.webp" data-caption="Cumpleaños 4"></div>
+                <div data-category="cumpleanos" data-image="cumple/cumple5.webp" data-caption="Cumpleaños 5"></div>
+                <div data-category="cumpleanos" data-image="cumple/cumple6.webp" data-caption="Cumpleaños 6"></div>
+                
+                <!-- Sesiones -->
+                <div data-category="sesion" data-image="sesion/sesion1.webp" data-caption="Sesión 1"></div>
+                <div data-category="sesion" data-image="sesion/sesion2.webp" data-caption="Sesión 2"></div>
+                <div data-category="sesion" data-image="sesion/sesion4.webp" data-caption="Sesión 3"></div>
+                <div data-category="sesion" data-image="sesion/sesion5.webp" data-caption="Sesión 4"></div>
+                <div data-category="sesion" data-image="sesion/sesion7.webp" data-caption="Sesión 5"></div>
             </div>
         </div>
 
@@ -2199,83 +2254,146 @@
             }
         });
 
-        // ====== CAROUSEL FUNCTIONALITY ======
-        let gallerySwiperInstance = null;
+        // ====== CUSTOM GALLERY CAROUSEL ======
+        let currentSlideIndex = 0;
+        let currentCategory = 'quince';
+        let allImages = [];
+        let filteredImages = [];
+
+        // Initialize gallery data from hidden container
+        function loadGalleryData() {
+            const galleryData = document.getElementById('galleryData');
+            const items = galleryData.querySelectorAll('[data-category]');
+            
+            allImages = Array.from(items).map(item => ({
+                category: item.getAttribute('data-category'),
+                image: item.getAttribute('data-image'),
+                caption: item.getAttribute('data-caption')
+            }));
+        }
+
+        // Filter images by category
+        function filterImagesByCategory(category) {
+            filteredImages = allImages.filter(img => img.category === category);
+            currentSlideIndex = 0;
+        }
+
+        // Render carousel slides
+        function renderCarousel() {
+            const carouselContent = document.getElementById('carouselContent');
+            carouselContent.innerHTML = '';
+
+            filteredImages.forEach((img, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+                
+                itemDiv.innerHTML = `
+                    <a href="${img.image}" data-fancybox="gallery" data-caption="${img.caption}">
+                        <img src="${img.image}" alt="${img.caption}">
+                    </a>
+                    <div class="carousel-item-overlay"><i class="fas fa-heart"></i></div>
+                `;
+                
+                carouselContent.appendChild(itemDiv);
+            });
+
+            // Reinitialize Fancybox for new images
+            if (typeof Fancybox !== 'undefined') {
+                Fancybox.bind('[data-fancybox]', {});
+            }
+        }
+
+        // Render pagination dots
+        function renderDots() {
+            const dotsContainer = document.getElementById('carouselDots');
+            dotsContainer.innerHTML = '';
+
+            filteredImages.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = `carousel-dot ${index === currentSlideIndex ? 'active' : ''}`;
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // Go to specific slide
+        function goToSlide(index) {
+            if (filteredImages.length === 0) return;
+            
+            currentSlideIndex = index % filteredImages.length;
+            updateSlides();
+        }
+
+        // Update active slide
+        function updateSlides() {
+            const items = document.querySelectorAll('.carousel-item');
+            const dots = document.querySelectorAll('.carousel-dot');
+
+            items.forEach((item, index) => {
+                item.classList.toggle('active', index === currentSlideIndex);
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlideIndex);
+            });
+        }
+
+        // Next slide
+        function nextSlide() {
+            goToSlide(currentSlideIndex + 1);
+        }
+
+        // Previous slide
+        function prevSlide() {
+            goToSlide(currentSlideIndex - 1 + filteredImages.length);
+        }
+
+        // Initialize carousel event listeners
+        function initCarouselEventListeners() {
+            // Handle carousel tab clicks
+            document.querySelectorAll('.carousel-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    document.querySelectorAll('.carousel-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter and render carousel
+                    currentCategory = tabName;
+                    filterImagesByCategory(tabName);
+                    renderCarousel();
+                    renderDots();
+                    // Re-attach event listeners to new carousel items
+                    setTimeout(() => {
+                        if (typeof Fancybox !== 'undefined') {
+                            Fancybox.bind('[data-fancybox]', {});
+                        }
+                    }, 100);
+                });
+            });
+
+            // Navigation button event listeners
+            const nextBtn = document.getElementById('carouselNext');
+            const prevBtn = document.getElementById('carouselPrev');
+            
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const galleryWrapper = document.getElementById('galleryCarouselWrapper');
+            if (galleryWrapper && (document.activeElement === document.body || galleryWrapper.contains(document.activeElement))) {
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+            }
+        });
+
+        // ====== PACKAGES SWIPER ======
         let packagesSwiperInstance = null;
         let contactCarouselInstance = null;
 
-        // Initialize Gallery Swiper
-        function initGallerySwiper(category = 'quince') {
-            const wrapper = document.getElementById('galleryWrapper');
-            
-            // Destroy previous instance first
-            if (gallerySwiperInstance) {
-                gallerySwiperInstance.destroy(true, true);
-            }
-
-            // Filter slides by category using classes instead of display
-            const allSlides = wrapper.querySelectorAll('.swiper-slide');
-            let visibleCount = 0;
-            allSlides.forEach(slide => {
-                if (slide.dataset.category === category) {
-                    slide.classList.remove('hidden-slide');
-                    slide.style.visibility = 'visible';
-                    slide.style.height = 'auto';
-                    slide.style.opacity = '1';
-                    visibleCount++;
-                } else {
-                    slide.classList.add('hidden-slide');
-                    slide.style.visibility = 'hidden';
-                    slide.style.height = '0';
-                    slide.style.opacity = '0';
-                }
-            });
-
-            // Reinitialize Swiper after DOM update with adequate delay
-            setTimeout(() => {
-                if (gallerySwiperInstance) {
-                    gallerySwiperInstance.destroy(true, true);
-                }
-                
-                gallerySwiperInstance = new Swiper('#gallerySwiperContainer', {
-                    slidesPerView: 4,
-                    spaceBetween: 20,
-                    loop: true,
-                    autoplay: {
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    },
-                    navigation: {
-                        nextEl: '#gallerySwiperContainer .swiper-button-next',
-                        prevEl: '#gallerySwiperContainer .swiper-button-prev',
-                    },
-                    pagination: {
-                        el: '#gallerySwiperContainer .swiper-pagination',
-                        clickable: true,
-                    },
-                    breakpoints: {
-                        320: {
-                            slidesPerView: 1,
-                            spaceBetween: 15,
-                        },
-                        640: {
-                            slidesPerView: 2,
-                            spaceBetween: 15,
-                        },
-                        1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 20,
-                        },
-                        1200: {
-                            slidesPerView: 4,
-                            spaceBetween: 20,
-                        }
-                    }
-                });
-            }, 500);
-        }
-
-        // Initialize Packages Swiper
         function initPackagesSwiper() {
             if (packagesSwiperInstance) {
                 packagesSwiperInstance.destroy(true, true);
@@ -2309,7 +2427,7 @@
             }, 300);
         }
 
-        // Initialize Contact Carousel
+        // ====== CONTACT CAROUSEL ======
         function initContactCarousel() {
             if (contactCarouselInstance) {
                 contactCarouselInstance.destroy(true, true);
@@ -2341,23 +2459,13 @@
             }, 300);
         }
 
-        // Handle carousel tabs
-        document.querySelectorAll('.carousel-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                const tabName = this.getAttribute('data-tab');
-                
-                // Update active tab
-                document.querySelectorAll('.carousel-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Reinitialize Swiper with new category
-                initGallerySwiper(tabName);
-            });
-        });
-
-        // Initialize Swiper on load
+        // Initialize carousel on load
         document.addEventListener('DOMContentLoaded', () => {
-            initGallerySwiper('quince');
+            loadGalleryData();
+            filterImagesByCategory('quince');
+            renderCarousel();
+            renderDots();
+            initCarouselEventListeners();
             initPackagesSwiper();
             initContactCarousel();
         });
@@ -2365,12 +2473,20 @@
         // Also initialize if DOM is already loaded
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => {
-                initGallerySwiper('quince');
+                loadGalleryData();
+                filterImagesByCategory('quince');
+                renderCarousel();
+                renderDots();
+                initCarouselEventListeners();
                 initPackagesSwiper();
                 initContactCarousel();
             });
         } else {
-            initGallerySwiper('quince');
+            loadGalleryData();
+            filterImagesByCategory('quince');
+            renderCarousel();
+            renderDots();
+            initCarouselEventListeners();
             initPackagesSwiper();
             initContactCarousel();
         }
