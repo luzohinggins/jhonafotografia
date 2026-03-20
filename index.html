@@ -347,11 +347,14 @@
             overflow: hidden;
             border-radius: 10px;
             cursor: pointer;
+            width: 100%;
+            aspect-ratio: 3/4;
         }
 
         .about-image {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
             border-radius: 10px;
             transition: opacity 0.4s ease;
@@ -363,7 +366,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(170, 0, 17, 0.85);
+            background: rgba(170, 0, 17, 0.50);
             display: flex;
             align-items: center;
             justify-content: center;
