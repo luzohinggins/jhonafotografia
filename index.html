@@ -378,6 +378,14 @@
             margin: 0;
         }
 
+        .about-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            transition: opacity 0.4s ease;
+        }
+
         .about-text h2 {
             font-family: var(--font-title);
             font-size: 2.5rem;
@@ -2344,11 +2352,27 @@
             const hoverSrc = aboutImage.dataset.hover;
             
             aboutImage.addEventListener('mouseenter', () => {
-                aboutImage.src = hoverSrc;
+                // Fade out effect
+                aboutImage.style.opacity = '0';
+                
+                // Change image after fade out
+                setTimeout(() => {
+                    aboutImage.src = hoverSrc;
+                    // Fade in effect
+                    aboutImage.style.opacity = '1';
+                }, 200);
             });
             
             aboutImage.addEventListener('mouseleave', () => {
-                aboutImage.src = originalSrc;
+                // Fade out effect
+                aboutImage.style.opacity = '0';
+                
+                // Change image after fade out
+                setTimeout(() => {
+                    aboutImage.src = originalSrc;
+                    // Fade in effect
+                    aboutImage.style.opacity = '1';
+                }, 200);
             });
         }
 
