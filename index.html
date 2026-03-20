@@ -2364,23 +2364,16 @@
             const container = document.querySelector('.about-image-container');
             const image = document.querySelector('.about-image');
             
-            if (!container || !image) {
-                console.warn('Elementos no encontrados');
-                return;
-            }
+            if (!container || !image) return;
             
             const originalSrc = image.getAttribute('data-original') || image.src;
             const hoverSrc = image.getAttribute('data-hover');
             
-            if (!hoverSrc) {
-                console.warn('No se encontró data-hover');
-                return;
-            }
+            if (!hoverSrc) return;
             
             // Preload images
             const img1 = new Image();
             img1.src = originalSrc;
-            
             const img2 = new Image();
             img2.src = hoverSrc;
             
@@ -2401,15 +2394,11 @@
             });
         }
         
-        // Run when DOM is ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initAboutImageHover);
         } else {
             initAboutImageHover();
         }
-        
-        // Also ensure it runs on window load
-        window.addEventListener('load', initAboutImageHover);
 
         // ====== HEADER SCROLL EFFECT ======
         const header = document.querySelector('header');
