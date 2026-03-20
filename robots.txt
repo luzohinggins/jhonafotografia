@@ -1,0 +1,30 @@
+# Robots.txt para Jhona Fotografía
+# Google, Bing, Yahoo y otros motores de búsqueda
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /.git/
+
+# Especificar el sitemap
+Sitemap: https://jhonadesignyandphotography.com/sitemap.xml
+
+# Permitir a Google acceso a recursos estáticos
+User-agent: Googlebot
+Allow: /
+
+# Respetar tiempos de acceso
+Crawl-delay: 1
+Request-rate: 30/60
+
+# Bloquear bots maliciosos conocidos
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

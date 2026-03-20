@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jhona Fotografía - Capturando tus momentos especiales</title>
     
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Fotógrafo profesional especializado en capturar momentos especiales. Servicios de fotografía para 15 años, bautismos, cumpleaños y sesiones en Encarnación, Paraguay.">
+    <meta name="keywords" content="fotografía, fotógrafo, eventos, 15 años, bautismo, cumpleaños, sesiones, Encarnación, Paraguay">
+    <meta name="author" content="Isaac - Fotografía Profesional">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="language" content="es">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Jhona Fotografía - Capturando tus momentos especiales">
+    <meta property="og:description" content="Fotógrafo profesional especializado en capturar momentos especiales. Servicios de fotografía para 15 años, bautismos, cumpleaños y sesiones.">
+    <meta property="og:url" content="https://jhonadesignyandphotography.com">
+    <meta property="og:image" content="https://jhonadesignyandphotography.com/logojhona.webp">
+    <meta property="og:locale" content="es_PY">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="favicon-96x96.webp" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -2814,6 +2830,69 @@
         
         // Also initialize on DOMContentLoaded as fallback
         document.addEventListener('DOMContentLoaded', initFancybox);
+
+        // ====== SCHEMA.ORG STRUCTURED DATA ======
+        const schemaData = {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Jhona Fotografía",
+            "description": "Fotógrafo profesional especializado en capturar momentos especiales",
+            "url": "https://jhonadesignyandphotography.com",
+            "telephone": "+595982946365",
+            "email": "jhonadisenoyfotografia@gmail.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Encarnación",
+                "addressLocality": "Encarnación",
+                "addressRegion": "Itapúa",
+                "postalCode": "7000",
+                "addressCountry": "PY"
+            },
+            "sameAs": [
+                "https://instagram.com/df_jhona",
+                "https://wa.me/595982946365"
+            ],
+            "image": "https://jhonadesignyandphotography.com/logojhona.webp",
+            "priceRange": "$$$",
+            "areaServed": "PY",
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Paquetes de Fotografía",
+                "itemListElement": [
+                    {
+                        "@type": "Service",
+                        "name": "Plan Básico",
+                        "description": "Sesión Esencial - Fotos digitales de todo el evento"
+                    },
+                    {
+                        "@type": "Service",
+                        "name": "Plan Estándar",
+                        "description": "Sesión Completa - Fotos digitales y 20 fotos impresas"
+                    },
+                    {
+                        "@type": "Service",
+                        "name": "Plan Premium",
+                        "description": "Experiencia Full - Álbum de 40 fotos y 2 cuadros"
+                    },
+                    {
+                        "@type": "Service",
+                        "name": "Plan 15 Años",
+                        "description": "Tu Día Especial - Cobertura completa sin límite de tiempo"
+                    },
+                    {
+                        "@type": "Service",
+                        "name": "Sesión Individual",
+                        "description": "Momento Personal - 1 hora con dirección de poses profesional"
+                    }
+                ]
+            }
+        };
+
+        // Inject schema.org data
+        const schemaScript = document.createElement('script');
+        schemaScript.type = 'application/ld+json';
+        schemaScript.textContent = JSON.stringify(schemaData);
+        document.head.appendChild(schemaScript);
     </script>
 </body>
 </html>
