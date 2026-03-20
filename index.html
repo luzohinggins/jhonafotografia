@@ -1589,6 +1589,17 @@
             font-size: 0.9rem;
         }
 
+        .footer-bottom a {
+            color: var(--color-light) !important;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--color-secondary) !important;
+            text-decoration: underline;
+        }
+
         .whatsapp-button {
             position: fixed;
             bottom: 20px;
@@ -2346,35 +2357,62 @@
         });
 
         // ====== ABOUT IMAGE HOVER EFFECT ======
-        document.addEventListener('DOMContentLoaded', () => {
+        function initAboutImageHover() {
             const aboutImage = document.querySelector('.about-image');
-            if (aboutImage) {
-                const originalSrc = aboutImage.getAttribute('data-original') || aboutImage.src;
-                const hoverSrc = aboutImage.getAttribute('data-hover');
-                
-                if (hoverSrc) {
-                    // Preload hover image
-                    const preloadImg = new Image();
-                    preloadImg.src = hoverSrc;
-                    
-                    aboutImage.addEventListener('mouseenter', () => {
-                        aboutImage.style.opacity = '0';
-                        setTimeout(() => {
-                            aboutImage.src = hoverSrc;
-                            aboutImage.style.opacity = '1';
-                        }, 200);
-                    });
-                    
-                    aboutImage.addEventListener('mouseleave', () => {
-                        aboutImage.style.opacity = '0';
-                        setTimeout(() => {
-                            aboutImage.src = originalSrc;
-                            aboutImage.style.opacity = '1';
-                        }, 200);
-                    });
-                }
+            
+            if (!aboutImage) {
+                console.warn('No se encontró elemento .about-image');
+                return;
             }
-        });
+            
+            const originalSrc = aboutImage.getAttribute('data-original') || aboutImage.getAttribute('src');
+            const hoverSrc = aboutImage.getAttribute('data-hover');
+            
+            if (!hoverSrc) {
+                console.warn('No se encontró atributo data-hover');
+                return;
+            }
+            
+            console.log('Inicializando hover. Original:', originalSrc, 'Hover:', hoverSrc);
+            
+            // Preload both images
+            const originalImg = new Image();
+            originalImg.src = originalSrc;
+            
+            const hoverImg = new Image();
+            hoverImg.src = hoverSrc;
+            hoverImg.onload = () => {
+                console.log('Imagen hover precargada:', hoverSrc);
+            };
+            
+            aboutImage.addEventListener('mouseenter', function(e) {
+                console.log('mouseenter detectado');
+                aboutImage.style.opacity = '0';
+                
+                setTimeout(() => {
+                    aboutImage.src = hoverSrc;
+                    aboutImage.style.opacity = '1';
+                }, 200);
+            });
+            
+            aboutImage.addEventListener('mouseleave', function(e) {
+                console.log('mouseleave detectado');
+                aboutImage.style.opacity = '0';
+                
+                setTimeout(() => {
+                    aboutImage.src = originalSrc;
+                    aboutImage.style.opacity = '1';
+                }, 200);
+            });
+        }
+        
+        // Execute when page is fully loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAboutImageHover);
+            window.addEventListener('load', initAboutImageHover);
+        } else {
+            initAboutImageHover();
+        }
 
         // ====== HEADER SCROLL EFFECT ======
         const header = document.querySelector('header');
