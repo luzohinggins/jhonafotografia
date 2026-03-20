@@ -2364,12 +2364,19 @@
                     filterImagesByCategory(tabName);
                     renderCarousel();
                     renderDots();
-                    // Re-attach event listeners to new carousel items
+                    
+                    // Re-attach event listeners to new carousel items and dots
                     setTimeout(() => {
+                        // Re-initialize Fancybox for new images
                         if (typeof Fancybox !== 'undefined') {
                             Fancybox.bind('[data-fancybox]', {});
                         }
-                    }, 100);
+                        
+                        // Re-attach dot click listeners
+                        document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                            dot.addEventListener('click', () => goToSlide(index));
+                        });
+                    }, 50);
                 });
             });
 
