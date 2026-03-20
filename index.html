@@ -2250,7 +2250,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Jhona Fotografía. Todos los derechos reservados. | Hecho con <i class="fas fa-heart" style="color: var(--color-secondary);"></i></p>
+            <p>© 2026 Jhona Fotografía. Todos los derechos reservados. | Made with ❤️ by <a href="https://www.instagram.com/luzohinggins" target="_blank">Luz Ohinggins</a></p>
         </div>
     </footer>
 
@@ -2346,35 +2346,35 @@
         });
 
         // ====== ABOUT IMAGE HOVER EFFECT ======
-        const aboutImage = document.querySelector('.about-image');
-        if (aboutImage) {
-            const originalSrc = aboutImage.dataset.original;
-            const hoverSrc = aboutImage.dataset.hover;
-            
-            aboutImage.addEventListener('mouseenter', () => {
-                // Fade out effect
-                aboutImage.style.opacity = '0';
+        document.addEventListener('DOMContentLoaded', () => {
+            const aboutImage = document.querySelector('.about-image');
+            if (aboutImage) {
+                const originalSrc = aboutImage.getAttribute('data-original') || aboutImage.src;
+                const hoverSrc = aboutImage.getAttribute('data-hover');
                 
-                // Change image after fade out
-                setTimeout(() => {
-                    aboutImage.src = hoverSrc;
-                    // Fade in effect
-                    aboutImage.style.opacity = '1';
-                }, 200);
-            });
-            
-            aboutImage.addEventListener('mouseleave', () => {
-                // Fade out effect
-                aboutImage.style.opacity = '0';
-                
-                // Change image after fade out
-                setTimeout(() => {
-                    aboutImage.src = originalSrc;
-                    // Fade in effect
-                    aboutImage.style.opacity = '1';
-                }, 200);
-            });
-        }
+                if (hoverSrc) {
+                    // Preload hover image
+                    const preloadImg = new Image();
+                    preloadImg.src = hoverSrc;
+                    
+                    aboutImage.addEventListener('mouseenter', () => {
+                        aboutImage.style.opacity = '0';
+                        setTimeout(() => {
+                            aboutImage.src = hoverSrc;
+                            aboutImage.style.opacity = '1';
+                        }, 200);
+                    });
+                    
+                    aboutImage.addEventListener('mouseleave', () => {
+                        aboutImage.style.opacity = '0';
+                        setTimeout(() => {
+                            aboutImage.src = originalSrc;
+                            aboutImage.style.opacity = '1';
+                        }, 200);
+                    });
+                }
+            }
+        });
 
         // ====== HEADER SCROLL EFFECT ======
         const header = document.querySelector('header');
