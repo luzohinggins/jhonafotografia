@@ -346,6 +346,15 @@
             position: relative;
             overflow: hidden;
             border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            transition: opacity 0.4s ease;
         }
 
         .about-image-overlay {
@@ -361,6 +370,8 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             border-radius: 10px;
+            pointer-events: none;
+            z-index: 10;
         }
 
         .about-image-container:hover .about-image-overlay {
@@ -376,14 +387,6 @@
             padding: 2rem;
             font-style: italic;
             margin: 0;
-        }
-
-        .about-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 10px;
-            transition: opacity 0.4s ease;
         }
 
         .about-text h2 {
@@ -2358,61 +2361,55 @@
 
         // ====== ABOUT IMAGE HOVER EFFECT ======
         function initAboutImageHover() {
-            const aboutImage = document.querySelector('.about-image');
+            const container = document.querySelector('.about-image-container');
+            const image = document.querySelector('.about-image');
             
-            if (!aboutImage) {
-                console.warn('No se encontró elemento .about-image');
+            if (!container || !image) {
+                console.warn('Elementos no encontrados');
                 return;
             }
             
-            const originalSrc = aboutImage.getAttribute('data-original') || aboutImage.getAttribute('src');
-            const hoverSrc = aboutImage.getAttribute('data-hover');
+            const originalSrc = image.getAttribute('data-original') || image.src;
+            const hoverSrc = image.getAttribute('data-hover');
             
             if (!hoverSrc) {
-                console.warn('No se encontró atributo data-hover');
+                console.warn('No se encontró data-hover');
                 return;
             }
             
-            console.log('Inicializando hover. Original:', originalSrc, 'Hover:', hoverSrc);
+            // Preload images
+            const img1 = new Image();
+            img1.src = originalSrc;
             
-            // Preload both images
-            const originalImg = new Image();
-            originalImg.src = originalSrc;
+            const img2 = new Image();
+            img2.src = hoverSrc;
             
-            const hoverImg = new Image();
-            hoverImg.src = hoverSrc;
-            hoverImg.onload = () => {
-                console.log('Imagen hover precargada:', hoverSrc);
-            };
-            
-            aboutImage.addEventListener('mouseenter', function(e) {
-                console.log('mouseenter detectado');
-                aboutImage.style.opacity = '0';
-                
+            container.addEventListener('mouseenter', () => {
+                image.style.opacity = '0';
                 setTimeout(() => {
-                    aboutImage.src = hoverSrc;
-                    aboutImage.style.opacity = '1';
-                }, 200);
+                    image.src = hoverSrc;
+                    image.style.opacity = '1';
+                }, 150);
             });
             
-            aboutImage.addEventListener('mouseleave', function(e) {
-                console.log('mouseleave detectado');
-                aboutImage.style.opacity = '0';
-                
+            container.addEventListener('mouseleave', () => {
+                image.style.opacity = '0';
                 setTimeout(() => {
-                    aboutImage.src = originalSrc;
-                    aboutImage.style.opacity = '1';
-                }, 200);
+                    image.src = originalSrc;
+                    image.style.opacity = '1';
+                }, 150);
             });
         }
         
-        // Execute when page is fully loaded
+        // Run when DOM is ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initAboutImageHover);
-            window.addEventListener('load', initAboutImageHover);
         } else {
             initAboutImageHover();
         }
+        
+        // Also ensure it runs on window load
+        window.addEventListener('load', initAboutImageHover);
 
         // ====== HEADER SCROLL EFFECT ======
         const header = document.querySelector('header');
