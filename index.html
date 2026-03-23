@@ -56,9 +56,7 @@
             --color-darker: #0d0d0d;
             --color-light: #ffffff;
             --color-gray: #e0e0e0;
-            --font-title: 'Montserrat', sans-serif;
-            --font-subtitle: 'Montserrat', sans-serif;
-            --font-body: 'Montserrat', sans-serif;
+            --font-main: 'Montserrat', sans-serif;
         }
 
         html {
@@ -66,7 +64,7 @@
         }
 
         body {
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             background-color: var(--color-dark);
             color: var(--color-light);
             line-height: 1.6;
@@ -130,7 +128,7 @@
         nav a {
             color: var(--color-light);
             text-decoration: none;
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             font-weight: 600;
             padding: 0.7rem 1.2rem;
             transition: all 0.3s ease;
@@ -271,7 +269,7 @@
 
         .banner h1 {
             font-size: 3.5rem;
-            font-family: var(--font-title);
+            font-family: var(--font-main);
             font-weight: 800;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
             max-width: 800px;
@@ -283,7 +281,7 @@
             background-color: var(--color-secondary);
             color: var(--color-light);
             border: none;
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
@@ -398,7 +396,7 @@
         }
 
         .about-image-overlay p {
-            font-family: var(--font-title);
+            font-family: var(--font-main);
             font-size: 1.8rem;
             font-weight: 800;
             color: var(--color-light);
@@ -409,7 +407,7 @@
         }
 
         .about-text h2 {
-            font-family: var(--font-title);
+            font-family: var(--font-main);
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
@@ -432,7 +430,7 @@
         }
 
         .about-quote p {
-            font-family: var(--font-title);
+            font-family: var(--font-main);
             font-size: 1.8rem;
             font-weight: 800;
             color: var(--color-light);
@@ -462,7 +460,7 @@
         }
 
         .carousel-section h2 {
-            font-family: var(--font-title);
+            font-family: var(--font-main);
             font-size: 2.8rem;
             font-weight: 800;
             text-align: center;
@@ -497,7 +495,7 @@
             background: transparent;
             color: var(--color-light);
             cursor: pointer;
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             font-weight: 600;
             border-radius: 30px;
             transition: all 0.3s ease;
@@ -514,13 +512,6 @@
 
         /* Gallery Grid */
         /* Gallery Carousel Styles */
-        .gallery-swiper {
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 0 50px 0 !important;
-            position: relative;
-            overflow: hidden;
-        }
 
         .swiper-wrapper {
             padding: 0 !important;
@@ -701,7 +692,7 @@
         }
 
         .faq h2 {
-            font-family: var(--font-title);
+            font-family: var(--font-main);
             font-size: 2.8rem;
             font-weight: 800;
             text-align: center;
@@ -735,7 +726,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             font-weight: 600;
             font-size: 1.1rem;
             color: var(--color-primary);
@@ -776,7 +767,7 @@
         }
 
         .packages h2 {
-            font-family: var(--font-title);
+            font-family: var(--font-main);
             font-size: 2.8rem;
             font-weight: 800;
             text-align: center;
@@ -786,51 +777,6 @@
 
         .packages-grid {
             display: none;
-        }
-
-        .packages-swiper {
-            display: block;
-            padding: 40px 0 !important;
-            position: relative;
-        }
-
-        /* Desktop: Swiper with 4 items visible */
-        @media (min-width: 1200px) {
-            .packages-swiper {
-                padding: 40px 0 90px 0 !important;
-            }
-
-            .packages-grid {
-                display: none;
-            }
-        }
-
-        /* Tablet: Swiper with 3 items */
-        @media (min-width: 769px) and (max-width: 1199px) {
-            .packages-swiper {
-                padding: 40px 0 90px 0 !important;
-            }
-
-            .packages-grid {
-                display: none;
-            }
-        }
-
-        /* Mobile: Swiper with 1 item */
-        @media (max-width: 768px) {
-            .packages-swiper {
-                display: block;
-                padding: 40px 0 85px 0 !important;
-            }
-
-            .packages-grid {
-                display: none;
-            }
-
-            .package-card {
-                min-height: auto;
-                padding: 1.5rem;
-            }
         }
 
         .swiper-button-prev.packages-prev,
@@ -915,10 +861,6 @@
             justify-content: space-between;
         }
 
-        .package-card.center {
-            background: #ffffff;
-        }
-
         .package-card::before {
             content: '';
             position: absolute;
@@ -935,7 +877,7 @@
         }
 
         .package-title {
-            font-family: var(--font-title);
+            font-family: var(--font-main);
             font-size: 1.8rem;
             font-weight: 800;
             color: #1a1a1a;
@@ -943,7 +885,7 @@
         }
 
         .package-subtitle {
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             font-weight: 400;
             color: #555555;
             margin-bottom: 1.5rem;
@@ -975,7 +917,7 @@
             color: var(--color-light);
             border: none;
             border-radius: 50px;
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             font-weight: 600;
             cursor: pointer;
             width: 100%;
@@ -993,7 +935,7 @@
             font-size: 2.5rem;
             font-weight: 800;
             color: var(--color-secondary);
-            font-family: var(--font-title);
+            font-family: var(--font-main);
         }
 
         .stat-label {
@@ -1093,7 +1035,7 @@
         }
 
         .contact-intro h2 {
-            font-family: var(--font-title);
+            font-family: var(--font-main);
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 0.8rem;
@@ -1126,7 +1068,7 @@
         }
 
         .contact-item h3 {
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             font-weight: 700;
             margin-bottom: 0.4rem;
             color: #2d2d2d;
@@ -1198,7 +1140,7 @@
             border: 1px solid #e0e0e0;
             border-radius: 6px;
             color: #333333;
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             transition: all 0.3s ease;
             font-size: 0.95rem;
         }
@@ -1224,7 +1166,7 @@
             color: var(--color-light);
             border: none;
             border-radius: 8px;
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
@@ -1236,47 +1178,6 @@
         .form-submit:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(237, 0, 18, 0.35);
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            background: #fafafa;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-top: 2.5rem;
-        }
-
-        .contact-item {
-            text-align: center;
-        }
-
-        .contact-item i {
-            font-size: 2rem;
-            color: var(--color-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .contact-item h3 {
-            font-family: var(--font-body);
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-            color: #2d2d2d;
-            font-size: 0.95rem;
-        }
-
-        .contact-item a,
-        .contact-item p {
-            color: #666666;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .contact-item a:hover {
-            color: var(--color-secondary);
         }
 
         .contact-carousel-section {
@@ -1567,7 +1468,7 @@
         }
 
         .footer-section h3 {
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             font-weight: 600;
             margin-bottom: 1rem;
             color: var(--color-secondary);
@@ -1804,10 +1705,6 @@
         }
 
         @media (max-width: 768px) {
-            .carousel-item {
-                height: 300px;
-            }
-
             .stat-number {
                 font-size: 2rem;
             }
@@ -1883,6 +1780,8 @@
                 <button class="carousel-tab" data-tab="bautismo">Bautismo</button>
                 <button class="carousel-tab" data-tab="cumpleanos">Cumpleaños</button>
                 <button class="carousel-tab" data-tab="sesion">Sesiones</button>
+                <button class="carousel-tab" data-tab="urbano">Urbano</button>
+                <button class="carousel-tab" data-tab="colacion">Colación</button>
             </div>
 
             <!-- Gallery Swiper Carousel -->
@@ -1903,12 +1802,18 @@
                 <div data-category="quince" data-image="quince/IMG_1199 (1) (1).webp" data-caption="Quince 3"></div>
                 <div data-category="quince" data-image="quince/quince1.webp" data-caption="Quince 4"></div>
                 <div data-category="quince" data-image="quince/quince2.webp" data-caption="Quince 5"></div>
+                <div data-category="quince" data-image="quince/IMG_9403.webp" data-caption="Quince 6"></div>
+                <div data-category="quince" data-image="quince/IMG_9475.webp" data-caption="Quince 7"></div>
+                <div data-category="quince" data-image="quince/IMG_9518.webp" data-caption="Quince 8"></div>
                 
                 <!-- Bautismo -->
                 <div data-category="bautismo" data-image="bautismo/IMG_3371.webp" data-caption="Bautismo 1"></div>
                 <div data-category="bautismo" data-image="bautismo/IMG_6697.webp" data-caption="Bautismo 2"></div>
                 <div data-category="bautismo" data-image="bautismo/IMG_6715 (1).webp" data-caption="Bautismo 3"></div>
                 <div data-category="bautismo" data-image="bautismo/IMG_6864.webp" data-caption="Bautismo 4"></div>
+                <div data-category="bautismo" data-image="bautismo/IMG_3494.webp" data-caption="Bautismo 5"></div>
+                <div data-category="bautismo" data-image="bautismo/IMG_3519.webp" data-caption="Bautismo 6"></div>
+                <div data-category="bautismo" data-image="bautismo/IMG_3536.webp" data-caption="Bautismo 7"></div>
                 
                 <!-- Cumpleaños -->
                 <div data-category="cumpleanos" data-image="cumple/comple3.webp" data-caption="Cumpleaños 1"></div>
@@ -1917,6 +1822,10 @@
                 <div data-category="cumpleanos" data-image="cumple/cumple4.webp" data-caption="Cumpleaños 4"></div>
                 <div data-category="cumpleanos" data-image="cumple/cumple5.webp" data-caption="Cumpleaños 5"></div>
                 <div data-category="cumpleanos" data-image="cumple/cumple6.webp" data-caption="Cumpleaños 6"></div>
+                <div data-category="cumpleanos" data-image="cumple/IMG_0557.webp" data-caption="Cumpleaños 7"></div>
+                <div data-category="cumpleanos" data-image="cumple/IMG_7264.webp" data-caption="Cumpleaños 8"></div>
+                <div data-category="cumpleanos" data-image="cumple/IMG_7288.webp" data-caption="Cumpleaños 9"></div>
+                <div data-category="cumpleanos" data-image="cumple/IMG_7368.webp" data-caption="Cumpleaños 10"></div>
                 
                 <!-- Sesiones -->
                 <div data-category="sesion" data-image="sesion/sesion1.webp" data-caption="Sesión 1"></div>
@@ -1924,7 +1833,28 @@
                 <div data-category="sesion" data-image="sesion/sesion4.webp" data-caption="Sesión 3"></div>
                 <div data-category="sesion" data-image="sesion/sesion5.webp" data-caption="Sesión 4"></div>
                 <div data-category="sesion" data-image="sesion/sesion7.webp" data-caption="Sesión 5"></div>
-            </div>
+                
+                <!-- Urbano -->
+                <div data-category="urbano" data-image="Urbano/IMG_0070.webp" data-caption="Urbano 1"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_0111.webp" data-caption="Urbano 2"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_1431.webp" data-caption="Urbano 3"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_1527 (1).webp" data-caption="Urbano 4"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_1715 (1).webp" data-caption="Urbano 5"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_1717 (1).webp" data-caption="Urbano 6"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_1882.webp" data-caption="Urbano 7"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_1944 (1).webp" data-caption="Urbano 8"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_9888.webp" data-caption="Urbano 9"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_9929.webp" data-caption="Urbano 10"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_9941.webp" data-caption="Urbano 11"></div>
+                <div data-category="urbano" data-image="Urbano/IMG_9957 (1).webp" data-caption="Urbano 12"></div>
+                
+                <!-- Colación -->
+                <div data-category="colacion" data-image="Colacion/IMG_3366 (1).webp" data-caption="Colación 1"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_5345.webp" data-caption="Colación 2"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_5369.webp" data-caption="Colación 3"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_5393.webp" data-caption="Colación 4"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_5583.webp" data-caption="Colación 5"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_5595.webp" data-caption="Colación 6"></div>
         </div>
 
     </section>
@@ -2305,22 +2235,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
     <script>
-        // ====== PARALLAX EFFECT ======
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrolled = window.pageYOffset;
-                    const banner = document.querySelector('.banner');
-                    if (banner) {
-                        banner.style.backgroundPosition = `center ${scrolled * 0.5}px`;
-                    }
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-
         // ====== CONTADOR DE NÚMEROS ANIMADOS ======
         function animateNumbers() {
             const statNumbers = document.querySelectorAll('.stat-number');
@@ -2589,11 +2503,6 @@
                     spaceBetween: 20,
                     loop: true,
                     centeredSlides: false,
-                    autoplay: {
-                        delay: 5000,
-                        disableOnInteraction: false,
-                        pauseOnMouseEnter: true
-                    },
                     navigation: {
                         nextEl: '#packagesSwiperContainer .swiper-button-next',
                         prevEl: '#packagesSwiperContainer .swiper-button-prev',
@@ -2673,32 +2582,19 @@
         }
 
         // Initialize carousel on load
-        document.addEventListener('DOMContentLoaded', () => {
+        function initializeCarousels() {
             loadGalleryData();
             filterImagesByCategory('quince');
             renderGalleryCarousel();
             initCarouselEventListeners();
             initPackagesSwiper();
             initContactCarousel();
-        });
+        }
 
-        // Also initialize if DOM is already loaded
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                loadGalleryData();
-                filterImagesByCategory('quince');
-                renderGalleryCarousel();
-                initCarouselEventListeners();
-                initPackagesSwiper();
-                initContactCarousel();
-            });
+            document.addEventListener('DOMContentLoaded', initializeCarousels);
         } else {
-            loadGalleryData();
-            filterImagesByCategory('quince');
-            renderGalleryCarousel();
-            initCarouselEventListeners();
-            initPackagesSwiper();
-            initContactCarousel();
+            initializeCarousels();
         }
 
         // ====== FAQ ACCORDION ======
@@ -2804,13 +2700,12 @@
             observer.observe(el);
         });
 
-        // Initialize Fancybox for gallery images - with DOM ready check
+        // Initialize Fancybox for gallery images
         function initFancybox() {
             if (typeof Fancybox !== 'undefined') {
                 Fancybox.bind('[data-fancybox]', {
                     on: {
                         reveal: (fancybox, slide) => {
-                            // Hide captions
                             const caption = slide.$content?.querySelector('.fancybox__caption');
                             if (caption) {
                                 caption.style.display = 'none';
@@ -2821,10 +2716,6 @@
             }
         }
         
-        // Initialize immediately since script is at bottom of document
-        initFancybox();
-        
-        // Also initialize on DOMContentLoaded as fallback
         document.addEventListener('DOMContentLoaded', initFancybox);
 
         // ====== SCHEMA.ORG STRUCTURED DATA ======
