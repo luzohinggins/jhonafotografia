@@ -855,7 +855,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: visible;
-            min-height: 600px;
+            min-height: 650px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -871,9 +871,37 @@
             background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
         }
 
+        .package-card.featured {
+            border-color: var(--color-primary);
+            border-width: 3px;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
+        }
+
+        .package-card.featured::before {
+            height: 6px;
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -10px;
+            right: 12px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            box-shadow: 0 4px 12px rgba(237, 0, 18, 0.4);
+            z-index: 10;
+        }
+
         .package-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(237, 0, 18, 0.3);
+        }
+
+        .package-card.featured:hover {
+            box-shadow: 0 15px 50px rgba(170, 0, 17, 0.4);
         }
 
         .package-title {
@@ -910,27 +938,620 @@
             border-bottom: none;
         }
 
-        .package-cta {
+        .package-buttons {
             margin-top: auto;
-            padding: 1.2rem 2rem;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            color: var(--color-light);
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+        }
+
+        .package-btn {
+            padding: 1rem 2rem;
             border: none;
             border-radius: 50px;
             font-family: var(--font-main);
             font-weight: 600;
             cursor: pointer;
-            width: 100%;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
 
-        .package-cta:hover {
+        .package-btn-reserve {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            width: 100%;
+        }
+
+        .package-btn-reserve:hover {
             transform: scale(1.05);
             box-shadow: 0 0 25px rgba(237, 0, 18, 0.7), 0 8px 20px rgba(237, 0, 18, 0.4);
             animation: glow 1.5s ease-in-out;
         }
 
-        /* Números animados */
+        .package-btn-more {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-secondary);
+            width: 100%;
+        }
+
+        .package-btn-more:hover {
+            background: rgba(237, 0, 18, 0.1);
+            border-color: var(--color-primary);
+            color: var(--color-secondary);
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            color: var(--color-light);
+            font-weight: 500;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            color: var(--color-gray);
+            font-weight: 500;
+        }
+
+        /* ============= OTROS SERVICIOS ============= */
+        .other-services {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 4rem 2rem;
+        }
+
+        .other-services h2 {
+            font-family: var(--font-main);
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .other-services-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: #ffffff;
+            font-size: 1.35rem;
+            line-height: 1.8;
+        }
+
+        .services-wrapper {
+            display: flex;
+            gap: 2rem;
+            align-items: stretch;
+            min-height: 600px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: stretch;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+            height: 550px;
+        }
+
+        .services-info-section {
+            display: flex;
+            align-items: stretch;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .services-images-section {
+            display: flex;
+            align-items: stretch;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .services-content-section {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+            border-radius: 15px;
+        }
+
+        .services-list-carousel {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            --swiper-scrollbar-size: 8px;
+            --swiper-scrollbar-bg-color: #e0e0e0;
+            --swiper-scrollbar-drag-bg-color: #aa0011;
+        }
+
+        .services-list-carousel .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: auto;
+            padding: 1rem 0.5rem;
+            min-height: auto;
+        }
+
+        .services-list-carousel .service-card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 1.5rem;
+            min-height: auto;
+            max-height: none;
+        }
+
+        .services-list-carousel .swiper-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+        }
+
+        .service-card {
+            background: #ffffff;
+            border: 2px solid var(--color-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(237, 0, 18, 0.12);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(237, 0, 18, 0.25);
+        }
+
+        .service-card h3 {
+            font-family: var(--font-main);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        .service-card p {
+            color: #555555;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Scrollbar styling */
+        .services-list-carousel .swiper-scrollbar {
+            background: #f0f0f0 !important;
+            border-radius: 10px !important;
+        }
+
+        .services-list-carousel .swiper-scrollbar-drag {
+            background: var(--color-secondary) !important;
+            border-radius: 10px !important;
+        }
+
+        .service-card-button {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: #ffffff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-family: var(--font-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            margin-top: auto;
+        }
+
+        .service-card-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(237, 0, 18, 0.4);
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+        }
+
+        .services-carousel-section {
+            position: relative;
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+            border-radius: 15px;
+        }
+
+        .services-carousel {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+        }
+
+        .services-carousel .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .services-carousel .swiper-wrapper {
+            height: 100%;
+        }
+
+        .carousel-image-wrapper-services {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-services-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            will-change: transform;
+            cursor: pointer;
+        }
+
+        .carousel-image-wrapper-services:hover .carousel-services-img {
+            transform: scale(1.08);
+        }
+
+        .carousel-image-wrapper-services {
+            cursor: pointer;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.3) 0%, rgba(45, 45, 45, 0.1) 100%);
+            pointer-events: none;
+        }
+
+        /* Services Carousel Navigation */
+        .services-nav-prev,
+        .services-nav-next {
+            background: rgba(237, 0, 18, 0.8) !important;
+            border-radius: 50%;
+            width: 36px !important;
+            height: 36px !important;
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+        }
+
+        .services-nav-prev {
+            left: 10px !important;
+        }
+
+        .services-nav-next {
+            right: 10px !important;
+        }
+
+        .services-nav-prev::after,
+        .services-nav-next::after {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .services-nav-prev:hover,
+        .services-nav-next:hover {
+            background: var(--color-secondary) !important;
+            transform: translateY(-50%) scale(1.15) !important;
+            box-shadow: 0 6px 20px rgba(237, 0, 18, 0.5);
+        }
+
+        /* Services Carousel Pagination */
+        .services-pagination {
+            bottom: 10px !important;
+            top: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 9;
+        }
+
+        .services-pagination .swiper-pagination-bullet {
+            background: rgba(237, 0, 18, 0.8) !important;
+            opacity: 1 !important;
+            width: 8px !important;
+            height: 8px !important;
+            margin: 0 4px !important;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .services-pagination .swiper-pagination-bullet-active {
+            background: var(--color-secondary) !important;
+            opacity: 1 !important;
+            transform: scale(1.2);
+        }
+
+        .services-buttons-wrapper {
+            display: none;
+        }
+
+        .services-btn {
+            display: none;
+        }
+
+
+        @media (max-width: 1024px) {
+            .services-container {
+                grid-template-columns: 1fr;
+                height: auto;
+                gap: 1.5rem;
+            }
+
+            .services-images-section {
+                min-height: 400px;
+            }
+
+            .services-info-section {
+                min-height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .other-services {
+                padding: 2rem 1rem;
+            }
+
+            .other-services h2 {
+                font-size: 2rem;
+            }
+
+            .other-services-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .services-container {
+                grid-template-columns: 1fr;
+                height: auto;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .services-info-section {
+                min-height: 300px;
+            }
+
+            .services-images-section {
+                min-height: 300px;
+            }
+
+            .service-card {
+                padding: 1rem;
+            }
+
+            .service-card h3 {
+                font-size: 1rem;
+            }
+
+            .service-card p {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ============= PACKAGE MODAL ============= */
+        .package-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .package-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .package-modal-content {
+            background: white;
+            border-radius: 15px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .package-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+            z-index: 3000;
+        }
+
+        .package-modal-close:hover {
+            color: var(--color-primary);
+            transform: scale(1.2);
+        }
+
+        .package-modal-body {
+            padding: 3rem 2.5rem;
+        }
+
+        .package-modal-body h3 {
+            font-family: var(--font-main);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--color-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .package-modal-body .plan-frase {
+            font-family: var(--font-main);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .package-modal-body .plan-intro {
+            color: #555555;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-left: 4px solid var(--color-secondary);
+            border-radius: 5px;
+        }
+
+        .package-modal-body ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .package-modal-body li {
+            padding: 0.8rem 0;
+            color: #333333;
+            border-bottom: 1px solid rgba(237, 0, 18, 0.1);
+            font-size: 0.95rem;
+        }
+
+        .package-modal-body li:last-child {
+            border-bottom: none;
+        }
+
+        .package-modal-body li:before {
+            content: "✓ ";
+            color: var(--color-secondary);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .modal-action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2.5rem;
+            flex-direction: column;
+        }
+
+        .modal-btn {
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-main);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .modal-btn-reserve {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+        }
+
+        .modal-btn-reserve:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(237, 0, 18, 0.7), 0 8px 20px rgba(237, 0, 18, 0.4);
+            animation: glow 1.5s ease-in-out;
+        }
+
+        .modal-btn-close {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-secondary);
+        }
+
+        .modal-btn-close:hover {
+            background: rgba(237, 0, 18, 0.1);
+            border-color: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .package-modal-content {
+                max-width: 90%;
+                max-height: 90vh;
+            }
+
+            .package-modal-body {
+                padding: 2rem 1.5rem;
+            }
+
+            .package-modal-body h3 {
+                font-size: 1.6rem;
+            }
+        }
+
         .stat-number {
             font-size: 2.5rem;
             font-weight: 800;
@@ -1733,6 +2354,7 @@
             <a href="#sobre-mi">Sobre Mí</a>
             <a href="#galeria">Galería</a>
             <a href="#paquetes">Paquetes</a>
+            <a href="#otros-servicios">Otros Servicios</a>
             <a href="#contacto">Contacto</a>
             <a href="#faq">FAQ</a>
         </nav>
@@ -1797,6 +2419,7 @@
             <!-- Hidden data container with all images -->
             <div id="galleryData" style="display: none;">
                 <!-- Quince -->
+                 <div data-category="quince" data-image="quince/_MG_9685.webp" data-caption="Quince 13"></div>
                 <div data-category="quince" data-image="quince/IMG_0774 (1) (1).webp" data-caption="Quince 1"></div>
                 <div data-category="quince" data-image="quince/IMG_0785 (1).webp" data-caption="Quince 2"></div>
                 <div data-category="quince" data-image="quince/IMG_1199 (1) (1).webp" data-caption="Quince 3"></div>
@@ -1805,6 +2428,11 @@
                 <div data-category="quince" data-image="quince/IMG_9403.webp" data-caption="Quince 6"></div>
                 <div data-category="quince" data-image="quince/IMG_9475.webp" data-caption="Quince 7"></div>
                 <div data-category="quince" data-image="quince/IMG_9518.webp" data-caption="Quince 8"></div>
+                <div data-category="quince" data-image="quince/IMG_7188.webp" data-caption="Quince 9"></div>
+                <div data-category="quince" data-image="quince/IMG_7710.webp" data-caption="Quince 10"></div>
+                <div data-category="quince" data-image="quince/IMG_7718.webp" data-caption="Quince 11"></div>
+                <div data-category="quince" data-image="quince/_MG_9664.webp" data-caption="Quince 12"></div>
+                
                 
                 <!-- Bautismo -->
                 <div data-category="bautismo" data-image="bautismo/IMG_3371.webp" data-caption="Bautismo 1"></div>
@@ -1833,6 +2461,13 @@
                 <div data-category="sesion" data-image="sesion/sesion4.webp" data-caption="Sesión 3"></div>
                 <div data-category="sesion" data-image="sesion/sesion5.webp" data-caption="Sesión 4"></div>
                 <div data-category="sesion" data-image="sesion/sesion7.webp" data-caption="Sesión 5"></div>
+                <div data-category="sesion" data-image="sesion/IMG_1206 (1).webp" data-caption="Sesión 6"></div>
+                <div data-category="sesion" data-image="sesion/IMG_1252.webp" data-caption="Sesión 7"></div>
+                <div data-category="sesion" data-image="sesion/IMG_1269.webp" data-caption="Sesión 8"></div>
+                <div data-category="sesion" data-image="sesion/IMG_1279.webp" data-caption="Sesión 9"></div>
+                <div data-category="sesion" data-image="sesion/IMG_3535 (1).webp" data-caption="Sesión 10"></div>
+                <div data-category="sesion" data-image="sesion/IMG_3542.webp" data-caption="Sesión 11"></div>
+                <div data-category="sesion" data-image="sesion/IMG_3683.webp" data-caption="Sesión 12"></div>
                 
                 <!-- Urbano -->
                 <div data-category="urbano" data-image="Urbano/IMG_0070.webp" data-caption="Urbano 1"></div>
@@ -1855,6 +2490,13 @@
                 <div data-category="colacion" data-image="Colacion/IMG_5393.webp" data-caption="Colación 4"></div>
                 <div data-category="colacion" data-image="Colacion/IMG_5583.webp" data-caption="Colación 5"></div>
                 <div data-category="colacion" data-image="Colacion/IMG_5595.webp" data-caption="Colación 6"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_2462.webp" data-caption="Colación 7"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_2471.webp" data-caption="Colación 8"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_2551.webp" data-caption="Colación 9"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_5307.webp" data-caption="Colación 10"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_7249.webp" data-caption="Colación 11"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_9094.webp" data-caption="Colación 12"></div>
+                <div data-category="colacion" data-image="Colacion/IMG_9118 (1).webp" data-caption="Colación 13"></div>
         </div>
 
     </section>
@@ -1862,70 +2504,88 @@
     <!-- Paquetes -->
     <section class="packages" id="paquetes">
         <h2>Elegí cómo querés recordar tu evento ✨</h2>
+        <p class="section-intro">Cada plan está diseñado pensando en lo que realmente importa</p>
         
         <!-- Desktop Grid view -->
         <div class="packages-grid" id="packagesGrid">
             <div class="package-card">
                 <div class="package-title">Plan Básico</div>
-                <div class="package-subtitle">Sesión Esencial</div>
+                <div class="package-subtitle">Lo esencial, bien hecho</div>
                 <ul class="package-features">
-                    <li>✓ Fotos digitales de todo el evento</li>
-                    <li>✓ Todas las imágenes editadas en alta resolución</li>
-                    <li>✓ Cobertura total (máx. 2 horas)</li>
-                    <li>✓ Reserva: seña </li>
+                    <li>✓ Cobertura hasta 2 horas</li>
+                    <li>✓ Fotos digitales editadas</li>
+                    <li>✓ Entrega en alta resolución</li>
+                    <li>✓ Reserva tu fecha con una seña</li>
                 </ul>
-                <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+                <div class="package-buttons">
+                    <button class="package-btn package-btn-more" onclick="openPackageModal('basicPlan')">Ver más</button>
+                    <button class="package-btn package-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=Hola Isaac, me interesa el Plan Básico 😊', '_blank')">Reservar</button>
+                </div>
             </div>
 
             <div class="package-card">
                 <div class="package-title">Plan Estándar</div>
-                <div class="package-subtitle">Sesión Completa</div>
+                <div class="package-subtitle">Un recuerdo más completo</div>
                 <ul class="package-features">
-                    <li>✓ Fotos digitales y edición completa</li>
                     <li>✓ Cobertura total del evento</li>
-                    <li>✓ Entregable de 20 fotos impresas</li>
-                    <li>✓ Reserva: seña </li>
+                    <li>✓ Fotos editadas en alta resolución</li>
+                    <li>✓ 20 fotos impresas</li>
+                    <li>✓ Galería digital</li>
+                    <li>✓ Reserva tu fecha con una seña</li>
                 </ul>
-                <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+                <div class="package-buttons">
+                    <button class="package-btn package-btn-more" onclick="openPackageModal('standardPlan')">Ver más</button>
+                    <button class="package-btn package-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=Hola Isaac, me interesa el Plan Estándar 😊', '_blank')">Reservar</button>
+                </div>
             </div>
 
-            <div class="package-card">
+            <div class="package-card featured">
+                <div class="package-badge">✨ Más elegido</div>
                 <div class="package-title">Plan Premium</div>
-                <div class="package-subtitle">Experiencia Full</div>
+                <div class="package-subtitle">Para recordarlo TODO</div>
                 <ul class="package-features">
-                    <li>✓ Todo del plan estándar</li>
-                    <li>✓ Entrega de álbum (40 fotos)</li>
-                    <li>✓ Entrega de 2 cuadros (20x30 cm)</li>
-                    <li>✓ Fotos digitales editadas</li>
-                    <li>✓ Reserva: seña </li>
+                    <li>✓ Cobertura completa</li>
+                    <li>✓ Álbum + fotos impresas</li>
+                    <li>✓ Cuadro + pendrive</li>
+                    <li>✓ Galería personalizada</li>
+                    <li>✓ Reserva tu fecha con una seña</li>
                 </ul>
-                <button class="package-cta" onclick="scrollToContact()">Reservar</button>
-            </div>
-
-            <div class="package-card">
-                <div class="package-title">Plan 15 Años</div>
-                <div class="package-subtitle">Tu Día Especial</div>
-                <ul class="package-features">
-                    <li>✓ Cobertura completa sin límite de tiempo</li>
-                    <li>✓ Sesión pre-quince (3-4 horas)</li>
-                    <li>✓ Cuadro de firmas 40x60 cm de regalo</li>
-                    <li>✓ 300+ fotos editadas</li>
-                    <li>✓ Reserva: seña </li>
-                </ul>
-                <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+                <div class="package-buttons">
+                    <button class="package-btn package-btn-more" onclick="openPackageModal('premiumPlan')">Ver más</button>
+                    <button class="package-btn package-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=Hola Isaac, me interesa el Plan Premium 😊', '_blank')">Reservar</button>
+                </div>
             </div>
 
             <div class="package-card">
                 <div class="package-title">Sesión Individual</div>
-                <div class="package-subtitle">Momento Personal</div>
+                <div class="package-subtitle">Mostrate como sos</div>
                 <ul class="package-features">
-                    <li>✓ Duración: 3 horas máx.</li>
-                    <li>✓ Locaciones a tu elección</li>
-                    <li>✓ Fotos digitales editadas</li>
-                    <li>✓ Dirección de poses profesional</li>
-                    <li>✓ Ideal para recuerdo rápido</li>
+                    <li>✓ 15 fotos editadas</li>
+                    <li>✓ 2 cambios de outfit</li>
+                    <li>✓ Sesión de 1:30 hs</li>
+                    <li>✓ Entrega digital</li>
+                    <li>✓ Reserva tu fecha con una seña</li>
                 </ul>
-                <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+                <div class="package-buttons">
+                    <button class="package-btn package-btn-more" onclick="openPackageModal('sessionPlan')">Ver más</button>
+                    <button class="package-btn package-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=Hola Isaac, me interesa Sesión Individual 😊', '_blank')">Reservar</button>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-title">Pre-Cumple</div>
+                <div class="package-subtitle">Tu previa creativa</div>
+                <ul class="package-features">
+                    <li>✓ 30 fotos editadas</li>
+                    <li>✓ 3 cambios de outfit</li>
+                    <li>✓ 3 horas de sesión</li>
+                    <li>✓ Fotos impresas incluidas</li>
+                    <li>✓ Reserva tu fecha con una seña</li>
+                </ul>
+                <div class="package-buttons">
+                    <button class="package-btn package-btn-more" onclick="openPackageModal('precumplePlan')">Ver más</button>
+                    <button class="package-btn package-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=Hola Isaac, me interesa Pre-Cumple 😊', '_blank')">Reservar</button>
+                </div>
             </div>
         </div>
 
@@ -1935,79 +2595,341 @@
                 <div class="swiper-slide">
                     <div class="package-card">
                         <div class="package-title">Plan Básico</div>
-                        <div class="package-subtitle">Sesión Esencial</div>
+                        <div class="package-subtitle">Lo esencial, bien hecho</div>
                         <ul class="package-features">
-                            <li>✓ Fotos digitales de todo el evento</li>
-                            <li>✓ Todas las imágenes editadas en alta resolución</li>
-                            <li>✓ Cobertura total (máx. 2 horas)</li>
-                            <li>✓ Reserva: seña </li>
+                            <li>✓ Cobertura hasta 2 horas</li>
+                            <li>✓ Fotos digitales editadas</li>
+                            <li>✓ Entrega en alta resolución</li>
+                            <li>✓ Reserva tu fecha con una seña</li>
                         </ul>
-                        <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+                        <div class="package-buttons">
+                            <button class="package-btn package-btn-more" onclick="openPackageModal('basicPlan')">Ver más</button>
+                            <button class="package-btn package-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=Hola Isaac, me interesa el Plan Básico 😊', '_blank')">Reservar</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="package-card">
                         <div class="package-title">Plan Estándar</div>
-                        <div class="package-subtitle">Sesión Completa</div>
+                        <div class="package-subtitle">Un recuerdo más completo</div>
                         <ul class="package-features">
-                            <li>✓ Fotos digitales y edición completa</li>
                             <li>✓ Cobertura total del evento</li>
-                            <li>✓ Entregable de 20 fotos impresas</li>
-                            <li>✓ Reserva: seña </li>
+                            <li>✓ Fotos editadas en alta resolución</li>
+                            <li>✓ 20 fotos impresas</li>
+                            <li>✓ Galería digital</li>
+                            <li>✓ Reserva tu fecha con una seña</li>
                         </ul>
-                        <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+                        <div class="package-buttons">
+                            <button class="package-btn package-btn-more" onclick="openPackageModal('standardPlan')">Ver más</button>
+                            <button class="package-btn package-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=Hola Isaac, me interesa el Plan Estándar 😊', '_blank')">Reservar</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="package-card">
+                    <div class="package-card featured">
+                        <div class="package-badge">✨ Más elegido</div>
                         <div class="package-title">Plan Premium</div>
-                        <div class="package-subtitle">Experiencia Full</div>
+                        <div class="package-subtitle">Para recordarlo TODO</div>
                         <ul class="package-features">
-                            <li>✓ Todo del plan estándar</li>
-                            <li>✓ Entrega de álbum (40 fotos)</li>
-                            <li>✓ Entrega de 2 cuadros (20x30 cm)</li>
-                            <li>✓ Fotos digitales editadas</li>
-                            <li>✓ Reserva: seña </li>
+                            <li>✓ Cobertura completa</li>
+                            <li>✓ Álbum + fotos impresas</li>
+                            <li>✓ Cuadro + pendrive</li>
+                            <li>✓ Galería personalizada</li>
+                            <li>✓ Reserva tu fecha con una seña</li>
                         </ul>
-                        <button class="package-cta" onclick="scrollToContact()">Reservar</button>
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="package-card">
-                        <div class="package-title">Plan 15 Años</div>
-                        <div class="package-subtitle">Tu Día Especial</div>
-                        <ul class="package-features">
-                            <li>✓ Cobertura completa sin límite de tiempo</li>
-                            <li>✓ Sesión pre-quince (3-4 horas)</li>
-                            <li>✓ Cuadro de firmas 40x60 cm de regalo</li>
-                            <li>✓ 300+ fotos editadas</li>
-                            <li>✓ Reserva: seña </li>
-                        </ul>
-                        <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+                        <div class="package-buttons">
+                            <button class="package-btn package-btn-more" onclick="openPackageModal('premiumPlan')">Ver más</button>
+                            <button class="package-btn package-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=Hola Isaac, me interesa el Plan Premium 😊', '_blank')">Reservar</button>
+                        </div>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="package-card">
                         <div class="package-title">Sesión Individual</div>
-                        <div class="package-subtitle">Momento Personal</div>
+                        <div class="package-subtitle">Mostrate como sos</div>
                         <ul class="package-features">
-                            <li>✓ Duración: 3 horas máx.</li>
-                            <li>✓ Locaciones a tu elección</li>
-                            <li>✓ Fotos digitales editadas</li>
-                            <li>✓ Dirección de poses profesional</li>
-                            <li>✓ Ideal para recuerdo rápido</li>
+                            <li>✓ 15 fotos editadas</li>
+                            <li>✓ 2 cambios de outfit</li>
+                            <li>✓ Sesión de 1:30 hs</li>
+                            <li>✓ Entrega digital</li>
+                            <li>✓ Reserva tu fecha con una seña</li>
                         </ul>
-                        <button class="package-cta" onclick="scrollToContact()">Reservar</button>
+                        <div class="package-buttons">
+                            <button class="package-btn package-btn-more" onclick="openPackageModal('sessionPlan')">Ver más</button>
+                            <button class="package-btn package-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=Hola Isaac, me interesa Sesión Individual 😊', '_blank')">Reservar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="package-card">
+                        <div class="package-title">Pre-Cumple</div>
+                        <div class="package-subtitle">Tu previa creativa</div>
+                        <ul class="package-features">
+                            <li>✓ 30 fotos editadas</li>
+                            <li>✓ 3 cambios de outfit</li>
+                            <li>✓ 3 horas de sesión</li>
+                            <li>✓ Fotos impresas incluidas</li>
+                            <li>✓ Reserva tu fecha con una seña</li>s
+                        </ul>
+                        <div class="package-buttons">
+                            <button class="package-btn package-btn-more" onclick="openPackageModal('precumplePlan')">Ver más</button>
+                            <button class="package-btn package-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=Hola Isaac, me interesa Pre-Cumple 😊', '_blank')">Reservar</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="swiper-button-prev packages-prev"></div>
             <div class="swiper-button-next packages-next"></div>
             <div class="swiper-pagination packages-pagination"></div>
+        </div>
+
+        <p class="section-subtitle">¿No sabés cuál elegir? Te asesoro según tu evento 💡</p>
+    </section>
+
+    <!-- Modal para detalles de planes -->
+    <div id="packageModal" class="package-modal">
+        <div class="package-modal-content">
+            <button class="package-modal-close" onclick="closePackageModal()">&times;</button>
+            <div class="package-modal-body" id="packageModalBody">
+                <!-- Contenido dinamico se inserta aquí -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Otros Servicios -->
+    <section class="other-services" id="otros-servicios">
+        <h2>Otros Servicios</h2>
+        <p class="other-services-subtitle">Una forma de que tus recuerdos no se queden solo en digital, sino que formen parte de tu vida</p>
+        
+        <div class="services-container">
+            <!-- Services Content Left - Carousel -->
+            <div class="services-info-section">
+                <div class="swiper services-list-carousel" id="servicesListCarouselContainer">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <h3>Impresiones Fotográficas</h3>
+                                <p>Reproducciones en alta calidad, ideales para enmarcar o regalar. Trae tus fotos favoritas a la vida con colores vibrantes y detalles nítidos.</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <h3>Cuadros Personalizados</h3>
+                                <p>Convertí tus fotos en piezas decorativas únicas para tu hogar o evento. Diferentes tamaños y estilos según tu espacio y gusto.</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <h3>Cuadros de Firmas</h3>
+                                <p>Perfectos para eventos como bodas o 15 años. Un recuerdo donde tus invitados dejan mensajes y firmas para siempre.</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <h3>Banners</h3>
+                                <p>Diseños personalizados para eventos, celebraciones o branding. Ideal para cumpleaños y eventos especiales con tu toque único.</p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="service-card">
+                                <h3>Fotolibros</h3>
+                                <p>Una forma elegante de conservar tu historia en un solo lugar, con diseño personalizado. Hojea tus recuerdos una y otra vez.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </div>
+
+            <!-- Services Carousel Right -->
+            <div class="services-images-section">
+                <div class="swiper services-carousel" id="servicesCarouselContainer">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (1) (1).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (1) (1).webp" alt="Impresiones Fotográficas" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (2) (1).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (2) (1).webp" alt="Cuadros Personalizados" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (3) (1).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (3) (1).webp" alt="Cuadros de Firmas" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (4).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (4).webp" alt="Banners" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (5) (1).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (5) (1).webp" alt="Fotolibros" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (2).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (2).webp" alt="Servicio 6" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (3).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (3).webp" alt="Servicio 7" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (5).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (5).webp" alt="Servicio 8" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (6) (1).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (6) (1).webp" alt="Servicio 9" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (6).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (6).webp" alt="Servicio 10" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (7) (1).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (7) (1).webp" alt="Servicio 11" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (7).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (7).webp" alt="Servicio 12" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (8).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (8).webp" alt="Servicio 13" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (9).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (9).webp" alt="Servicio 14" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (10).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (10).webp" alt="Servicio 15" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (11).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (11).webp" alt="Servicio 16" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (12).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (12).webp" alt="Servicio 17" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (13).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (13).webp" alt="Servicio 18" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (14).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (14).webp" alt="Servicio 19" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="carousel-image-wrapper-services">
+                                <a href="Otros servicios/servicios1 (15).webp" data-fancybox="services">
+                                    <img src="Otros servicios/servicios1 (15).webp" alt="Servicio 20" class="carousel-services-img">
+                                </a>
+                                <div class="carousel-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev services-nav-prev"></div>
+                    <div class="swiper-button-next services-nav-next"></div>
+                    <div class="swiper-pagination services-pagination"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Buttons Below -->
+        <div class="services-buttons-wrapper">
+            <a href="https://wa.me/595982946365?text=Hola, me interesa conocer más sobre Impresiones Fotográficas 📸" target="_blank" class="services-btn">Impresiones</a>
+            <a href="https://wa.me/595982946365?text=Hola, me interesa conocer más sobre Cuadros Personalizados 🖼️" target="_blank" class="services-btn">Cuadros</a>
+            <a href="https://wa.me/595982946365?text=Hola, me interesa conocer más sobre Cuadros de Firmas ✍️" target="_blank" class="services-btn">Firmas</a>
+            <a href="https://wa.me/595982946365?text=Hola, me interesa conocer más sobre Banners personalizados 🎉" target="_blank" class="services-btn">Banners</a>
+            <a href="https://wa.me/595982946365?text=Hola, me interesa conocer más sobre Fotolibros 📚" target="_blank" class="services-btn">Fotolibros</a>
         </div>
     </section>
 
@@ -2491,6 +3413,7 @@
         // ====== PACKAGES CAROUSEL ======
         let packagesSwiperInstance = null;
         let contactCarouselInstance = null;
+        let servicesListCarouselInstance = null;
 
         function initPackagesSwiper() {
             if (packagesSwiperInstance) {
@@ -2576,6 +3499,65 @@
                         el: '.contact-pagination',
                         clickable: true,
                         dynamicBullets: true,
+                    }
+                });
+
+                servicesCarouselInstance = new Swiper('#servicesCarouselContainer', {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    loop: true,
+                    effect: 'slide',
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true
+                    },
+                    navigation: {
+                        nextEl: '.services-nav-next',
+                        prevEl: '.services-nav-prev',
+                    },
+                    pagination: {
+                        el: '.services-pagination',
+                        clickable: true,
+                        dynamicBullets: false,
+                    },
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        480: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        768: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        1024: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        },
+                        1200: {
+                            slidesPerView: 1,
+                            spaceBetween: 0,
+                        }
+                    }
+                });
+
+                servicesListCarouselInstance = new Swiper('#servicesListCarouselContainer', {
+                    direction: 'vertical',
+                    slidesPerView: 'auto',
+                    spaceBetween: 0,
+                    freeMode: true,
+                    mousewheel: {
+                        invert: false,
+                        sensitivity: 2,
+                    },
+                    scrollbar: {
+                        el: '.swiper-scrollbar',
+                        hide: false,
+                        draggable: true,
                     }
                 });
             }, 300);
@@ -2749,27 +3731,27 @@
                     {
                         "@type": "Service",
                         "name": "Plan Básico",
-                        "description": "Sesión Esencial - Fotos digitales de todo el evento"
+                        "description": "Lo esencial, bien hecho - Cobertura hasta 2 horas con fotos digitales editadas"
                     },
                     {
                         "@type": "Service",
                         "name": "Plan Estándar",
-                        "description": "Sesión Completa - Fotos digitales y 20 fotos impresas"
+                        "description": "Un recuerdo más completo - Cobertura total con 20 fotos impresas y galería digital"
                     },
                     {
                         "@type": "Service",
                         "name": "Plan Premium",
-                        "description": "Experiencia Full - Álbum de 40 fotos y 2 cuadros"
-                    },
-                    {
-                        "@type": "Service",
-                        "name": "Plan 15 Años",
-                        "description": "Tu Día Especial - Cobertura completa sin límite de tiempo"
+                        "description": "Para recordarlo TODO - Cobertura completa con álbum, cuadro y galería personalizada"
                     },
                     {
                         "@type": "Service",
                         "name": "Sesión Individual",
-                        "description": "Momento Personal - 1 hora con dirección de poses profesional"
+                        "description": "Mostrate como sos - 15 fotos editadas con 2 cambios de outfit en 1:30 hs"
+                    },
+                    {
+                        "@type": "Service",
+                        "name": "Pre-Cumple",
+                        "description": "Tu previa creativa - 30 fotos editadas con 3 cambios de outfit en 3 horas"
                     }
                 ]
             }
@@ -2780,6 +3762,136 @@
         schemaScript.type = 'application/ld+json';
         schemaScript.textContent = JSON.stringify(schemaData);
         document.head.appendChild(schemaScript);
+
+        // ====== PACKAGE MODAL SYSTEM ======
+        const packageData = {
+            basicPlan: {
+                title: 'Plan Básico',
+                frase: 'Lo esencial, bien hecho',
+                intro: 'Una cobertura pensada para quienes quieren conservar los momentos clave de su evento de forma simple, pero bien cuidada.',
+                features: [
+                    'Fotos digitales de todo el evento',
+                    'Todas las imágenes editadas en alta resolución',
+                    'Cobertura total (Max. 2 horas)',
+                    'Entrega en formato digital',
+                    'Seña para reserva de fecha'
+                ],
+                whatsappText: 'Hola Isaac, me interesa el Plan Básico 😊'
+            },
+            standardPlan: {
+                title: 'Plan Estándar',
+                frase: 'Un recuerdo más completo',
+                intro: 'Un plan que busca construir un recuerdo más completo y emocional, desde los momentos principales hasta los detalles que hacen especial cada celebración.',
+                features: [
+                    'Fotos digitales de todo el evento',
+                    'Todas las imágenes editadas en alta resolución',
+                    'Cobertura total del evento',
+                    'Entrega de 20 fotos impresas (15x21)',
+                    'Galería digital',
+                    'Seña para reserva de fecha'
+                ],
+                whatsappText: 'Hola Isaac, me interesa el Plan Estándar 😊'
+            },
+            premiumPlan: {
+                title: 'Plan Premium',
+                frase: 'Para recordarlo TODO',
+                intro: 'Una experiencia pensada para quienes quieren recordarlo TODO. Cada momento, cada detalle, cada emoción es capturada con intención.',
+                features: [
+                    'Fotos digitales de todo el evento',
+                    'Todas las imágenes editadas en alta resolución',
+                    'Cobertura total del evento',
+                    '40 fotos impresas (13x18) + Álbum',
+                    'Cuadro (20x30)',
+                    'Cajita con pendrive',
+                    'Galería digital personalizada',
+                    'Seña para reserva de fecha'
+                ],
+                whatsappText: 'Hola Isaac, me interesa el Plan Premium 😊'
+            },
+            sessionPlan: {
+                title: 'Sesión Individual',
+                frase: 'Mostrate como sos',
+                intro: 'Una sesión enfocada en mostrar quién eres, sin poses forzadas ni presión. Se trata de capturar tu personalidad, tu estilo y tu momento de forma natural y auténtica.',
+                features: [
+                    '15 fotos editadas',
+                    '2 cambios de outfit',
+                    'Cobertura total (1:30 hs)',
+                    'Entrega en formato digital'
+                ],
+                whatsappText: 'Hola Isaac, me interesa Sesión Individual 😊'
+            },
+            precumplePlan: {
+                title: 'Pre-Cumple',
+                frase: 'Tu previa creativa',
+                intro: 'Una experiencia previa al gran momento. No es solo una sesión, es una forma de anticipar, expresar y celebrar una etapa importante de tu vida con creatividad y estilo.',
+                features: [
+                    '30 fotos editadas',
+                    '3 cambios de outfit',
+                    'Cobertura total (3 hs)',
+                    '10 fotos impresas (13x18)',
+                    'Entrega en formato digital'
+                ],
+                whatsappText: 'Hola Isaac, me interesa Pre-Cumple 😊'
+            }
+        };
+
+        function openPackageModal(planKey) {
+            const plan = packageData[planKey];
+            if (!plan) return;
+
+            const modalBody = document.getElementById('packageModalBody');
+            let html = `
+                <h3>${plan.title}</h3>
+                <p class="plan-frase">"${plan.frase}"</p>
+                <p class="plan-intro">${plan.intro}</p>
+                <ul>
+                    ${plan.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                <div class="modal-action-buttons">
+                    <button class="modal-btn modal-btn-reserve" onclick="window.open('https://wa.me/595982946365?text=${encodeURIComponent(plan.whatsappText)}', '_blank')" >Reservar Ahora</button>
+                    <button class="modal-btn modal-btn-close" onclick="closePackageModal()">Cerrar</button>
+                </div>
+            `;
+
+            modalBody.innerHTML = html;
+
+            const modal = document.getElementById('packageModal');
+            modal.classList.add('active');
+        }
+
+        function closePackageModal() {
+            const modal = document.getElementById('packageModal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('packageModal')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePackageModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePackageModal();
+            }
+        });
+
+        // Initialize Fancybox for services images
+        if (typeof Fancybox !== 'undefined') {
+            Fancybox.bind('[data-fancybox="services"]', {
+                on: {
+                    reveal: (fancybox, slide) => {
+                        // Hide captions
+                        const caption = slide.$content?.querySelector('.fancybox__caption');
+                        if (caption) {
+                            caption.style.display = 'none';
+                        }
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
